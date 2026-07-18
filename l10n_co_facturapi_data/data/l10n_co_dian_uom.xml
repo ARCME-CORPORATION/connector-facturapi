@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <record id="dian_uom_94" model="l10n_co.dian.uom">
+      <field name="code">94</field>
+      <field name="name">Unidad</field>
+    </record>
+    <record id="dian_uom_96" model="l10n_co.dian.uom">
+      <field name="code">96</field>
+      <field name="name">Docena</field>
+    </record>
+    <record id="dian_uom_D30" model="l10n_co.dian.uom">
+      <field name="code">D30</field>
+      <field name="name">Kilowatt por hora</field>
+    </record>
+    <record id="dian_uom_EA" model="l10n_co.dian.uom">
+      <field name="code">EA</field>
+      <field name="name">Elemento</field>
+    </record>
+    <record id="dian_uom_GLL" model="l10n_co.dian.uom">
+      <field name="code">GLL</field>
+      <field name="name">Galón</field>
+    </record>
+    <record id="dian_uom_KGM" model="l10n_co.dian.uom">
+      <field name="code">KGM</field>
+      <field name="name">Kilogramo</field>
+    </record>
+    <record id="dian_uom_KWH" model="l10n_co.dian.uom">
+      <field name="code">KWH</field>
+      <field name="name">Kilovatio-hora</field>
+    </record>
+    <record id="dian_uom_LTR" model="l10n_co.dian.uom">
+      <field name="code">LTR</field>
+      <field name="name">Litro</field>
+    </record>
+    <record id="dian_uom_MTK" model="l10n_co.dian.uom">
+      <field name="code">MTK</field>
+      <field name="name">Metro cuadrado</field>
+    </record>
+    <record id="dian_uom_MTR" model="l10n_co.dian.uom">
+      <field name="code">MTR</field>
+      <field name="name">Metro</field>
+    </record>
+    <record id="dian_uom_TNE" model="l10n_co.dian.uom">
+      <field name="code">TNE</field>
+      <field name="name">Tonelada</field>
+    </record>
+    <record id="dian_uom_ZZ" model="l10n_co.dian.uom">
+      <field name="code">ZZ</field>
+      <field name="name">Servicio</field>
+    </record>
+  </data>
+</odoo>

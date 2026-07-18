@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_dian_type_code,access_dian_type_code,model_l10n_co_dian_type_code,base.group_user,1,0,0,0
+access_dian_tax_type,access_dian_tax_type,model_l10n_co_dian_tax_type,base.group_user,1,0,0,0
+access_dian_uom,access_dian_uom,model_l10n_co_dian_uom,base.group_user,1,0,0,0
+access_dian_payment_method,access_dian_payment_method,model_l10n_co_dian_payment_method,base.group_user,1,0,0,0
+access_dian_responsibility,access_dian_responsibility,model_l10n_co_dian_responsibility,base.group_user,1,0,0,0

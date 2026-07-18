@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <record id="facturapi_document_view_list" model="ir.ui.view">
+      <field name="name">facturapi.document.list</field>
+      <field name="model">facturapi.document</field>
+      <field name="arch" type="xml">
+        <list>
+          <field name="name"/>
+          <field name="company_id"/>
+          <field name="move_id"/>
+          <field name="document_type"/>
+          <field name="state" decoration-danger="state == 'rejected'"
+                                decoration-success="state == 'accepted'"
+                                decoration-info="state in ('to_send','processing')"/>
+          <field name="task_id"/>
+          <field name="cufe"/>
+          <field name="dian_status"/>
+          <field name="create_date"/>
+        </list>
+      </field>
+    </record>
+
+    <record id="facturapi_document_view_form" model="ir.ui.view">
+      <field name="name">facturapi.document.form</field>
+      <field name="model">facturapi.document</field>
+      <field name="arch" type="xml">
+        <form>
+          <header>
+            <button name="action_check_status" type="object"
+                    string="Check Status"
+                    invisible="state != 'processing'"/>
+            <button name="action_fetch_result" type="object"
+                    string="Fetch Result"
+                    invisible="state != 'processing'"/>
+            <button name="action_retry" type="object"
+                    string="Retry"
+                    invisible="state != 'rejected'"/>
+            <field name="state" widget="statusbar"/>
+          </header>
+          <sheet>
+            <group>
+              <group string="Document Info">
+                <field name="name"/>
+                <field name="company_id"/>
+                <field name="move_id"/>
+                <field name="document_type"/>
+                <field name="is_cancel"/>
+                <field name="task_id"/>
+              </group>
+              <group string="DIAN Response">
+                <field name="cufe"/>
+                <field name="dian_status"/>
+                <field name="dian_message"/>
+                <field name="error_message"/>
+              </group>
+            </group>
+            <notebook>
+              <page string="QR Code" name="qr" invisible="not qr_code">
+                <field name="qr_code" widget="image" class="w-25"/>
+              </page>
+              <page string="Signed XML" name="xml" invisible="not xml_signed">
+                <field name="xml_signed" readonly="1" widget="text"/>
+              </page>
+              <page string="Application Response" name="response" invisible="not application_response">
+                <field name="application_response" readonly="1" widget="text"/>
+              </page>
+            </notebook>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record id="facturapi_document_action" model="ir.actions.act_window">
+      <field name="name">DIAN Documents</field>
+      <field name="res_model">facturapi.document</field>
+      <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem id="menu_facturapi_document"
+              name="DIAN Documents"
+              parent="account.menu_finance"
+              action="facturapi_document_action"
+              sequence="90"/>
+  </data>
+</odoo>

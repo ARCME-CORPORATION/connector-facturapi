@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <record id="dian_payment_1" model="l10n_co.dian.payment.method">
+      <field name="code">1</field>
+      <field name="name">Contado</field>
+    </record>
+    <record id="dian_payment_2" model="l10n_co.dian.payment.method">
+      <field name="code">2</field>
+      <field name="name">Crédito</field>
+    </record>
+    <record id="dian_payment_3" model="l10n_co.dian.payment.method">
+      <field name="code">3</field>
+      <field name="name">Vencido</field>
+    </record>
+  </data>
+</odoo>

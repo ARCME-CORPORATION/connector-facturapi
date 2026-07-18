@@ -1,0 +1,25 @@
+{
+    "name": "FacturAPI - Colombia Electronic Invoice Base",
+    "version": "0.1.0",
+    "category": "Accounting/Localizations/EDI",
+    "license": "LGPL-3",
+    "summary": "Base module for FacturAPI integration with DIAN",
+    "depends": [
+        "account",
+        "account_edi",
+        "certificate",
+        "account_edi_ubl_cii",
+        "uom",
+        "base_vat",
+    ],
+    "data": [
+        "security/ir.model.access.csv",
+        "views/res_config_settings_views.xml",
+        "views/edi_format_views.xml",
+        "data/edi_format_data.xml",
+        "data/ir_cron_data.xml",
+    ],
+    "installable": True,
+    "auto_install": False,
+    "application": True,
+}

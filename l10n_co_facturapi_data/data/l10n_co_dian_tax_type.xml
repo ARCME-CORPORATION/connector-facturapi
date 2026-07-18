@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <record id="dian_tax_type_01" model="l10n_co.dian.tax.type">
+      <field name="code">01</field>
+      <field name="name">IVA</field>
+    </record>
+    <record id="dian_tax_type_02" model="l10n_co.dian.tax.type">
+      <field name="code">02</field>
+      <field name="name">INC</field>
+    </record>
+    <record id="dian_tax_type_03" model="l10n_co.dian.tax.type">
+      <field name="code">03</field>
+      <field name="name">ICA</field>
+    </record>
+    <record id="dian_tax_type_04" model="l10n_co.dian.tax.type">
+      <field name="code">04</field>
+      <field name="name">INPO</field>
+    </record>
+    <record id="dian_tax_type_05" model="l10n_co.dian.tax.type">
+      <field name="code">05</field>
+      <field name="name">INCAB</field>
+    </record>
+  </data>
+</odoo>

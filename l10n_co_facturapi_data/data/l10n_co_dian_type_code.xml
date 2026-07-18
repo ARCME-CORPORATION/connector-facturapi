@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <record id="dian_type_code_01" model="l10n_co.dian.type.code">
+      <field name="code">01</field>
+      <field name="name">Factura Electrónica de Venta</field>
+    </record>
+    <record id="dian_type_code_02" model="l10n_co.dian.type.code">
+      <field name="code">02</field>
+      <field name="name">Nota Crédito</field>
+    </record>
+    <record id="dian_type_code_03" model="l10n_co.dian.type.code">
+      <field name="code">03</field>
+      <field name="name">Nota Débito</field>
+    </record>
+    <record id="dian_type_code_04" model="l10n_co.dian.type.code">
+      <field name="code">04</field>
+      <field name="name">Nómina Electrónica</field>
+    </record>
+    <record id="dian_type_code_05" model="l10n_co.dian.type.code">
+      <field name="code">05</field>
+      <field name="name">Documento Soporte</field>
+    </record>
+    <record id="dian_type_code_06" model="l10n_co.dian.type.code">
+      <field name="code">06</field>
+      <field name="name">Documento Equivalente</field>
+    </record>
+  </data>
+</odoo>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <record id="edi_facturapi_invoice" model="account.edi.format">
+      <field name="code">facturapi_invoice</field>
+      <field name="name">FacturAPI Invoice</field>
+    </record>
+  </data>
+</odoo>

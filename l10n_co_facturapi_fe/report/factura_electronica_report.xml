@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="report_factura_electronica_dian" model="ir.actions.report">
+        <field name="name">Factura Electrónica DIAN</field>
+        <field name="model">account.move</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">l10n_co_facturapi_fe.report_factura_electronica_dian_qweb</field>
+        <field name="report_file">l10n_co_facturapi_fe.report_factura_electronica_dian_qweb</field>
+        <field name="print_report_name">'%s' % object.name</field>
+        <field name="binding_model_id" ref="account.model_account_move"/>
+        <field name="binding_type">report</field>
+    </record>
+</odoo>

@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_facturapi_document,facturapi.document,model_facturapi_document,account.group_account_user,1,0,0,0
+access_facturapi_document_manager,facturapi.document.manager,model_facturapi_document,account.group_account_manager,1,1,1,1

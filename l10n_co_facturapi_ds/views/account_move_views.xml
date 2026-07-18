@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="view_move_form_facturapi_ds" model="ir.ui.view">
+    <field name="name">account.move.form.facturapi.ds</field>
+    <field name="model">account.move</field>
+    <field name="inherit_id" ref="account.view_move_form"/>
+    <field name="arch" type="xml">
+      <xpath expr="//header" position="inside">
+        <field name="l10n_co_ds_state" invisible="1"/>
+        <button name="action_send_ds_to_dian" type="object"
+                string="Send DS to DIAN"
+                class="oe_highlight"
+                invisible="not company_id.l10n_co_ds_enabled or move_type not in ('out_invoice', 'out_refund') or state != 'posted'"/>
+        <button name="action_check_ds_status" type="object"
+                string="Check DS Status"
+                invisible="not l10n_co_ds_state or l10n_co_ds_state == 'accepted' or l10n_co_ds_state == 'rejected'"/>
+        <button name="action_cancel_ds" type="object"
+                string="Cancel DS in DIAN"
+                invisible="l10n_co_ds_state != 'accepted'"/>
+      </xpath>
+      <xpath expr="//page[@id='other_tab']" position="after">
+        <page id="dian_ds_tab" string="DIAN DS"
+              invisible="not company_id.l10n_co_ds_enabled or not l10n_co_ds_state">
+          <group>
+            <group string="Status">
+              <field name="l10n_co_ds_state"/>
+              <field name="l10n_co_cuds"/>
+            </group>
+            <group string="Resolution" invisible="not l10n_co_ds_sequence_range_id">
+              <field name="l10n_co_ds_sequence_range_id"/>
+            </group>
+          </group>
+          <group string="QR Code" invisible="not l10n_co_ds_qr_code">
+            <field name="l10n_co_ds_qr_code" widget="image" class="w-25"/>
+          </group>
+        </page>
+      </xpath>
+    </field>
+  </record>
+</odoo>

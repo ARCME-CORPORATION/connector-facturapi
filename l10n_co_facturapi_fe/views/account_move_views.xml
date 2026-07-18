@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <record id="view_move_form_facturapi_fe" model="ir.ui.view">
+      <field name="name">account.move.form.facturapi.fe</field>
+      <field name="model">account.move</field>
+      <field name="inherit_id" ref="account.view_move_form"/>
+      <field name="arch" type="xml">
+        <xpath expr="//header" position="inside">
+          <field name="l10n_co_facturapi_state" invisible="1"/>
+          <button name="action_send_to_dian" type="object"
+                  string="Send to DIAN"
+                  class="oe_highlight"
+                  invisible="not company_id.l10n_co_fe_enabled or move_type not in ('out_invoice', 'out_refund', 'out_debit') or state != 'posted'"/>
+          <button name="action_check_dian_status" type="object"
+                  string="Check DIAN Status"
+                  invisible="not l10n_co_facturapi_state or l10n_co_facturapi_state == 'accepted' or l10n_co_facturapi_state == 'rejected'"/>
+          <button name="action_cancel_dian" type="object"
+                  string="Cancel in DIAN"
+                  invisible="l10n_co_facturapi_state != 'accepted'"/>
+        </xpath>
+        <xpath expr="//page[@id='other_tab']" position="after">
+          <page id="dian_tab" string="DIAN"
+                invisible="not company_id.l10n_co_fe_enabled or not l10n_co_facturapi_state">
+            <group>
+              <group string="Status">
+                <field name="l10n_co_facturapi_state"/>
+                <field name="l10n_co_cufe"/>
+              </group>
+              <group string="Resolution" invisible="not l10n_co_sequence_range_id">
+                <field name="l10n_co_sequence_range_id"/>
+              </group>
+            </group>
+            <group string="QR Code" invisible="not l10n_co_qr_code">
+              <field name="l10n_co_qr_code" widget="image" class="w-25"/>
+            </group>
+          </page>
+        </xpath>
+      </field>
+    </record>
+  </data>
+</odoo>
