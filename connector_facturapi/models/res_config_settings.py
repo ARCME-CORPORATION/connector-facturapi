@@ -24,6 +24,7 @@ class ResConfigSettings(models.TransientModel):
         related="company_id.certificate_id",
         readonly=False,
         domain=[("scope", "=", "facturapi"), ("is_valid", "=", True)],
+        context={"default_scope": "facturapi"},
     )
     connector_software_id = fields.Char(
         related="company_id.connector_software_id",

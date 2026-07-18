@@ -7,6 +7,7 @@
     "depends": [
         "account",
         "account_edi",
+        "base_address_extended",
         "certificate",
         "account_edi_ubl_cii",
         "uom",

@@ -6,13 +6,13 @@
         <field name="inherit_id" ref="base.view_company_form"/>
         <field name="arch" type="xml">
             <xpath expr="//notebook" position="inside">
-                <page string="Facturación Electrónica" name="facturapi_fe"
-                      invisible="not connector_fe_enabled">
+                <page string="Facturación Electrónica" name="facturapi_fe">
                     <group string="Configuración FE">
                         <group>
                             <field name="connector_fe_enabled"/>
                             <field name="certificate_id"
-                                   domain="[('scope', '=', 'facturapi'), ('is_valid', '=', True)]"/>
+                                   domain="[('scope', '=', 'facturapi'), ('is_valid', '=', True)]"
+                                   context="{'default_scope': 'facturapi'}"/>
                         </group>
                         <group>
                             <field name="facturapi_api_url" string="API URL"/>

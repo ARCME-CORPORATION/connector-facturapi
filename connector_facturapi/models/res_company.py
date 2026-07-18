@@ -25,6 +25,7 @@ class ResCompany(models.Model):
         "certificate.certificate",
         string="DIAN Certificate",
         domain=[("scope", "=", "facturapi"), ("is_valid", "=", True)],
+        context={"default_scope": "facturapi"},
         help="Certificado digital para firma electrónica DIAN",
     )
     # Software identifiers (DIAN registration)
