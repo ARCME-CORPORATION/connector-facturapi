@@ -1,4 +1,4 @@
-﻿{
+{
     "name": "FacturAPI - Colombia Data Master",
     "version": "0.1.0",
     "category": "Accounting/Localizations/EDI",

@@ -1,4 +1,4 @@
-﻿from odoo import api, fields, models
+from odoo import api, fields, models
 
 
 class L10nCoDianTaxType(models.Model):

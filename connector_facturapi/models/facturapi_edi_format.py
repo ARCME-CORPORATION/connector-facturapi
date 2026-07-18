@@ -1,4 +1,4 @@
-﻿import base64
+import base64
 import logging
 
 from odoo import _, api, fields, models

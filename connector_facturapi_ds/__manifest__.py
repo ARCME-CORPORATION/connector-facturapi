@@ -1,4 +1,4 @@
-﻿{
+{
     "name": "FacturAPI - Colombia Documento Soporte (DS)",
     "version": "0.1.0",
     "category": "Accounting/Localizations/EDI",

@@ -1,4 +1,4 @@
-﻿import logging
+import logging
 
 from odoo import _, api, models
 

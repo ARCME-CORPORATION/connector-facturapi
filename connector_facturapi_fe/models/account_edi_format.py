@@ -1,4 +1,4 @@
-﻿from odoo import api, models
+from odoo import api, models
 
 
 class AccountEdiFormat(models.Model):

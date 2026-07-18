@@ -1,4 +1,4 @@
-﻿id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_dian_type_code,access_dian_type_code,model_connector_dian_type_code,base.group_user,1,0,0,0
 access_dian_tax_type,access_dian_tax_type,model_connector_dian_tax_type,base.group_user,1,0,0,0
 access_dian_uom,access_dian_uom,model_connector_dian_uom,base.group_user,1,0,0,0
