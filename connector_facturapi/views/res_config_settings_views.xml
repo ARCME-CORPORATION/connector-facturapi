@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.facturapi</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="account.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//block[@id='invoicing_settings']" position="after">
+                <block title="FacturAPI - Facturación Electrónica Colombia" name="facturapi_settings">
+                    <setting string="Conexión FacturAPI"
+                        help="Configure la conexión con FacturAPI para facturación electrónica colombiana.">
+                        <div class="content-group">
+                            <div class="row mt16">
+                                <label for="facturapi_api_url"
+                                    class="col-lg-3 o_light_label" />
+                                <field name="facturapi_api_url"
+                                    placeholder="http://host.docker.internal:8000" />
+                            </div>
+                            <div class="row mt8">
+                                <label for="facturapi_company_id"
+                                    class="col-lg-3 o_light_label" />
+                                <field name="facturapi_company_id"
+                                    placeholder="FacturAPI Company UUID" />
+                            </div>
+                            <div class="row mt8">
+                                <label for="facturapi_api_key"
+                                    class="col-lg-3 o_light_label" />
+                                <field name="facturapi_api_key" password="True"
+                                    placeholder="API Key" />
+                            </div>
+                            <div class="row mt8">
+                                <label for="facturapi_environment"
+                                    class="col-lg-3 o_light_label" />
+                                <field name="facturapi_environment" />
+                            </div>
+                        </div>
+                    </setting>
+                    <setting string="Credenciales DIAN"
+                        help="Credenciales de software proporcionadas por la DIAN">
+                        <div class="content-group">
+                            <div class="row mt8">
+                                <label for="connector_software_id"
+                                    class="col-lg-3 o_light_label" />
+                                <field name="connector_software_id"
+                                    placeholder="Software ID DIAN" />
+                            </div>
+                            <div class="row mt8">
+                                <label for="connector_software_pin"
+                                    class="col-lg-3 o_light_label" />
+                                <field name="connector_software_pin" password="True" />
+                            </div>
+                            <div class="row mt8">
+                                <label for="connector_software_dv"
+                                    class="col-lg-3 o_light_label" />
+                                <field name="connector_software_dv" />
+                            </div>
+                            <div class="row mt8">
+                                <label for="connector_test_set_id"
+                                    class="col-lg-3 o_light_label" />
+                                <field name="connector_test_set_id" />
+                            </div>
+                        </div>
+                    </setting>
+                    <setting string="Certificado Digital"
+                        help="Certificado PFX/PKCS12 para firma electrónica XAdES con la DIAN">
+                        <div class="content-group">
+                            <div class="row mt8">
+                                <label for="certificate_id"
+                                    class="col-lg-3 o_light_label" />
+                                <field name="certificate_id" />
+                            </div>
+                            <div class="mt8">
+                                <button name="%(certificate.certificate_certificate_action_view_list)d"
+                                    type="action" class="btn-link" icon="fa-external-link"
+                                    string="Gestionar certificados" />
+                            </div>
+                        </div>
+                    </setting>
+                </block>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

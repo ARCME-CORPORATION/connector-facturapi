@@ -1,4 +1,4 @@
-# Odoo — Contexto de Modulos de Facturacion Electronica
+﻿# Odoo — Contexto de Modulos de Facturacion Electronica
 
 ## Que es esta carpeta
 
@@ -10,29 +10,29 @@ Modulos Odoo 18 para integrar facturacion electronica colombiana (DIAN) via la A
 
 ```
 odoo/
-├── l10n_co_facturapi/          # Base: certificado, config empresa, formato EDI, modelo facturapi.document
-├── l10n_co_facturapi_data/     # Datos: ciudades, tablas DIAN (medios_pago, responsable_fiscal, etc.)
-├── l10n_co_facturapi_fe/       # FE: Factura Electronica (botones, wizard, secuencias, reportes)
-├── l10n_co_facturapi_ds/       # DS: Documento Soporte (adquisiciones a no obligados)
-├── l10n_co_facturapi_de/       # DE: Documento Equivalente (PENDIENTE)
-├── l10n_co_facturapi_nom/      # NOM: Nomina Individual (PENDIENTE — usar OCA payroll)
-└── l10n_co_facturapi_radian/   # RADIAN: Eventos (PENDIENTE)
+├── connector_facturapi/          # Base: certificado, config empresa, formato EDI, modelo facturapi.document
+├── connector_facturapi_data/     # Datos: ciudades, tablas DIAN (medios_pago, responsable_fiscal, etc.)
+├── connector_facturapi_fe/       # FE: Factura Electronica (botones, wizard, secuencias, reportes)
+├── connector_facturapi_ds/       # DS: Documento Soporte (adquisiciones a no obligados)
+├── connector_facturapi_de/       # DE: Documento Equivalente (PENDIENTE)
+├── connector_facturapi_nom/      # NOM: Nomina Individual (PENDIENTE — usar OCA payroll)
+└── connector_facturapi_radian/   # RADIAN: Eventos (PENDIENTE)
 ```
 
 ### Dependencias entre modulos
 ```
-l10n_co_facturapi_data  (sin dependencias)
+connector_facturapi_data  (sin dependencias)
         │
-l10n_co_facturapi  (depende de: account, account_edi, certificate, account_edi_ubl_cii)
+connector_facturapi  (depende de: account, account_edi, certificate, account_edi_ubl_cii)
    │        │
-   │   l10n_co_facturapi_fe  (depende de: l10n_co_facturapi, l10n_co_facturapi_data, account_move_name_sequence)
+   │   connector_facturapi_fe  (depende de: connector_facturapi, connector_facturapi_data, account_move_name_sequence)
    │        │
-   │   l10n_co_facturapi_ds  (depende de: l10n_co_facturapi, l10n_co_facturapi_data, l10n_co_facturapi_fe)
+   │   connector_facturapi_ds  (depende de: connector_facturapi, connector_facturapi_data, connector_facturapi_fe)
 ```
 
 ---
 
-## Modulo Base: `l10n_co_facturapi`
+## Modulo Base: `connector_facturapi`
 
 El modulo que todo lo conecta. Proporciona:
 
@@ -56,7 +56,7 @@ El modulo que todo lo conecta. Proporciona:
 
 ---
 
-## Modulo FE: `l10n_co_facturapi_fe`
+## Modulo FE: `connector_facturapi_fe`
 
 ### Funcionalidad
 - Botones "Enviar a DIAN" y "Consultar estado" en facturas
@@ -69,18 +69,18 @@ El modulo que todo lo conecta. Proporciona:
 - Resoluciones DIAN de ejemplo en `data/resolution_data.xml`
 
 ### Campos en `account.move`
-- `l10n_co_cufe` — CUFE calculado
-- `l10n_co_qr_code` — QR en base64
-- `l10n_co_document_key` — Llave del documento en DIAN
-- `l10n_co_status_code` — Codigo de respuesta DIAN
-- `l10n_co_status_message` — Mensaje DIAN
+- `connector_cufe` — CUFE calculado
+- `connector_qr_code` — QR en base64
+- `connector_document_key` — Llave del documento en DIAN
+- `connector_status_code` — Codigo de respuesta DIAN
+- `connector_status_message` — Mensaje DIAN
 
 ### XML Template
 - `tools/templates/factura_electronica.xml.jinja` — UBL 2.1 para FE
 
 ---
 
-## Modulo DS: `l10n_co_facturapi_ds`
+## Modulo DS: `connector_facturapi_ds`
 
 ### Funcionalidad
 - Documento Soporte en adquisiciones a sujetos excluidos de facturar
@@ -102,9 +102,9 @@ El modulo que todo lo conecta. Proporciona:
 | QR format | `NroFactura=...` | `N°DocSoporte=DS...` |
 
 ### Campos en `account.move`
-- `l10n_co_cuds` — CUDS calculado
-- `l10n_co_ds_qr_code` — QR DS en base64
-- `l10n_co_ds_document_key` — Llave DS en DIAN
+- `connector_cuds` — CUDS calculado
+- `connector_ds_qr_code` — QR DS en base64
+- `connector_ds_document_key` — Llave DS en DIAN
 
 ### XML Template
 - `tools/templates/documento_soporte.xml.jinja` (en `facturapi-dian-core`)
@@ -152,7 +152,7 @@ Los modulos se montan via volumes en el Docker de Odoo. Verificar que las rutas 
 # Settings > Apps > Buscar "FacturAPI" > Instalar
 
 # Via CLI:
-docker exec -it odoo-web-1 odoo -d admin -i l10n_co_facturapi --stop-after-init
+docker exec -it odoo-web-1 odoo -d admin -i connector_facturapi --stop-after-init
 ```
 
 ---
@@ -162,13 +162,13 @@ docker exec -it odoo-web-1 odoo -d admin -i l10n_co_facturapi --stop-after-init
 ### Verificar que los modulos estan instalados
 ```sql
 -- Conectar a la BD de Odoo:
-SELECT name, state FROM ir_module_module WHERE name LIKE 'l10n_co_facturapi%';
+SELECT name, state FROM ir_module_module WHERE name LIKE 'connector_facturapi%';
 ```
 
 ### Verificar columnas en account_move
 ```sql
 SELECT column_name FROM information_schema.columns 
-WHERE table_name = 'account_move' AND column_name LIKE 'l10n_co_%';
+WHERE table_name = 'account_move' AND column_name LIKE 'connector_%';
 ```
 
 ### Verificar formatos EDI
@@ -180,8 +180,8 @@ SELECT code, name FROM ir_edi_format WHERE code LIKE 'facturapi%';
 
 ## Pendiente
 
-- [ ] Modulo DE (`l10n_co_facturapi_de`) — Documento Equivalente
-- [ ] Modulo NOM (`l10n_co_facturapi_nom`) — usar OCA `payroll` como base
-- [ ] Modulo RADIAN (`l10n_co_facturapi_radian`) — modelo nuevo `facturapi.radian.event`
+- [ ] Modulo DE (`connector_facturapi_de`) — Documento Equivalente
+- [ ] Modulo NOM (`connector_facturapi_nom`) — usar OCA `payroll` como base
+- [ ] Modulo RADIAN (`connector_facturapi_radian`) — modelo nuevo `facturapi.radian.event`
 - [ ] Tests automatizados
 - [ ] Reports para DS
