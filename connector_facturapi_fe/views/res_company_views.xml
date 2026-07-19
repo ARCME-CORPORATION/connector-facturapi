@@ -10,6 +10,8 @@
                     <group string="Configuración FE">
                         <group>
                             <field name="connector_fe_enabled"/>
+                            <field name="connector_fe_auto_send"
+                                   invisible="not connector_fe_enabled"/>
                             <field name="certificate_id"
                                    domain="[('scope', '=', 'facturapi'), ('is_valid', '=', True)]"
                                    context="{'default_scope': 'facturapi'}"/>

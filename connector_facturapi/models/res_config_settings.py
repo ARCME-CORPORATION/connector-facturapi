@@ -42,3 +42,7 @@ class ResConfigSettings(models.TransientModel):
         related="company_id.connector_test_set_id",
         readonly=False,
     )
+    connector_fe_auto_send = fields.Boolean(
+        related="company_id.connector_fe_auto_send",
+        readonly=False,
+    )

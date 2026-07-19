@@ -14,6 +14,7 @@
         "views/res_company_views.xml",
         "views/ir_sequence_date_range_views.xml",
         "data/resolution_data.xml",
+        "data/ir_cron_data.xml",
         "report/factura_electronica_report.xml",
         "report/factura_electronica_template.xml",
     ],

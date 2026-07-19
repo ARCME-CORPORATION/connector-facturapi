@@ -81,6 +81,6 @@
               name="DIAN Documents"
               parent="account.menu_finance"
               action="facturapi_document_action"
-              sequence="90"/>
+              sequence="30"/>
   </data>
 </odoo>

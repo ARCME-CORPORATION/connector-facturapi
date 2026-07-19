@@ -18,6 +18,11 @@ class ResCompany(models.Model):
         string="Facturación Electrónica",
         default=False,
     )
+    connector_fe_auto_send = fields.Boolean(
+        string="Envío Automático a DIAN",
+        help="Enviar facturas automáticamente a DIAN cuando se confirmen.",
+        default=False,
+    )
     connector_numbering_ranges = fields.Text(
         string="Rangos de Numeración",
         readonly=True,

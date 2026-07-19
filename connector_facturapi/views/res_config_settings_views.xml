@@ -62,6 +62,18 @@
                             </div>
                         </div>
                     </setting>
+                    <setting string="Envío Automático"
+                        help="Enviar facturas a DIAN automáticamente al confirmar.">
+                        <div class="content-group">
+                            <div class="row mt8">
+                                <field name="connector_fe_auto_send"/>
+                                <label for="connector_fe_auto_send"
+                                    string="Habilitar envío automático a DIAN"
+                                    class="col-lg-3 o_light_label"
+                                    help="Cuando está activo, las facturas se envían automáticamente a DIAN al confirmarlas."/>
+                            </div>
+                        </div>
+                    </setting>
                     <setting string="Certificado Digital"
                         help="Certificado PFX/PKCS12 para firma electrónica XAdES con la DIAN">
                         <div class="content-group">

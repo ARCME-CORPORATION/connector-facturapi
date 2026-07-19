@@ -45,6 +45,10 @@ class ResCompany(models.Model):
         string="Test Set ID",
         help="Identificador del set de pruebas en habilitación",
     )
+    connector_fe_auto_send = fields.Boolean(
+        string="Auto Send FE",
+        help="Enviar facturas electrónicas automáticamente",
+    )
     connector_tax_level_code = fields.Char(
         string="Tax Level Code",
         default="0",
