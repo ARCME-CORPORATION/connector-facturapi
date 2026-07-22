@@ -15,6 +15,14 @@
                             <field name="certificate_id"
                                    domain="[('scope', '=', 'facturapi'), ('is_valid', '=', True)]"
                                    context="{'default_scope': 'facturapi'}"/>
+                            <div class="mb8">
+                                <button name="action_UploadCertificate"
+                                        string="Enviar Certificado a API"
+                                        type="object"
+                                        class="btn-primary"
+                                        icon="fa-upload"
+                                        invisible="not certificate_id"/>
+                            </div>
                         </group>
                         <group>
                             <field name="facturapi_api_url" string="API URL"/>

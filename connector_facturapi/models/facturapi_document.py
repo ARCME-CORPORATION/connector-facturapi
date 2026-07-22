@@ -60,8 +60,10 @@ class FacturapiDocument(models.Model):
         return url.rstrip("/") + "/api/v1"
 
     def _get_headers(self):
+        company = self.company_id
+        token = f"{company.facturapi_company_id}:{company.facturapi_api_key}"
         return {
-            "Authorization": f"Bearer {self.company_id.facturapi_api_key}",
+            "Authorization": f"Bearer {token}",
             "Content-Type": "application/json",
         }
 

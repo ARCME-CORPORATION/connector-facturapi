@@ -9,7 +9,7 @@ Modulos Odoo 18 para integrar facturacion electronica colombiana (DIAN) via la A
 ## Modulos
 
 ```
-odoo/
+connector-facturapi/
 ├── connector_facturapi/          # Base: certificado, config empresa, formato EDI, modelo facturapi.document
 ├── connector_facturapi_data/     # Datos: ciudades, tablas DIAN (medios_pago, responsable_fiscal, etc.)
 ├── connector_facturapi_fe/       # FE: Factura Electronica (botones, wizard, secuencias, reportes)
@@ -32,27 +32,55 @@ connector_facturapi  (depende de: account, account_edi, certificate, account_edi
 
 ---
 
+## Auth — Multi-tenant
+
+El token Bearer tiene formato `company_id:api_key`:
+
+```python
+# En _get_headers() de facturapi_document.py:
+token = f"{company.facturapi_company_id}:{company.facturapi_api_key}"
+headers = {"Authorization": f"Bearer {token}"}
+```
+
+- `facturapi_company_id`: UUID de la empresa en FacturAPI (configurar en Settings)
+- `facturapi_api_key`: UUID auto-generado por la API (configurar en Settings)
+- La API valida que ambos existan y coincidan en su DB
+
+---
+
+## Certificados
+
+Los certificados se gestionan desde el modulo `certificate` de Odoo (PFX upload, normalizacion a PEM). El conector agrega un scope `"facturapi"`.
+
+**Flujo:**
+1. Usuario sube PFX en **Settings > Certificados** (usando el modulo `certificate` de Odoo)
+2. Selecciona el certificado en el formulario de empresa (Facturacion Electronica)
+3. Presiona **"Enviar Certificado a API"** → envia PEM a la API
+4. La API lo almacena en su DB y lo usa para firmar y enviar a DIAN
+
+** Campos en `res.company`:**
+- `certificate_id` → Many2one a `certificate.certificate` (scope=facturapi)
+- `facturapi_company_id` → UUID de la empresa en FacturAPI
+- `facturapi_api_key` → API key (UUID) de la empresa en FacturAPI
+
+---
+
 ## Modulo Base: `connector_facturapi`
 
 El modulo que todo lo conecta. Proporciona:
 
 ### Modelos
 - **`facturapi.document`** — Tabla principal que registra cada documento enviado a DIAN. Campos: `document_type`, `document_key`, `cufe`, `cuds`, `qr_code`, `status_code`, etc.
-- **`facturapi.api.config`** — Configuracion de la API (URL, API key)
-- **`certificate`** — Certificados PFX subidos por el usuario
+- **`certificate`** — Hereda `certificate.certificate`, agrega scope `"facturapi"`
 
 ### Configuracion de empresa (`res.company`)
 - Toggle de habilitacion FacturAPI
 - URL y API key del backend
-- Certificado PFX + password
+- Certificado (seleccion del modulo `certificate` de Odoo)
 
 ### EDI Format
 - Crea el formato EDI `facturapi_invoice` via `data/edi_format_data.xml`
 - `facturapi_edi_format.py` busca el formato correcto por codigo (`invoice`, `support_document`, etc.)
-
-### Cron
-- Tarea periodica para consultar estado de documentos pendientes en DIAN
-- NOTA: En Odoo 18, `numbercall` no es valido en `ir.cron` (removido de `ir_cron_data.xml`)
 
 ---
 
@@ -65,8 +93,9 @@ El modulo que todo lo conecta. Proporciona:
 - Reporte PDF de factura electronica (`report/`)
 - Toggle de habilitacion FE por empresa
 
-### Datos
-- Resoluciones DIAN de ejemplo en `data/resolution_data.xml`
+### Botones en empresa
+- **"Enviar Certificado a API"** — Sube el certificado PEM a la API
+- **"Consultar Rangos"** — Obtiene rangos de numeracion de DIAN
 
 ### Campos en `account.move`
 - `connector_cufe` — CUFE calculado
@@ -74,9 +103,6 @@ El modulo que todo lo conecta. Proporciona:
 - `connector_document_key` — Llave del documento en DIAN
 - `connector_status_code` — Codigo de respuesta DIAN
 - `connector_status_message` — Mensaje DIAN
-
-### XML Template
-- `tools/templates/factura_electronica.xml.jinja` — UBL 2.1 para FE
 
 ---
 
@@ -97,17 +123,12 @@ El modulo que todo lo conecta. Proporciona:
 | Hash UUID | CUFE (SHA-384) | CUDS (SHA-384) |
 | Supplier TaxScheme | `01` (IVA) | `ZZ` (No aplica) |
 | Supplier TaxLevelCode | `O-23` | `O-23;O-47` |
-| Supplier address | `cac:Party` | `cac:PhysicalLocation` |
-| Supplier additional_account_id | — | `1` |
 | QR format | `NroFactura=...` | `N°DocSoporte=DS...` |
 
 ### Campos en `account.move`
 - `connector_cuds` — CUDS calculado
 - `connector_ds_qr_code` — QR DS en base64
 - `connector_ds_document_key` — Llave DS en DIAN
-
-### XML Template
-- `tools/templates/documento_soporte.xml.jinja` (en `facturapi-dian-core`)
 
 ---
 
@@ -136,7 +157,7 @@ El modulo que todo lo conecta. Proporciona:
 
 ## Infraestructura Docker Odoo
 
-**Docker Compose:** `C:\Users\jupar\Documents\GitHub\juanparmer\odoocker\docker-compose.yml`
+**Docker Compose:** `C:\Users\jupar\Documents\GitHub\juanparmer\compose.yaml`
 
 | Container | Puerto | DB User/Pass/DB |
 |-----------|--------|-----------------|
@@ -144,13 +165,10 @@ El modulo que todo lo conecta. Proporciona:
 | `odoo-db-1` | 5432 | `odoo`/`odoo`/`admin` |
 
 ### Montar modulos en Odoo
-Los modulos se montan via volumes en el Docker de Odoo. Verificar que las rutas en `docker-compose.yml` apunten a `odoo/` correctamente.
+Los modulos se montan via volumes en el Docker de Odoo. Verificar que las rutas en `docker-compose.yml` apunten a `connector-facturapi/` correctamente.
 
 ### Instalar un modulo
 ```bash
-# Via UI:
-# Settings > Apps > Buscar "FacturAPI" > Instalar
-
 # Via CLI:
 docker exec -it odoo-web-1 odoo -d admin -i connector_facturapi --stop-after-init
 ```
@@ -161,19 +179,12 @@ docker exec -it odoo-web-1 odoo -d admin -i connector_facturapi --stop-after-ini
 
 ### Verificar que los modulos estan instalados
 ```sql
--- Conectar a la BD de Odoo:
 SELECT name, state FROM ir_module_module WHERE name LIKE 'connector_facturapi%';
 ```
 
-### Verificar columnas en account_move
+### Verificar configuracion de empresa
 ```sql
-SELECT column_name FROM information_schema.columns 
-WHERE table_name = 'account_move' AND column_name LIKE 'connector_%';
-```
-
-### Verificar formatos EDI
-```sql
-SELECT code, name FROM ir_edi_format WHERE code LIKE 'facturapi%';
+SELECT name, facturapi_company_id, facturapi_api_key FROM res_company WHERE facturapi_company_id IS NOT NULL;
 ```
 
 ---

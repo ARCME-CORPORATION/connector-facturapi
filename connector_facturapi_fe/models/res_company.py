@@ -41,7 +41,10 @@ class ResCompany(models.Model):
         api_key = self.facturapi_api_key
         if not api_key:
             raise UserError(_("Please configure the FacturAPI API Key."))
-        return FacturAPIClient(base_url=API_BASE_URL, api_key=api_key)
+        company_id = self.facturapi_company_id
+        if not company_id:
+            raise UserError(_("Please configure the FacturAPI Company ID."))
+        return FacturAPIClient(base_url=API_BASE_URL, api_key=api_key, company_id=company_id)
 
     def _get_nit(self):
         self.ensure_one()
@@ -50,6 +53,30 @@ class ResCompany(models.Model):
         if len(nit) > 9:
             nit = nit[:-1]
         return nit
+
+    def action_UploadCertificate(self):
+        self.ensure_one()
+        certificate = self.certificate_id
+        if not certificate:
+            raise UserError(_("Please select a DIAN certificate first."))
+        if not certificate.is_valid:
+            raise UserError(_("The selected certificate is not valid."))
+        if not certificate.private_key_id:
+            raise UserError(_("The selected certificate has no private key."))
+
+        client = self._get_api_client()
+        result = client.upload_certificate(certificate, self.facturapi_company_id)
+
+        return {
+            "type": "ir.actions.client",
+            "tag": "display_notification",
+            "params": {
+                "title": _("Certificado"),
+                "message": result.get("message", "Certificado almacenado correctamente"),
+                "type": "success",
+                "sticky": False,
+            },
+        }
 
     def action_GetNumberingRange(self):
         self.ensure_one()
@@ -64,7 +91,7 @@ class ResCompany(models.Model):
         nit = self._get_nit()
         environment = self.connector_dian_environment or "produccion"
         client = self._get_api_client()
-        result = client.get_numbering_range(nit, software_code, certificate, environment=environment)
+        result = client.get_numbering_range(nit, software_code, environment=environment)
         ranges = result.get("ranges", [])
 
         if ranges:

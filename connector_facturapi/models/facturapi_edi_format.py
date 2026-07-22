@@ -140,14 +140,6 @@ class FacturAPIEDiFormat(models.Model):
         partner = move.partner_id
         currency = move.currency_id or company.currency_id
 
-        certificate = company.certificate_id
-        cert_pem = ""
-        key_pem = ""
-        if certificate:
-            cert_pem = self._to_pem_str(certificate.pem_certificate)
-            if certificate.private_key_id:
-                key_pem = self._to_pem_str(certificate.private_key_id.pem_key)
-
         sequence_range = self._get_active_sequence_range(move)
         resolution_number = ""
         resolution_number_from = 0
@@ -215,8 +207,6 @@ class FacturAPIEDiFormat(models.Model):
             "document_type": doc_type,
             "document_type_code": doc_type_code,
             "environment": environment,
-            "certificate_pem": cert_pem,
-            "private_key_pem": key_pem,
             "software_id": getattr(company, "connector_software_id", "") or "",
             "software_pin": getattr(company, "connector_software_pin", "") or "",
             "software_nit": nit,

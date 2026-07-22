@@ -164,30 +164,8 @@ class AccountMove(models.Model):
         company = self.company_id
         if not company.facturapi_api_url or not company.facturapi_api_key:
             raise UserError(_("FacturAPI not configured for company %s") % company.name)
-
-        # Get certificate from company
-        certificate = company.certificate_id
-        if not certificate:
-            raise UserError(_("No certificate found for company %s") % company.name)
-        if not certificate.is_valid:
-            raise UserError(_("Certificate is not valid."))
-        if not certificate.private_key_id:
-            raise UserError(_("Certificate has no private key."))
-
-        # Get PEM data
-        def _to_str(value):
-            if isinstance(value, bytes):
-                decoded = value.decode("utf-8", errors="replace")
-                if decoded.startswith("-----"):
-                    return decoded
-                try:
-                    return base64.b64decode(decoded).decode("utf-8")
-                except Exception:
-                    return decoded
-            return value or ""
-
-        cert_pem = _to_str(certificate.pem_certificate)
-        key_pem = _to_str(certificate.private_key_id.pem_key)
+        if not company.facturapi_company_id:
+            raise UserError(_("FacturAPI Company ID not configured for company %s") % company.name)
 
         base_url = doc._get_api_url()
         track_id = (
@@ -199,15 +177,19 @@ class AccountMove(models.Model):
         if not track_id:
             raise UserError(_("No document key or task ID available for DIAN query."))
 
+        token = f"{company.facturapi_company_id}:{company.facturapi_api_key}"
+        headers = {
+            "Authorization": f"Bearer {token}",
+            "Content-Type": "application/json",
+        }
+
         payload = {
             "track_id": track_id,
-            "certificate_pem": cert_pem,
-            "private_key_pem": key_pem,
             "environment": company.facturapi_environment or "produccion",
         }
 
         url = f"{base_url}/documents/dian/{operation}"
-        response = requests.post(url, json=payload, headers=doc._get_headers(), timeout=30)
+        response = requests.post(url, json=payload, headers=headers, timeout=30)
         response.raise_for_status()
         return response.json()
 
