@@ -20,6 +20,23 @@ class AccountMoveSend(models.AbstractModel):
             }
         return result
 
+    @api.model
+    def _get_invoice_extra_attachments(self, move):
+        result = super()._get_invoice_extra_attachments(move)
+        ds_xml = self.env["ir.attachment"].search([
+            ("res_model", "=", "account.move"),
+            ("res_id", "=", move.id),
+            ("mimetype", "=", "application/xml"),
+            ("name", "=like", "DS_%.xml"),
+        ])
+        ds_pdf = self.env["ir.attachment"].search([
+            ("res_model", "=", "account.move"),
+            ("res_id", "=", move.id),
+            ("mimetype", "=", "application/pdf"),
+            ("name", "=like", "DS_%.pdf"),
+        ])
+        return result + ds_xml + ds_pdf
+
     def _call_web_service_before_invoice_pdf_render(self, invoices_data):
         super()._call_web_service_before_invoice_pdf_render(invoices_data)
         for move, move_data in invoices_data.items():

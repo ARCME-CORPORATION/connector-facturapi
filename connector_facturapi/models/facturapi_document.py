@@ -46,6 +46,7 @@ class FacturapiDocument(models.Model):
     cufe = fields.Char(string="CUFE/CUDE", copy=False)
     qr_code = fields.Text(string="QR Code (Base64)", copy=False)
     xml_signed = fields.Text(string="Signed XML", copy=False)
+    pdf_file = fields.Text(string="PDF (Base64)", copy=False)
     application_response = fields.Text(string="Application Response", copy=False)
     attached_document = fields.Text(string="Attached Document", copy=False)
 
@@ -136,6 +137,7 @@ class FacturapiDocument(models.Model):
             "cufe": data.get("cufe_cude", ""),
             "qr_code": data.get("qr_code", ""),
             "xml_signed": data.get("xml_signed", ""),
+            "pdf_file": data.get("pdf_file", ""),
             "application_response": data.get("application_response", ""),
             "dian_status": data.get("dian_status", ""),
             "error_message": False,
@@ -159,6 +161,43 @@ class FacturapiDocument(models.Model):
                 "connector_xml_signed": data.get("xml_signed", ""),
                 "connector_application_response": data.get("application_response", ""),
             })
+
+        xml_b64 = data.get("xml_signed", "")
+        pdf_b64 = data.get("pdf_file", "")
+        prefix = "FE" if not is_ds else "DS"
+        number = move.name or "doc"
+
+        if xml_b64:
+            existing_xml = self.env["ir.attachment"].search([
+                ("res_model", "=", "account.move"),
+                ("res_id", "=", move.id),
+                ("name", "=like", f"{prefix}_{number}.xml"),
+            ], limit=1)
+            if not existing_xml:
+                self.env["ir.attachment"].create({
+                    "name": f"{prefix}_{number}.xml",
+                    "type": "binary",
+                    "datas": xml_b64,
+                    "res_model": "account.move",
+                    "res_id": move.id,
+                    "mimetype": "application/xml",
+                })
+
+        if pdf_b64:
+            existing_pdf = self.env["ir.attachment"].search([
+                ("res_model", "=", "account.move"),
+                ("res_id", "=", move.id),
+                ("name", "=like", f"{prefix}_{number}.pdf"),
+            ], limit=1)
+            if not existing_pdf:
+                self.env["ir.attachment"].create({
+                    "name": f"{prefix}_{number}.pdf",
+                    "type": "binary",
+                    "datas": pdf_b64,
+                    "res_model": "account.move",
+                    "res_id": move.id,
+                    "mimetype": "application/pdf",
+                })
 
         if self.edi_document_id:
             self.edi_document_id.write({
