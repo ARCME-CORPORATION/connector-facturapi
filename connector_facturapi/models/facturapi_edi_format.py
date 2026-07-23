@@ -154,10 +154,6 @@ class FacturAPIEDiFormat(models.Model):
         doc_type = self._get_document_type(move)
         doc_type_code = DOC_TYPE_CODE_MAP.get(doc_type, "01")
 
-        nit = ""
-        if hasattr(company, "_get_nit"):
-            nit = company._get_nit()
-
         lines = []
         for line in move.invoice_line_ids:
             tax_percent = 0.0
@@ -209,7 +205,7 @@ class FacturAPIEDiFormat(models.Model):
             "environment": environment,
             "software_id": getattr(company, "connector_software_id", "") or "",
             "software_pin": getattr(company, "connector_software_pin", "") or "",
-            "software_nit": nit,
+            "software_nit": getattr(company, "connector_software_nit", "") or "",
             "test_set_id": getattr(company, "connector_test_set_id", "") or "",
             "prefix": getattr(move, "l10n_latam_document_number_prefix", None)
                 or (move.journal_id.sequence_id.prefix if move.journal_id and move.journal_id.sequence_id else "")

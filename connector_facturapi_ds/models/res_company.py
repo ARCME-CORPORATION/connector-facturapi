@@ -43,7 +43,7 @@ class ResCompany(models.Model):
         nit = self._get_nit()
         environment = self.connector_dian_environment or "produccion"
         client = self._get_ds_api_client()
-        result = client.get_numbering_range(nit, software_code, certificate, environment=environment)
+        result = client.get_numbering_range(nit, software_code, environment=environment)
         ranges = result.get("ranges", [])
 
         if ranges:

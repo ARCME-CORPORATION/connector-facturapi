@@ -33,6 +33,11 @@ class ResCompany(models.Model):
         string="Software ID",
         help="Identificador del software asignado por DIAN",
     )
+    connector_software_nit = fields.Char(
+        string="Software Provider NIT",
+        help="NIT del proveedor de software (quien desarrolló el módulo DIAN). "
+             "Ej: 813000008. NO es el NIT de la empresa emisora.",
+    )
     connector_software_pin = fields.Char(
         string="Software PIN",
         help="PIN del software asignado por DIAN (se almacena cifrado)",

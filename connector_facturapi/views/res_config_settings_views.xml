@@ -46,6 +46,12 @@
                                     placeholder="Software ID DIAN" />
                             </div>
                             <div class="row mt8">
+                                <label for="connector_software_nit"
+                                    class="col-lg-3 o_light_label" />
+                                <field name="connector_software_nit"
+                                    placeholder="NIT del proveedor de software (ej: 813000008)" />
+                            </div>
+                            <div class="row mt8">
                                 <label for="connector_software_pin"
                                     class="col-lg-3 o_light_label" />
                                 <field name="connector_software_pin" password="True" />

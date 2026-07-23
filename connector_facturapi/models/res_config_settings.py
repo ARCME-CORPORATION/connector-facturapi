@@ -30,6 +30,10 @@ class ResConfigSettings(models.TransientModel):
         related="company_id.connector_software_id",
         readonly=False,
     )
+    connector_software_nit = fields.Char(
+        related="company_id.connector_software_nit",
+        readonly=False,
+    )
     connector_software_pin = fields.Char(
         related="company_id.connector_software_pin",
         readonly=False,
