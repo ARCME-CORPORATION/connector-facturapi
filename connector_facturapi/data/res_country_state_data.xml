@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- Colombian departments DANE codes -->
+        <!-- Uses the same external IDs as base module (base.state_co_XX) to update existing state records -->
+        <record id="base.state_co_01" model="res.country.state">
+            <field name="connector_dane_code">05</field>
+        </record>
+        <record id="base.state_co_02" model="res.country.state">
+            <field name="connector_dane_code">08</field>
+        </record>
+        <record id="base.state_co_03" model="res.country.state">
+            <field name="connector_dane_code">11</field>
+        </record>
+        <record id="base.state_co_04" model="res.country.state">
+            <field name="connector_dane_code">13</field>
+        </record>
+        <record id="base.state_co_05" model="res.country.state">
+            <field name="connector_dane_code">15</field>
+        </record>
+        <record id="base.state_co_06" model="res.country.state">
+            <field name="connector_dane_code">17</field>
+        </record>
+        <record id="base.state_co_07" model="res.country.state">
+            <field name="connector_dane_code">18</field>
+        </record>
+        <record id="base.state_co_08" model="res.country.state">
+            <field name="connector_dane_code">19</field>
+        </record>
+        <record id="base.state_co_09" model="res.country.state">
+            <field name="connector_dane_code">20</field>
+        </record>
+        <record id="base.state_co_10" model="res.country.state">
+            <field name="connector_dane_code">23</field>
+        </record>
+        <record id="base.state_co_11" model="res.country.state">
+            <field name="connector_dane_code">25</field>
+        </record>
+        <record id="base.state_co_12" model="res.country.state">
+            <field name="connector_dane_code">27</field>
+        </record>
+        <record id="base.state_co_13" model="res.country.state">
+            <field name="connector_dane_code">41</field>
+        </record>
+        <record id="base.state_co_14" model="res.country.state">
+            <field name="connector_dane_code">44</field>
+        </record>
+        <record id="base.state_co_15" model="res.country.state">
+            <field name="connector_dane_code">47</field>
+        </record>
+        <record id="base.state_co_16" model="res.country.state">
+            <field name="connector_dane_code">50</field>
+        </record>
+        <record id="base.state_co_17" model="res.country.state">
+            <field name="connector_dane_code">52</field>
+        </record>
+        <record id="base.state_co_18" model="res.country.state">
+            <field name="connector_dane_code">54</field>
+        </record>
+        <record id="base.state_co_19" model="res.country.state">
+            <field name="connector_dane_code">63</field>
+        </record>
+        <record id="base.state_co_20" model="res.country.state">
+            <field name="connector_dane_code">66</field>
+        </record>
+        <record id="base.state_co_21" model="res.country.state">
+            <field name="connector_dane_code">68</field>
+        </record>
+        <record id="base.state_co_22" model="res.country.state">
+            <field name="connector_dane_code">70</field>
+        </record>
+        <record id="base.state_co_23" model="res.country.state">
+            <field name="connector_dane_code">73</field>
+        </record>
+        <record id="base.state_co_24" model="res.country.state">
+            <field name="connector_dane_code">76</field>
+        </record>
+        <record id="base.state_co_25" model="res.country.state">
+            <field name="connector_dane_code">81</field>
+        </record>
+        <record id="base.state_co_26" model="res.country.state">
+            <field name="connector_dane_code">85</field>
+        </record>
+        <record id="base.state_co_27" model="res.country.state">
+            <field name="connector_dane_code">86</field>
+        </record>
+        <record id="base.state_co_28" model="res.country.state">
+            <field name="connector_dane_code">88</field>
+        </record>
+        <record id="base.state_co_29" model="res.country.state">
+            <field name="connector_dane_code">91</field>
+        </record>
+        <record id="base.state_co_30" model="res.country.state">
+            <field name="connector_dane_code">94</field>
+        </record>
+        <record id="base.state_co_31" model="res.country.state">
+            <field name="connector_dane_code">95</field>
+        </record>
+        <record id="base.state_co_32" model="res.country.state">
+            <field name="connector_dane_code">97</field>
+        </record>
+        <record id="base.state_co_33" model="res.country.state">
+            <field name="connector_dane_code">99</field>
+        </record>
+    </data>
+</odoo>

@@ -16,10 +16,11 @@ class ResConfigSettings(models.TransientModel):
         related="company_id.facturapi_api_key",
         readonly=False,
     )
-    facturapi_environment = fields.Selection(
-        related="company_id.facturapi_environment",
+    connector_dian_environment = fields.Selection(
+        related="company_id.connector_dian_environment",
         readonly=False,
     )
+
     certificate_id = fields.Many2one(
         related="company_id.certificate_id",
         readonly=False,
@@ -30,16 +31,8 @@ class ResConfigSettings(models.TransientModel):
         related="company_id.connector_software_id",
         readonly=False,
     )
-    connector_software_nit = fields.Char(
-        related="company_id.connector_software_nit",
-        readonly=False,
-    )
     connector_software_pin = fields.Char(
         related="company_id.connector_software_pin",
-        readonly=False,
-    )
-    connector_software_dv = fields.Char(
-        related="company_id.connector_software_dv",
         readonly=False,
     )
     connector_test_set_id = fields.Char(

@@ -5,15 +5,18 @@
         <field name="model">ir.sequence</field>
         <field name="inherit_id" ref="base.sequence_view" />
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='date_range_ids']/list/field[@name='date_from']" position="before">
+            <xpath expr="//field[@name='date_range_ids']/list/field[@name='date_from']"
+                position="before">
                 <field name="dian_resolution_number" optional="show" />
                 <field name="dian_resolution_date" optional="hide" />
             </xpath>
-            <xpath expr="//field[@name='date_range_ids']/list/field[@name='number_next_actual']" position="before">
+            <xpath expr="//field[@name='date_range_ids']/list/field[@name='number_next_actual']"
+                position="before">
                 <field name="dian_number_from" optional="show" />
                 <field name="dian_number_to" optional="show" />
             </xpath>
-            <xpath expr="//field[@name='date_range_ids']/list/field[@name='number_next_actual']" position="after">
+            <xpath expr="//field[@name='date_range_ids']/list/field[@name='number_next_actual']"
+                position="after">
                 <field name="dian_technical_key" optional="hide" />
             </xpath>
         </field>

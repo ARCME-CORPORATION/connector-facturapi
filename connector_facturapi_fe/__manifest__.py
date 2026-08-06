@@ -6,14 +6,13 @@
     "summary": "Factura Electrónica de Venta for FacturAPI",
     "depends": [
         "connector_facturapi",
-        "connector_facturapi_data",
         "account_move_name_sequence",
     ],
     "data": [
         "views/account_move_views.xml",
         "views/res_company_views.xml",
         "views/ir_sequence_date_range_views.xml",
-        "data/resolution_data.xml",
+        "views/mail_layout_views.xml",
         "data/ir_cron_data.xml",
         "report/factura_electronica_report.xml",
         "report/factura_electronica_template.xml",

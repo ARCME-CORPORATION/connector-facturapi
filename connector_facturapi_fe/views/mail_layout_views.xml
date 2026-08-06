@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="mail_notification_layout_facturapp"
+        inherit_id="mail.mail_notification_layout">
+        <xpath
+            expr="//div[contains(@style, 'font-size:11px') and .//a[contains(@href, 'odoo.com')]]"
+            position="replace">
+            <div style="color: #555555; font-size:11px;"> Con la tecnología de <a target="_blank"
+                    href="https://www.facturapp.com.co"
+                    t-att-style="'color: ' + (company.email_secondary_color or '#875A7B') + ';'">
+                FacturAPP</a>. www.facturapp.com.co <span id="mail_unfollow"> | <a
+                        href="/mail/unfollow" style="text-decoration:none; color:#555555;">Unfollow</a>
+                </span>
+            </div>
+        </xpath>
+    </template>
+
+    <template id="mail_notification_light_facturapp"
+        inherit_id="mail.mail_notification_light">
+        <xpath
+            expr="//td[contains(@style, 'min-width: 590px') and .//a[contains(@href, 'odoo.com')]]"
+            position="replace">
+            <td align="center" style="min-width: 590px;"> Con la tecnología de <a target="_blank"
+                    href="https://www.facturapp.com.co"
+                    t-att-style="'color: ' + (company.email_secondary_color or '#875A7B') + ';'">
+                FacturAPP</a>. www.facturapp.com.co <span id="mail_unfollow"> | <a
+                        href="/mail/unfollow" style="text-decoration:none; color:#555555;">Unfollow</a>
+                </span>
+            </td>
+        </xpath>
+    </template>
+</odoo>

@@ -2,7 +2,7 @@
 
 ## Que es esta carpeta
 
-Modulos Odoo 18 para integrar facturacion electronica colombiana (DIAN) via la API `facturapi-api`. Cada tipo de documento electronico tiene su propio modulo.
+Modulos Odoo 18 para integrar facturacion electronica colombiana (DIAN) via el backend `facturapi-api`. El backend esta en el repo separado `facturapi/`.
 
 ---
 
@@ -10,25 +10,33 @@ Modulos Odoo 18 para integrar facturacion electronica colombiana (DIAN) via la A
 
 ```
 connector-facturapi/
-├── connector_facturapi/          # Base: certificado, config empresa, formato EDI, modelo facturapi.document
-├── connector_facturapi_data/     # Datos: ciudades, tablas DIAN (medios_pago, responsable_fiscal, etc.)
-├── connector_facturapi_fe/       # FE: Factura Electronica (botones, wizard, secuencias, reportes)
-├── connector_facturapi_ds/       # DS: Documento Soporte (adquisiciones a no obligados)
-├── connector_facturapi_de/       # DE: Documento Equivalente (PENDIENTE)
-├── connector_facturapi_nom/      # NOM: Nomina Individual (PENDIENTE — usar OCA payroll)
-└── connector_facturapi_radian/   # RADIAN: Eventos (PENDIENTE)
+├── connector_facturapi/          # Base: certificado, config empresa, modelo facturapi.document, payload builder
+└── connector_facturapi_fe/       # FE: botones, wizard, secuencias, reporte PDF, cron auto-envio
 ```
 
-### Dependencias entre modulos
+### Dependencias
 ```
-connector_facturapi_data  (sin dependencias)
+connector_facturapi  (depende de: account, base_address_extended, certificate, uom, base_vat,
+                       l10n_co_verification_digit, l10n_co_economic_activities, l10n_co_withholding)
         │
-connector_facturapi  (depende de: account, account_edi, certificate, account_edi_ubl_cii)
-   │        │
-   │   connector_facturapi_fe  (depende de: connector_facturapi, connector_facturapi_data, account_move_name_sequence)
-   │        │
-   │   connector_facturapi_ds  (depende de: connector_facturapi, connector_facturapi_data, connector_facturapi_fe)
+connector_facturapi_fe  (depende de: connector_facturapi, account_move_name_sequence)
 ```
+
+`connector_facturapi` excluye `l10n_co_electronic_invoice` y `l10n_co_electronic_invoice_self`.
+
+---
+
+## Tipos de documento soportados
+
+| Move type (Odoo) | Documento DIAN | TypeCode |
+|------------------|----------------|----------|
+| `out_invoice` | Factura de Venta (`invoice`) | 01 |
+| `out_refund` | Nota Credito (`credit_note`) | 91 |
+| `out_debit` / `out_invoice` con `debit_origin_id` | Nota Debito (`debit_note`) | 92 |
+| `in_invoice` | Documento Soporte (`support_doc`) | 05 |
+| `in_refund` | Nota Credito DS (`support_doc_credit_note`) | 95 |
+
+El tipo lo resuelve `_get_document_type(move)` en `facturapi_document.py`. El tipo de operacion (20/22/30/32/10) lo resuelve `_get_operation_type()`.
 
 ---
 
@@ -48,87 +56,80 @@ headers = {"Authorization": f"Bearer {token}"}
 
 ---
 
+## Configuracion de empresa
+
+Campos en `res.company` (editables desde `res.config.settings` via related):
+
+- `facturapi_api_url` — URL del backend (default `http://host.docker.internal:8000`)
+- `facturapi_company_id` — UUID del tenant en FacturAPI
+- `facturapi_api_key` — API key (UUID)
+- `connector_dian_environment` — `habilitacion` (default) o `produccion`
+- `certificate_id` — Many2one a `certificate.certificate` (scope=facturapi)
+- `connector_software_id` — Software ID DIAN
+- `connector_software_pin` — PIN del software (se almacena cifrado)
+- `connector_test_set_id` — Test Set ID (obligatorio en habilitacion)
+- `connector_fe_auto_send` — auto-envio FE por cron (`_cron_facturapi_fe_auto_send`)
+
+---
+
 ## Certificados
 
 Los certificados se gestionan desde el modulo `certificate` de Odoo (PFX upload, normalizacion a PEM). El conector agrega un scope `"facturapi"`.
 
 **Flujo:**
-1. Usuario sube PFX en **Settings > Certificados** (usando el modulo `certificate` de Odoo)
+1. Usuario sube PFX en **Settings > Certificados** (modulo `certificate`)
 2. Selecciona el certificado en el formulario de empresa (Facturacion Electronica)
-3. Presiona **"Enviar Certificado a API"** → envia PEM a la API
+3. Presiona **"Enviar Certificado a API"** → envia PEM a `POST /api/v1/companies/{company_id}/certificate`
 4. La API lo almacena en su DB y lo usa para firmar y enviar a DIAN
-
-** Campos en `res.company`:**
-- `certificate_id` → Many2one a `certificate.certificate` (scope=facturapi)
-- `facturapi_company_id` → UUID de la empresa en FacturAPI
-- `facturapi_api_key` → API key (UUID) de la empresa en FacturAPI
 
 ---
 
 ## Modulo Base: `connector_facturapi`
 
-El modulo que todo lo conecta. Proporciona:
-
 ### Modelos
-- **`facturapi.document`** — Tabla principal que registra cada documento enviado a DIAN. Campos: `document_type`, `document_key`, `cufe`, `cuds`, `qr_code`, `status_code`, etc.
-- **`certificate`** — Hereda `certificate.certificate`, agrega scope `"facturapi"`
+- **`facturapi.document`** — Tabla principal que registra cada documento enviado a DIAN. Estados: `to_send` → `processing` → `accepted` / `rejected`. Campos: `document_type`, `task_id`, `cufe`, `qr_code`, `xml_signed`, `pdf_file`, `application_response`, `dian_status`, `dian_message`, `error_message`, `dian_error_details`, `connector_dian_accepted_datetime`, `is_cancel`.
+- **`certificate.certificate`** — heredada, scope `"facturapi"`
 
-### Configuracion de empresa (`res.company`)
-- Toggle de habilitacion FacturAPI
-- URL y API key del backend
-- Certificado (seleccion del modulo `certificate` de Odoo)
+### Metodos clave (`facturapi_document.py`)
+- `_post_to_web_service()` — arma el payload (`_build_facturapi_payload`) y hace `POST /documents/submit`; guarda `task_id` y `document_type`
+- `_check_task_status()` / `_fetch_and_process_result()` — consultan `/documents/{task_id}/status|result` y actualizan el documento
+- `_get_dian_zip_attachment()` — genera el ZIP (XML + ApplicationResponse + PDF)
+- `_parse_dian_rejection()` — extrae motivos de rechazo del XML de respuesta
 
-### EDI Format
-- Crea el formato EDI `facturapi_invoice` via `data/edi_format_data.xml`
-- `facturapi_edi_format.py` busca el formato correcto por codigo (`invoice`, `support_document`, etc.)
+### Envio del payload
+- Resolucion y llave tecnica desde `ir.sequence.date_range` (`_get_active_sequence_range`)
+- Para NC/ND se incluyen `billing_reference_id`, `billing_reference_cufe`, `billing_reference_date`, `discrepancy_response_code`
+- Moneda extranjera: `original_currency` + `exchange_rate` (COP por unidad)
+- Retenciones: separadas en `withholding_tax_totals` (codigos 05/06/07/08)
 
 ---
 
 ## Modulo FE: `connector_facturapi_fe`
 
 ### Funcionalidad
-- Botones "Enviar a DIAN" y "Consultar estado" en facturas
+- Botones en facturas: "Send to DIAN", "Resend to DIAN", "Check DIAN Status", "Cancel DIAN", "DIAN Get Status", "DIAN Get Status Event", "DIAN Get XML", "DIAN Get Reference Notes"
 - Wizard de envio (`account_move_send.py`)
 - Secuencias de numeracion por rango de fechas (`ir_sequence_date_range.py`)
 - Reporte PDF de factura electronica (`report/`)
-- Toggle de habilitacion FE por empresa
+- Cron de auto-envio (`connector_fe_auto_send`)
+- Consultas DIAN directas via `_dian_query()` (`/documents/dian/get-status`, etc.)
 
-### Botones en empresa
-- **"Enviar Certificado a API"** — Sube el certificado PEM a la API
-- **"Consultar Rangos"** — Obtiene rangos de numeracion de DIAN
-
-### Campos en `account.move`
-- `connector_cufe` — CUFE calculado
-- `connector_qr_code` — QR en base64
-- `connector_document_key` — Llave del documento en DIAN
-- `connector_status_code` — Codigo de respuesta DIAN
-- `connector_status_message` — Mensaje DIAN
+### Campos en `account.move` (related a `facturapi.document`)
+- `connector_facturapi_document_id`, `connector_facturapi_state`
+- `connector_dian_status_code`, `connector_dian_error`, `connector_dian_error_details`
+- `connector_dian_task_id`, `connector_dian_accepted_datetime`
+- `connector_cufe`, `connector_qr_code`, `connector_xml_signed`, `connector_application_response`
+- `connector_sequence_range_id`, `connector_dian_invoice_type_code`
 
 ---
 
-## Modulo DS: `connector_facturapi_ds`
+## Integracion con el backend
 
-### Funcionalidad
-- Documento Soporte en adquisiciones a sujetos excluidos de facturar
-- Botones "Enviar DS a DIAN" y "Consultar estado"
-- Wizard de envio
-- Secuencias DS propias
-
-### Diferencias clave con FE
-| Aspecto | FE | DS |
-|---------|----|----|
-| ProfileID | `DIAN 2.1: facturacion` | `DIAN 2.1: documento soporte...` |
-| CustomizationID | 104445 | 10 |
-| TypeCode | 01 (venta) | 05 (DS proveedor no obligado) |
-| Hash UUID | CUFE (SHA-384) | CUDS (SHA-384) |
-| Supplier TaxScheme | `01` (IVA) | `ZZ` (No aplica) |
-| Supplier TaxLevelCode | `O-23` | `O-23;O-47` |
-| QR format | `NroFactura=...` | `N°DocSoporte=DS...` |
-
-### Campos en `account.move`
-- `connector_cuds` — CUDS calculado
-- `connector_ds_qr_code` — QR DS en base64
-- `connector_ds_document_key` — Llave DS en DIAN
+1. `POST {facturapi_api_url}/api/v1/documents/submit` (Bearer `company_id:api_key`) → devuelve `task_id`
+2. El worker del backend genera XML, CUFE/CUDS, firma, ZIP y envia a DIAN
+3. **Habilitacion:** `SendTestSetAsync` + `test_set_id` + sondeo `GetStatusZip` (el `test_set_id` es obligatorio en habilitacion)
+4. **Produccion:** `SendBillSync`
+5. Odoo consulta `/documents/{task_id}/status` y `/documents/{task_id}/result` para actualizar
 
 ---
 
@@ -140,7 +141,7 @@ El modulo que todo lo conecta. Proporciona:
   ```xml
   <!-- MAL (Odoo 16/17) -->
   <field name="foo" attrs="{'invisible': [('state', '=', 'draft')]}"/>
-  
+
   <!-- BIEN (Odoo 18) -->
   <field name="foo" invisible="state == 'draft'"/>
   ```
@@ -151,7 +152,7 @@ El modulo que todo lo conecta. Proporciona:
 ### Python
 - Heredar de `models.Model` normalmente
 - Usar `api.depends` para computed fields
-- `account_edi.format` es la clase base para formatos EDI
+- No duplicar logica DIAN en Odoo: el XML/CUFE/firma viven en el backend `facturapi/`
 
 ---
 
@@ -164,13 +165,12 @@ El modulo que todo lo conecta. Proporciona:
 | `odoo-web-1` | 8069 | — |
 | `odoo-db-1` | 5432 | `odoo`/`odoo`/`admin` |
 
-### Montar modulos en Odoo
-Los modulos se montan via volumes en el Docker de Odoo. Verificar que las rutas en `docker-compose.yml` apunten a `connector-facturapi/` correctamente.
+Los modulos se montan por bind mount en `/mnt/extra-addons/connector-facturapi` (rw). Cambios en Python requieren recargar: `docker exec -i odoo-web-1 odoo -d admin -u <modulo> --stop-after-init` (o reiniciar el contenedor).
 
 ### Instalar un modulo
 ```bash
-# Via CLI:
 docker exec -it odoo-web-1 odoo -d admin -i connector_facturapi --stop-after-init
+docker exec -it odoo-web-1 odoo -d admin -i connector_facturapi_fe --stop-after-init
 ```
 
 ---
@@ -184,7 +184,14 @@ SELECT name, state FROM ir_module_module WHERE name LIKE 'connector_facturapi%';
 
 ### Verificar configuracion de empresa
 ```sql
-SELECT name, facturapi_company_id, facturapi_api_key FROM res_company WHERE facturapi_company_id IS NOT NULL;
+SELECT name, facturapi_company_id, connector_dian_environment, connector_test_set_id
+FROM res_company WHERE facturapi_company_id IS NOT NULL;
+```
+
+### Verificar documentos enviados
+```sql
+SELECT name, state, document_type, dian_status, task_id
+FROM facturapi_document ORDER BY create_date DESC LIMIT 20;
 ```
 
 ---
@@ -192,7 +199,7 @@ SELECT name, facturapi_company_id, facturapi_api_key FROM res_company WHERE fact
 ## Pendiente
 
 - [ ] Modulo DE (`connector_facturapi_de`) — Documento Equivalente
-- [ ] Modulo NOM (`connector_facturapi_nom`) — usar OCA `payroll` como base
-- [ ] Modulo RADIAN (`connector_facturapi_radian`) — modelo nuevo `facturapi.radian.event`
+- [ ] Modulo NOM (`connector_facturapi_nom`) — Nomina Individual
+- [ ] Modulo RADIAN (`connector_facturapi_radian`) — Eventos
 - [ ] Tests automatizados
-- [ ] Reports para DS
+- [ ] Boton "Consultar Rangos" desde Odoo hacia `POST /companies/numbering-range`

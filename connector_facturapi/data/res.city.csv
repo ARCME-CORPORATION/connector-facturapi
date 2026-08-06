@@ -1,0 +1,1122 @@
+id,name,zipcode,connector_dane_code,country_id/id,state_id/id
+connector_city_co_05001,Medellín,05001,05001,base.co,base.state_co_01
+connector_city_co_05002,Abejorral,05002,05002,base.co,base.state_co_01
+connector_city_co_05004,Abriaquí,05004,05004,base.co,base.state_co_01
+connector_city_co_05021,Alejandría,05021,05021,base.co,base.state_co_01
+connector_city_co_05030,Amagá,05030,05030,base.co,base.state_co_01
+connector_city_co_05031,Amalfi,05031,05031,base.co,base.state_co_01
+connector_city_co_05034,Andes,05034,05034,base.co,base.state_co_01
+connector_city_co_05036,Angelópolis,05036,05036,base.co,base.state_co_01
+connector_city_co_05038,Angostura,05038,05038,base.co,base.state_co_01
+connector_city_co_05040,Anorí,05040,05040,base.co,base.state_co_01
+connector_city_co_05042,Santa Fé de Antioquia,05042,05042,base.co,base.state_co_01
+connector_city_co_05044,Anzá,05044,05044,base.co,base.state_co_01
+connector_city_co_05045,Apartadó,05045,05045,base.co,base.state_co_01
+connector_city_co_05051,Arboletes,05051,05051,base.co,base.state_co_01
+connector_city_co_05055,Argelia,05055,05055,base.co,base.state_co_01
+connector_city_co_05059,Armenia,05059,05059,base.co,base.state_co_01
+connector_city_co_05079,Barbosa,05079,05079,base.co,base.state_co_01
+connector_city_co_05086,Belmira,05086,05086,base.co,base.state_co_01
+connector_city_co_05088,Bello,05088,05088,base.co,base.state_co_01
+connector_city_co_05091,Betania,05091,05091,base.co,base.state_co_01
+connector_city_co_05093,Betulia,05093,05093,base.co,base.state_co_01
+connector_city_co_05101,Ciudad Bolívar,05101,05101,base.co,base.state_co_01
+connector_city_co_05107,Briceño,05107,05107,base.co,base.state_co_01
+connector_city_co_05113,Buriticá,05113,05113,base.co,base.state_co_01
+connector_city_co_05120,Cáceres,05120,05120,base.co,base.state_co_01
+connector_city_co_05125,Caicedo,05125,05125,base.co,base.state_co_01
+connector_city_co_05129,Caldas,05129,05129,base.co,base.state_co_01
+connector_city_co_05134,Campamento,05134,05134,base.co,base.state_co_01
+connector_city_co_05138,Cañasgordas,05138,05138,base.co,base.state_co_01
+connector_city_co_05142,Caracolí,05142,05142,base.co,base.state_co_01
+connector_city_co_05145,Caramanta,05145,05145,base.co,base.state_co_01
+connector_city_co_05147,Carepa,05147,05147,base.co,base.state_co_01
+connector_city_co_05148,El Carmen de Viboral,05148,05148,base.co,base.state_co_01
+connector_city_co_05150,Carolina,05150,05150,base.co,base.state_co_01
+connector_city_co_05154,Caucasia,05154,05154,base.co,base.state_co_01
+connector_city_co_05172,Chigorodó,05172,05172,base.co,base.state_co_01
+connector_city_co_05190,Cisneros,05190,05190,base.co,base.state_co_01
+connector_city_co_05197,Cocorná,05197,05197,base.co,base.state_co_01
+connector_city_co_05206,Concepción,05206,05206,base.co,base.state_co_01
+connector_city_co_05209,Concordia,05209,05209,base.co,base.state_co_01
+connector_city_co_05212,Copacabana,05212,05212,base.co,base.state_co_01
+connector_city_co_05234,Dabeiba,05234,05234,base.co,base.state_co_01
+connector_city_co_05237,Donmatías,05237,05237,base.co,base.state_co_01
+connector_city_co_05240,Ebéjico,05240,05240,base.co,base.state_co_01
+connector_city_co_05250,El Bagre,05250,05250,base.co,base.state_co_01
+connector_city_co_05264,Entrerríos,05264,05264,base.co,base.state_co_01
+connector_city_co_05266,Envigado,05266,05266,base.co,base.state_co_01
+connector_city_co_05282,Fredonia,05282,05282,base.co,base.state_co_01
+connector_city_co_05284,Frontino,05284,05284,base.co,base.state_co_01
+connector_city_co_05306,Giraldo,05306,05306,base.co,base.state_co_01
+connector_city_co_05308,Girardota,05308,05308,base.co,base.state_co_01
+connector_city_co_05310,Gómez Plata,05310,05310,base.co,base.state_co_01
+connector_city_co_05313,Granada,05313,05313,base.co,base.state_co_01
+connector_city_co_05315,Guadalupe,05315,05315,base.co,base.state_co_01
+connector_city_co_05318,Guarne,05318,05318,base.co,base.state_co_01
+connector_city_co_05321,Guatapé,05321,05321,base.co,base.state_co_01
+connector_city_co_05347,Heliconia,05347,05347,base.co,base.state_co_01
+connector_city_co_05353,Hispania,05353,05353,base.co,base.state_co_01
+connector_city_co_05360,Itagüí,05360,05360,base.co,base.state_co_01
+connector_city_co_05361,Ituango,05361,05361,base.co,base.state_co_01
+connector_city_co_05364,Jardín,05364,05364,base.co,base.state_co_01
+connector_city_co_05368,Jericó,05368,05368,base.co,base.state_co_01
+connector_city_co_05376,La Ceja,05376,05376,base.co,base.state_co_01
+connector_city_co_05380,La Estrella,05380,05380,base.co,base.state_co_01
+connector_city_co_05390,La Pintada,05390,05390,base.co,base.state_co_01
+connector_city_co_05400,La Unión,05400,05400,base.co,base.state_co_01
+connector_city_co_05411,Liborina,05411,05411,base.co,base.state_co_01
+connector_city_co_05425,Maceo,05425,05425,base.co,base.state_co_01
+connector_city_co_05440,Marinilla,05440,05440,base.co,base.state_co_01
+connector_city_co_05467,Montebello,05467,05467,base.co,base.state_co_01
+connector_city_co_05475,Murindó,05475,05475,base.co,base.state_co_01
+connector_city_co_05480,Mutatá,05480,05480,base.co,base.state_co_01
+connector_city_co_05483,Nariño,05483,05483,base.co,base.state_co_01
+connector_city_co_05490,Necoclí,05490,05490,base.co,base.state_co_01
+connector_city_co_05495,Nechí,05495,05495,base.co,base.state_co_01
+connector_city_co_05501,Olaya,05501,05501,base.co,base.state_co_01
+connector_city_co_05541,Peñol,05541,05541,base.co,base.state_co_01
+connector_city_co_05543,Peque,05543,05543,base.co,base.state_co_01
+connector_city_co_05576,Pueblorrico,05576,05576,base.co,base.state_co_01
+connector_city_co_05579,Puerto Berrío,05579,05579,base.co,base.state_co_01
+connector_city_co_05585,Puerto Nare,05585,05585,base.co,base.state_co_01
+connector_city_co_05591,Puerto Triunfo,05591,05591,base.co,base.state_co_01
+connector_city_co_05604,Remedios,05604,05604,base.co,base.state_co_01
+connector_city_co_05607,Retiro,05607,05607,base.co,base.state_co_01
+connector_city_co_05615,Rionegro,05615,05615,base.co,base.state_co_01
+connector_city_co_05628,Sabanalarga,05628,05628,base.co,base.state_co_01
+connector_city_co_05631,Sabaneta,05631,05631,base.co,base.state_co_01
+connector_city_co_05642,Salgar,05642,05642,base.co,base.state_co_01
+connector_city_co_05647,San Andrés de Cuerquía,05647,05647,base.co,base.state_co_01
+connector_city_co_05649,San Carlos,05649,05649,base.co,base.state_co_01
+connector_city_co_05652,San Francisco,05652,05652,base.co,base.state_co_01
+connector_city_co_05656,San Jerónimo,05656,05656,base.co,base.state_co_01
+connector_city_co_05658,San José de la Montaña,05658,05658,base.co,base.state_co_01
+connector_city_co_05659,San Juan de Urabá,05659,05659,base.co,base.state_co_01
+connector_city_co_05660,San Luis,05660,05660,base.co,base.state_co_01
+connector_city_co_05664,San Pedro de los Milagros,05664,05664,base.co,base.state_co_01
+connector_city_co_05665,San Pedro de Urabá,05665,05665,base.co,base.state_co_01
+connector_city_co_05667,San Rafael,05667,05667,base.co,base.state_co_01
+connector_city_co_05670,San Roque,05670,05670,base.co,base.state_co_01
+connector_city_co_05674,San Vicente Ferrer,05674,05674,base.co,base.state_co_01
+connector_city_co_05679,Santa Bárbara,05679,05679,base.co,base.state_co_01
+connector_city_co_05686,Santa Rosa de Osos,05686,05686,base.co,base.state_co_01
+connector_city_co_05690,Santo Domingo,05690,05690,base.co,base.state_co_01
+connector_city_co_05697,El Santuario,05697,05697,base.co,base.state_co_01
+connector_city_co_05736,Segovia,05736,05736,base.co,base.state_co_01
+connector_city_co_05756,Sonsón,05756,05756,base.co,base.state_co_01
+connector_city_co_05761,Sopetrán,05761,05761,base.co,base.state_co_01
+connector_city_co_05789,Támesis,05789,05789,base.co,base.state_co_01
+connector_city_co_05790,Tarazá,05790,05790,base.co,base.state_co_01
+connector_city_co_05792,Tarso,05792,05792,base.co,base.state_co_01
+connector_city_co_05809,Titiribí,05809,05809,base.co,base.state_co_01
+connector_city_co_05819,Toledo,05819,05819,base.co,base.state_co_01
+connector_city_co_05837,Turbo,05837,05837,base.co,base.state_co_01
+connector_city_co_05842,Uramita,05842,05842,base.co,base.state_co_01
+connector_city_co_05847,Urrao,05847,05847,base.co,base.state_co_01
+connector_city_co_05854,Valdivia,05854,05854,base.co,base.state_co_01
+connector_city_co_05856,Valparaíso,05856,05856,base.co,base.state_co_01
+connector_city_co_05858,Vegachí,05858,05858,base.co,base.state_co_01
+connector_city_co_05861,Venecia,05861,05861,base.co,base.state_co_01
+connector_city_co_05873,Vigía del Fuerte,05873,05873,base.co,base.state_co_01
+connector_city_co_05885,Yalí,05885,05885,base.co,base.state_co_01
+connector_city_co_05887,Yarumal,05887,05887,base.co,base.state_co_01
+connector_city_co_05890,Yolombó,05890,05890,base.co,base.state_co_01
+connector_city_co_05893,Yondó,05893,05893,base.co,base.state_co_01
+connector_city_co_05895,Zaragoza,05895,05895,base.co,base.state_co_01
+connector_city_co_08001,Barranquilla,08001,08001,base.co,base.state_co_02
+connector_city_co_08078,Baranoa,08078,08078,base.co,base.state_co_02
+connector_city_co_08137,Campo de la Cruz,08137,08137,base.co,base.state_co_02
+connector_city_co_08141,Candelaria,08141,08141,base.co,base.state_co_02
+connector_city_co_08296,Galapa,08296,08296,base.co,base.state_co_02
+connector_city_co_08372,Juan de Acosta,08372,08372,base.co,base.state_co_02
+connector_city_co_08421,Luruaco,08421,08421,base.co,base.state_co_02
+connector_city_co_08433,Malambo,08433,08433,base.co,base.state_co_02
+connector_city_co_08436,Manatí,08436,08436,base.co,base.state_co_02
+connector_city_co_08520,Palmar de Varela,08520,08520,base.co,base.state_co_02
+connector_city_co_08549,Piojó,08549,08549,base.co,base.state_co_02
+connector_city_co_08558,Polonuevo,08558,08558,base.co,base.state_co_02
+connector_city_co_08560,Ponedera,08560,08560,base.co,base.state_co_02
+connector_city_co_08573,Puerto Colombia,08573,08573,base.co,base.state_co_02
+connector_city_co_08606,Repelón,08606,08606,base.co,base.state_co_02
+connector_city_co_08634,Sabanagrande,08634,08634,base.co,base.state_co_02
+connector_city_co_08638,Sabanalarga,08638,08638,base.co,base.state_co_02
+connector_city_co_08675,Santa Lucía,08675,08675,base.co,base.state_co_02
+connector_city_co_08685,Santo Tomás,08685,08685,base.co,base.state_co_02
+connector_city_co_08758,Soledad,08758,08758,base.co,base.state_co_02
+connector_city_co_08770,Suan,08770,08770,base.co,base.state_co_02
+connector_city_co_08832,Tubará,08832,08832,base.co,base.state_co_02
+connector_city_co_08849,Usiacurí,08849,08849,base.co,base.state_co_02
+connector_city_co_11001,"Bogotá, D.C.",11001,11001,base.co,base.state_co_03
+connector_city_co_13001,Cartagena de Indias,13001,13001,base.co,base.state_co_04
+connector_city_co_13006,Achí,13006,13006,base.co,base.state_co_04
+connector_city_co_13030,Altos del Rosario,13030,13030,base.co,base.state_co_04
+connector_city_co_13042,Arenal,13042,13042,base.co,base.state_co_04
+connector_city_co_13052,Arjona,13052,13052,base.co,base.state_co_04
+connector_city_co_13062,Arroyohondo,13062,13062,base.co,base.state_co_04
+connector_city_co_13074,Barranco de Loba,13074,13074,base.co,base.state_co_04
+connector_city_co_13140,Calamar,13140,13140,base.co,base.state_co_04
+connector_city_co_13160,Cantagallo,13160,13160,base.co,base.state_co_04
+connector_city_co_13188,Cicuco,13188,13188,base.co,base.state_co_04
+connector_city_co_13212,Córdoba,13212,13212,base.co,base.state_co_04
+connector_city_co_13222,Clemencia,13222,13222,base.co,base.state_co_04
+connector_city_co_13244,El Carmen de Bolívar,13244,13244,base.co,base.state_co_04
+connector_city_co_13248,El Guamo,13248,13248,base.co,base.state_co_04
+connector_city_co_13268,El Peñón,13268,13268,base.co,base.state_co_04
+connector_city_co_13300,Hatillo de Loba,13300,13300,base.co,base.state_co_04
+connector_city_co_13430,Magangué,13430,13430,base.co,base.state_co_04
+connector_city_co_13433,Mahates,13433,13433,base.co,base.state_co_04
+connector_city_co_13440,Margarita,13440,13440,base.co,base.state_co_04
+connector_city_co_13442,María la Baja,13442,13442,base.co,base.state_co_04
+connector_city_co_13458,Montecristo,13458,13458,base.co,base.state_co_04
+connector_city_co_13468,Santa Cruz de Mompox,13468,13468,base.co,base.state_co_04
+connector_city_co_13473,Morales,13473,13473,base.co,base.state_co_04
+connector_city_co_13490,Norosí,13490,13490,base.co,base.state_co_04
+connector_city_co_13549,Pinillos,13549,13549,base.co,base.state_co_04
+connector_city_co_13580,Regidor,13580,13580,base.co,base.state_co_04
+connector_city_co_13600,Río Viejo,13600,13600,base.co,base.state_co_04
+connector_city_co_13620,San Cristóbal,13620,13620,base.co,base.state_co_04
+connector_city_co_13647,San Estanislao,13647,13647,base.co,base.state_co_04
+connector_city_co_13650,San Fernando,13650,13650,base.co,base.state_co_04
+connector_city_co_13654,San Jacinto,13654,13654,base.co,base.state_co_04
+connector_city_co_13655,San Jacinto del Cauca,13655,13655,base.co,base.state_co_04
+connector_city_co_13657,San Juan Nepomuceno,13657,13657,base.co,base.state_co_04
+connector_city_co_13667,San Martín de Loba,13667,13667,base.co,base.state_co_04
+connector_city_co_13670,San Pablo,13670,13670,base.co,base.state_co_04
+connector_city_co_13673,Santa Catalina,13673,13673,base.co,base.state_co_04
+connector_city_co_13683,Santa Rosa,13683,13683,base.co,base.state_co_04
+connector_city_co_13688,Santa Rosa del Sur,13688,13688,base.co,base.state_co_04
+connector_city_co_13744,Simití,13744,13744,base.co,base.state_co_04
+connector_city_co_13760,Soplaviento,13760,13760,base.co,base.state_co_04
+connector_city_co_13780,Talaigua Nuevo,13780,13780,base.co,base.state_co_04
+connector_city_co_13810,Tiquisio,13810,13810,base.co,base.state_co_04
+connector_city_co_13836,Turbaco,13836,13836,base.co,base.state_co_04
+connector_city_co_13838,Turbaná,13838,13838,base.co,base.state_co_04
+connector_city_co_13873,Villanueva,13873,13873,base.co,base.state_co_04
+connector_city_co_13894,Zambrano,13894,13894,base.co,base.state_co_04
+connector_city_co_15001,Tunja,15001,15001,base.co,base.state_co_05
+connector_city_co_15022,Almeida,15022,15022,base.co,base.state_co_05
+connector_city_co_15047,Aquitania,15047,15047,base.co,base.state_co_05
+connector_city_co_15051,Arcabuco,15051,15051,base.co,base.state_co_05
+connector_city_co_15087,Belén,15087,15087,base.co,base.state_co_05
+connector_city_co_15090,Berbeo,15090,15090,base.co,base.state_co_05
+connector_city_co_15092,Betéitiva,15092,15092,base.co,base.state_co_05
+connector_city_co_15097,Boavita,15097,15097,base.co,base.state_co_05
+connector_city_co_15104,Boyacá,15104,15104,base.co,base.state_co_05
+connector_city_co_15106,Briceño,15106,15106,base.co,base.state_co_05
+connector_city_co_15109,Buenavista,15109,15109,base.co,base.state_co_05
+connector_city_co_15114,Busbanzá,15114,15114,base.co,base.state_co_05
+connector_city_co_15131,Caldas,15131,15131,base.co,base.state_co_05
+connector_city_co_15135,Campohermoso,15135,15135,base.co,base.state_co_05
+connector_city_co_15162,Cerinza,15162,15162,base.co,base.state_co_05
+connector_city_co_15172,Chinavita,15172,15172,base.co,base.state_co_05
+connector_city_co_15176,Chiquinquirá,15176,15176,base.co,base.state_co_05
+connector_city_co_15180,Chiscas,15180,15180,base.co,base.state_co_05
+connector_city_co_15183,Chita,15183,15183,base.co,base.state_co_05
+connector_city_co_15185,Chitaraque,15185,15185,base.co,base.state_co_05
+connector_city_co_15187,Chivatá,15187,15187,base.co,base.state_co_05
+connector_city_co_15189,Ciénega,15189,15189,base.co,base.state_co_05
+connector_city_co_15204,Cómbita,15204,15204,base.co,base.state_co_05
+connector_city_co_15212,Coper,15212,15212,base.co,base.state_co_05
+connector_city_co_15215,Corrales,15215,15215,base.co,base.state_co_05
+connector_city_co_15218,Covarachía,15218,15218,base.co,base.state_co_05
+connector_city_co_15223,Cubará,15223,15223,base.co,base.state_co_05
+connector_city_co_15224,Cucaita,15224,15224,base.co,base.state_co_05
+connector_city_co_15226,Cuítiva,15226,15226,base.co,base.state_co_05
+connector_city_co_15232,Chíquiza,15232,15232,base.co,base.state_co_05
+connector_city_co_15236,Chivor,15236,15236,base.co,base.state_co_05
+connector_city_co_15238,Duitama,15238,15238,base.co,base.state_co_05
+connector_city_co_15244,El Cocuy,15244,15244,base.co,base.state_co_05
+connector_city_co_15248,El Espino,15248,15248,base.co,base.state_co_05
+connector_city_co_15272,Firavitoba,15272,15272,base.co,base.state_co_05
+connector_city_co_15276,Floresta,15276,15276,base.co,base.state_co_05
+connector_city_co_15293,Gachantivá,15293,15293,base.co,base.state_co_05
+connector_city_co_15296,Gámeza,15296,15296,base.co,base.state_co_05
+connector_city_co_15299,Garagoa,15299,15299,base.co,base.state_co_05
+connector_city_co_15317,Guacamayas,15317,15317,base.co,base.state_co_05
+connector_city_co_15322,Guateque,15322,15322,base.co,base.state_co_05
+connector_city_co_15325,Guayatá,15325,15325,base.co,base.state_co_05
+connector_city_co_15332,Güicán de la Sierra,15332,15332,base.co,base.state_co_05
+connector_city_co_15362,Iza,15362,15362,base.co,base.state_co_05
+connector_city_co_15367,Jenesano,15367,15367,base.co,base.state_co_05
+connector_city_co_15368,Jericó,15368,15368,base.co,base.state_co_05
+connector_city_co_15377,Labranzagrande,15377,15377,base.co,base.state_co_05
+connector_city_co_15380,La Capilla,15380,15380,base.co,base.state_co_05
+connector_city_co_15401,La Victoria,15401,15401,base.co,base.state_co_05
+connector_city_co_15403,La Uvita,15403,15403,base.co,base.state_co_05
+connector_city_co_15407,Villa de Leyva,15407,15407,base.co,base.state_co_05
+connector_city_co_15425,Macanal,15425,15425,base.co,base.state_co_05
+connector_city_co_15442,Maripí,15442,15442,base.co,base.state_co_05
+connector_city_co_15455,Miraflores,15455,15455,base.co,base.state_co_05
+connector_city_co_15464,Mongua,15464,15464,base.co,base.state_co_05
+connector_city_co_15466,Monguí,15466,15466,base.co,base.state_co_05
+connector_city_co_15469,Moniquirá,15469,15469,base.co,base.state_co_05
+connector_city_co_15476,Motavita,15476,15476,base.co,base.state_co_05
+connector_city_co_15480,Muzo,15480,15480,base.co,base.state_co_05
+connector_city_co_15491,Nobsa,15491,15491,base.co,base.state_co_05
+connector_city_co_15494,Nuevo Colón,15494,15494,base.co,base.state_co_05
+connector_city_co_15500,Oicatá,15500,15500,base.co,base.state_co_05
+connector_city_co_15507,Otanche,15507,15507,base.co,base.state_co_05
+connector_city_co_15511,Pachavita,15511,15511,base.co,base.state_co_05
+connector_city_co_15514,Páez,15514,15514,base.co,base.state_co_05
+connector_city_co_15516,Paipa,15516,15516,base.co,base.state_co_05
+connector_city_co_15518,Pajarito,15518,15518,base.co,base.state_co_05
+connector_city_co_15522,Panqueba,15522,15522,base.co,base.state_co_05
+connector_city_co_15531,Pauna,15531,15531,base.co,base.state_co_05
+connector_city_co_15533,Paya,15533,15533,base.co,base.state_co_05
+connector_city_co_15537,Paz de Río,15537,15537,base.co,base.state_co_05
+connector_city_co_15542,Pesca,15542,15542,base.co,base.state_co_05
+connector_city_co_15550,Pisba,15550,15550,base.co,base.state_co_05
+connector_city_co_15572,Puerto Boyacá,15572,15572,base.co,base.state_co_05
+connector_city_co_15580,Quípama,15580,15580,base.co,base.state_co_05
+connector_city_co_15599,Ramiriquí,15599,15599,base.co,base.state_co_05
+connector_city_co_15600,Ráquira,15600,15600,base.co,base.state_co_05
+connector_city_co_15621,Rondón,15621,15621,base.co,base.state_co_05
+connector_city_co_15632,Saboyá,15632,15632,base.co,base.state_co_05
+connector_city_co_15638,Sáchica,15638,15638,base.co,base.state_co_05
+connector_city_co_15646,Samacá,15646,15646,base.co,base.state_co_05
+connector_city_co_15660,San Eduardo,15660,15660,base.co,base.state_co_05
+connector_city_co_15664,San José de Pare,15664,15664,base.co,base.state_co_05
+connector_city_co_15667,San Luis de Gaceno,15667,15667,base.co,base.state_co_05
+connector_city_co_15673,San Mateo,15673,15673,base.co,base.state_co_05
+connector_city_co_15676,San Miguel de Sema,15676,15676,base.co,base.state_co_05
+connector_city_co_15681,San Pablo de Borbur,15681,15681,base.co,base.state_co_05
+connector_city_co_15686,Santana,15686,15686,base.co,base.state_co_05
+connector_city_co_15690,Santa María,15690,15690,base.co,base.state_co_05
+connector_city_co_15693,Santa Rosa de Viterbo,15693,15693,base.co,base.state_co_05
+connector_city_co_15696,Santa Sofía,15696,15696,base.co,base.state_co_05
+connector_city_co_15720,Sativanorte,15720,15720,base.co,base.state_co_05
+connector_city_co_15723,Sativasur,15723,15723,base.co,base.state_co_05
+connector_city_co_15740,Siachoque,15740,15740,base.co,base.state_co_05
+connector_city_co_15753,Soatá,15753,15753,base.co,base.state_co_05
+connector_city_co_15755,Socotá,15755,15755,base.co,base.state_co_05
+connector_city_co_15757,Socha,15757,15757,base.co,base.state_co_05
+connector_city_co_15759,Sogamoso,15759,15759,base.co,base.state_co_05
+connector_city_co_15761,Somondoco,15761,15761,base.co,base.state_co_05
+connector_city_co_15762,Sora,15762,15762,base.co,base.state_co_05
+connector_city_co_15763,Sotaquirá,15763,15763,base.co,base.state_co_05
+connector_city_co_15764,Soracá,15764,15764,base.co,base.state_co_05
+connector_city_co_15774,Susacón,15774,15774,base.co,base.state_co_05
+connector_city_co_15776,Sutamarchán,15776,15776,base.co,base.state_co_05
+connector_city_co_15778,Sutatenza,15778,15778,base.co,base.state_co_05
+connector_city_co_15790,Tasco,15790,15790,base.co,base.state_co_05
+connector_city_co_15798,Tenza,15798,15798,base.co,base.state_co_05
+connector_city_co_15804,Tibaná,15804,15804,base.co,base.state_co_05
+connector_city_co_15806,Tibasosa,15806,15806,base.co,base.state_co_05
+connector_city_co_15808,Tinjacá,15808,15808,base.co,base.state_co_05
+connector_city_co_15810,Tipacoque,15810,15810,base.co,base.state_co_05
+connector_city_co_15814,Toca,15814,15814,base.co,base.state_co_05
+connector_city_co_15816,Togüí,15816,15816,base.co,base.state_co_05
+connector_city_co_15820,Tópaga,15820,15820,base.co,base.state_co_05
+connector_city_co_15822,Tota,15822,15822,base.co,base.state_co_05
+connector_city_co_15832,Tununguá,15832,15832,base.co,base.state_co_05
+connector_city_co_15835,Turmequé,15835,15835,base.co,base.state_co_05
+connector_city_co_15837,Tuta,15837,15837,base.co,base.state_co_05
+connector_city_co_15839,Tutazá,15839,15839,base.co,base.state_co_05
+connector_city_co_15842,Úmbita,15842,15842,base.co,base.state_co_05
+connector_city_co_15861,Ventaquemada,15861,15861,base.co,base.state_co_05
+connector_city_co_15879,Viracachá,15879,15879,base.co,base.state_co_05
+connector_city_co_15897,Zetaquira,15897,15897,base.co,base.state_co_05
+connector_city_co_17001,Manizales,17001,17001,base.co,base.state_co_06
+connector_city_co_17013,Aguadas,17013,17013,base.co,base.state_co_06
+connector_city_co_17042,Anserma,17042,17042,base.co,base.state_co_06
+connector_city_co_17050,Aranzazu,17050,17050,base.co,base.state_co_06
+connector_city_co_17088,Belalcázar,17088,17088,base.co,base.state_co_06
+connector_city_co_17174,Chinchiná,17174,17174,base.co,base.state_co_06
+connector_city_co_17272,Filadelfia,17272,17272,base.co,base.state_co_06
+connector_city_co_17380,La Dorada,17380,17380,base.co,base.state_co_06
+connector_city_co_17388,La Merced,17388,17388,base.co,base.state_co_06
+connector_city_co_17433,Manzanares,17433,17433,base.co,base.state_co_06
+connector_city_co_17442,Marmato,17442,17442,base.co,base.state_co_06
+connector_city_co_17444,Marquetalia,17444,17444,base.co,base.state_co_06
+connector_city_co_17446,Marulanda,17446,17446,base.co,base.state_co_06
+connector_city_co_17486,Neira,17486,17486,base.co,base.state_co_06
+connector_city_co_17495,Norcasia,17495,17495,base.co,base.state_co_06
+connector_city_co_17513,Pácora,17513,17513,base.co,base.state_co_06
+connector_city_co_17524,Palestina,17524,17524,base.co,base.state_co_06
+connector_city_co_17541,Pensilvania,17541,17541,base.co,base.state_co_06
+connector_city_co_17614,Riosucio,17614,17614,base.co,base.state_co_06
+connector_city_co_17616,Risaralda,17616,17616,base.co,base.state_co_06
+connector_city_co_17653,Salamina,17653,17653,base.co,base.state_co_06
+connector_city_co_17662,Samaná,17662,17662,base.co,base.state_co_06
+connector_city_co_17665,San José,17665,17665,base.co,base.state_co_06
+connector_city_co_17777,Supía,17777,17777,base.co,base.state_co_06
+connector_city_co_17867,Victoria,17867,17867,base.co,base.state_co_06
+connector_city_co_17873,Villamaría,17873,17873,base.co,base.state_co_06
+connector_city_co_17877,Viterbo,17877,17877,base.co,base.state_co_06
+connector_city_co_18001,Florencia,18001,18001,base.co,base.state_co_07
+connector_city_co_18029,Albania,18029,18029,base.co,base.state_co_07
+connector_city_co_18094,Belén de los Andaquíes,18094,18094,base.co,base.state_co_07
+connector_city_co_18150,Cartagena del Chairá,18150,18150,base.co,base.state_co_07
+connector_city_co_18205,Curillo,18205,18205,base.co,base.state_co_07
+connector_city_co_18247,El Doncello,18247,18247,base.co,base.state_co_07
+connector_city_co_18256,El Paujíl,18256,18256,base.co,base.state_co_07
+connector_city_co_18410,La Montañita,18410,18410,base.co,base.state_co_07
+connector_city_co_18460,Milán,18460,18460,base.co,base.state_co_07
+connector_city_co_18479,Morelia,18479,18479,base.co,base.state_co_07
+connector_city_co_18592,Puerto Rico,18592,18592,base.co,base.state_co_07
+connector_city_co_18610,San José del Fragua,18610,18610,base.co,base.state_co_07
+connector_city_co_18753,San Vicente del Caguán,18753,18753,base.co,base.state_co_07
+connector_city_co_18756,Solano,18756,18756,base.co,base.state_co_07
+connector_city_co_18785,Solita,18785,18785,base.co,base.state_co_07
+connector_city_co_18860,Valparaíso,18860,18860,base.co,base.state_co_07
+connector_city_co_19001,Popayán,19001,19001,base.co,base.state_co_08
+connector_city_co_19022,Almaguer,19022,19022,base.co,base.state_co_08
+connector_city_co_19050,Argelia,19050,19050,base.co,base.state_co_08
+connector_city_co_19075,Balboa,19075,19075,base.co,base.state_co_08
+connector_city_co_19100,Bolívar,19100,19100,base.co,base.state_co_08
+connector_city_co_19110,Buenos Aires,19110,19110,base.co,base.state_co_08
+connector_city_co_19130,Cajibío,19130,19130,base.co,base.state_co_08
+connector_city_co_19137,Caldono,19137,19137,base.co,base.state_co_08
+connector_city_co_19142,Caloto,19142,19142,base.co,base.state_co_08
+connector_city_co_19212,Corinto,19212,19212,base.co,base.state_co_08
+connector_city_co_19256,El Tambo,19256,19256,base.co,base.state_co_08
+connector_city_co_19290,Florencia,19290,19290,base.co,base.state_co_08
+connector_city_co_19300,Guachené,19300,19300,base.co,base.state_co_08
+connector_city_co_19318,Guapi,19318,19318,base.co,base.state_co_08
+connector_city_co_19355,Inzá,19355,19355,base.co,base.state_co_08
+connector_city_co_19364,Jambaló,19364,19364,base.co,base.state_co_08
+connector_city_co_19392,La Sierra,19392,19392,base.co,base.state_co_08
+connector_city_co_19397,La Vega,19397,19397,base.co,base.state_co_08
+connector_city_co_19418,López de Micay,19418,19418,base.co,base.state_co_08
+connector_city_co_19450,Mercaderes,19450,19450,base.co,base.state_co_08
+connector_city_co_19455,Miranda,19455,19455,base.co,base.state_co_08
+connector_city_co_19473,Morales,19473,19473,base.co,base.state_co_08
+connector_city_co_19513,Padilla,19513,19513,base.co,base.state_co_08
+connector_city_co_19517,Páez,19517,19517,base.co,base.state_co_08
+connector_city_co_19532,Patía,19532,19532,base.co,base.state_co_08
+connector_city_co_19533,Piamonte,19533,19533,base.co,base.state_co_08
+connector_city_co_19548,Piendamó - Tunía,19548,19548,base.co,base.state_co_08
+connector_city_co_19573,Puerto Tejada,19573,19573,base.co,base.state_co_08
+connector_city_co_19585,Puracé,19585,19585,base.co,base.state_co_08
+connector_city_co_19622,Rosas,19622,19622,base.co,base.state_co_08
+connector_city_co_19693,San Sebastián,19693,19693,base.co,base.state_co_08
+connector_city_co_19698,Santander de Quilichao,19698,19698,base.co,base.state_co_08
+connector_city_co_19701,Santa Rosa,19701,19701,base.co,base.state_co_08
+connector_city_co_19743,Silvia,19743,19743,base.co,base.state_co_08
+connector_city_co_19760,Sotará Paispamba,19760,19760,base.co,base.state_co_08
+connector_city_co_19780,Suárez,19780,19780,base.co,base.state_co_08
+connector_city_co_19785,Sucre,19785,19785,base.co,base.state_co_08
+connector_city_co_19807,Timbío,19807,19807,base.co,base.state_co_08
+connector_city_co_19809,Timbiquí,19809,19809,base.co,base.state_co_08
+connector_city_co_19821,Toribío,19821,19821,base.co,base.state_co_08
+connector_city_co_19824,Totoró,19824,19824,base.co,base.state_co_08
+connector_city_co_19845,Villa Rica,19845,19845,base.co,base.state_co_08
+connector_city_co_20001,Valledupar,20001,20001,base.co,base.state_co_09
+connector_city_co_20011,Aguachica,20011,20011,base.co,base.state_co_09
+connector_city_co_20013,Agustín Codazzi,20013,20013,base.co,base.state_co_09
+connector_city_co_20032,Astrea,20032,20032,base.co,base.state_co_09
+connector_city_co_20045,Becerril,20045,20045,base.co,base.state_co_09
+connector_city_co_20060,Bosconia,20060,20060,base.co,base.state_co_09
+connector_city_co_20175,Chimichagua,20175,20175,base.co,base.state_co_09
+connector_city_co_20178,Chiriguaná,20178,20178,base.co,base.state_co_09
+connector_city_co_20228,Curumaní,20228,20228,base.co,base.state_co_09
+connector_city_co_20238,El Copey,20238,20238,base.co,base.state_co_09
+connector_city_co_20250,El Paso,20250,20250,base.co,base.state_co_09
+connector_city_co_20295,Gamarra,20295,20295,base.co,base.state_co_09
+connector_city_co_20310,González,20310,20310,base.co,base.state_co_09
+connector_city_co_20383,La Gloria,20383,20383,base.co,base.state_co_09
+connector_city_co_20400,La Jagua de Ibirico,20400,20400,base.co,base.state_co_09
+connector_city_co_20443,Manaure Balcón del Cesar,20443,20443,base.co,base.state_co_09
+connector_city_co_20517,Pailitas,20517,20517,base.co,base.state_co_09
+connector_city_co_20550,Pelaya,20550,20550,base.co,base.state_co_09
+connector_city_co_20570,Pueblo Bello,20570,20570,base.co,base.state_co_09
+connector_city_co_20614,Río de Oro,20614,20614,base.co,base.state_co_09
+connector_city_co_20621,La Paz,20621,20621,base.co,base.state_co_09
+connector_city_co_20710,San Alberto,20710,20710,base.co,base.state_co_09
+connector_city_co_20750,San Diego,20750,20750,base.co,base.state_co_09
+connector_city_co_20770,San Martín,20770,20770,base.co,base.state_co_09
+connector_city_co_20787,Tamalameque,20787,20787,base.co,base.state_co_09
+connector_city_co_23001,Montería,23001,23001,base.co,base.state_co_10
+connector_city_co_23068,Ayapel,23068,23068,base.co,base.state_co_10
+connector_city_co_23079,Buenavista,23079,23079,base.co,base.state_co_10
+connector_city_co_23090,Canalete,23090,23090,base.co,base.state_co_10
+connector_city_co_23162,Cereté,23162,23162,base.co,base.state_co_10
+connector_city_co_23168,Chimá,23168,23168,base.co,base.state_co_10
+connector_city_co_23182,Chinú,23182,23182,base.co,base.state_co_10
+connector_city_co_23189,Ciénaga de Oro,23189,23189,base.co,base.state_co_10
+connector_city_co_23300,Cotorra,23300,23300,base.co,base.state_co_10
+connector_city_co_23350,La Apartada,23350,23350,base.co,base.state_co_10
+connector_city_co_23417,Lorica,23417,23417,base.co,base.state_co_10
+connector_city_co_23419,Los Córdobas,23419,23419,base.co,base.state_co_10
+connector_city_co_23464,Momil,23464,23464,base.co,base.state_co_10
+connector_city_co_23466,Montelíbano,23466,23466,base.co,base.state_co_10
+connector_city_co_23500,Moñitos,23500,23500,base.co,base.state_co_10
+connector_city_co_23555,Planeta Rica,23555,23555,base.co,base.state_co_10
+connector_city_co_23570,Pueblo Nuevo,23570,23570,base.co,base.state_co_10
+connector_city_co_23574,Puerto Escondido,23574,23574,base.co,base.state_co_10
+connector_city_co_23580,Puerto Libertador,23580,23580,base.co,base.state_co_10
+connector_city_co_23586,Purísima de la Concepción,23586,23586,base.co,base.state_co_10
+connector_city_co_23660,Sahagún,23660,23660,base.co,base.state_co_10
+connector_city_co_23670,San Andrés de Sotavento,23670,23670,base.co,base.state_co_10
+connector_city_co_23672,San Antero,23672,23672,base.co,base.state_co_10
+connector_city_co_23675,San Bernardo del Viento,23675,23675,base.co,base.state_co_10
+connector_city_co_23678,San Carlos,23678,23678,base.co,base.state_co_10
+connector_city_co_23682,San José de Uré,23682,23682,base.co,base.state_co_10
+connector_city_co_23686,San Pelayo,23686,23686,base.co,base.state_co_10
+connector_city_co_23807,Tierralta,23807,23807,base.co,base.state_co_10
+connector_city_co_23815,Tuchín,23815,23815,base.co,base.state_co_10
+connector_city_co_23855,Valencia,23855,23855,base.co,base.state_co_10
+connector_city_co_25001,Agua de Dios,25001,25001,base.co,base.state_co_11
+connector_city_co_25019,Albán,25019,25019,base.co,base.state_co_11
+connector_city_co_25035,Anapoima,25035,25035,base.co,base.state_co_11
+connector_city_co_25040,Anolaima,25040,25040,base.co,base.state_co_11
+connector_city_co_25053,Arbeláez,25053,25053,base.co,base.state_co_11
+connector_city_co_25086,Beltrán,25086,25086,base.co,base.state_co_11
+connector_city_co_25095,Bituima,25095,25095,base.co,base.state_co_11
+connector_city_co_25099,Bojacá,25099,25099,base.co,base.state_co_11
+connector_city_co_25120,Cabrera,25120,25120,base.co,base.state_co_11
+connector_city_co_25123,Cachipay,25123,25123,base.co,base.state_co_11
+connector_city_co_25126,Cajicá,25126,25126,base.co,base.state_co_11
+connector_city_co_25148,Caparrapí,25148,25148,base.co,base.state_co_11
+connector_city_co_25151,Cáqueza,25151,25151,base.co,base.state_co_11
+connector_city_co_25154,Carmen de Carupa,25154,25154,base.co,base.state_co_11
+connector_city_co_25168,Chaguaní,25168,25168,base.co,base.state_co_11
+connector_city_co_25175,Chía,25175,25175,base.co,base.state_co_11
+connector_city_co_25178,Chipaque,25178,25178,base.co,base.state_co_11
+connector_city_co_25181,Choachí,25181,25181,base.co,base.state_co_11
+connector_city_co_25183,Chocontá,25183,25183,base.co,base.state_co_11
+connector_city_co_25200,Cogua,25200,25200,base.co,base.state_co_11
+connector_city_co_25214,Cota,25214,25214,base.co,base.state_co_11
+connector_city_co_25224,Cucunubá,25224,25224,base.co,base.state_co_11
+connector_city_co_25245,El Colegio,25245,25245,base.co,base.state_co_11
+connector_city_co_25258,El Peñón,25258,25258,base.co,base.state_co_11
+connector_city_co_25260,El Rosal,25260,25260,base.co,base.state_co_11
+connector_city_co_25269,Facatativá,25269,25269,base.co,base.state_co_11
+connector_city_co_25279,Fómeque,25279,25279,base.co,base.state_co_11
+connector_city_co_25281,Fosca,25281,25281,base.co,base.state_co_11
+connector_city_co_25286,Funza,25286,25286,base.co,base.state_co_11
+connector_city_co_25288,Fúquene,25288,25288,base.co,base.state_co_11
+connector_city_co_25290,Fusagasugá,25290,25290,base.co,base.state_co_11
+connector_city_co_25293,Gachalá,25293,25293,base.co,base.state_co_11
+connector_city_co_25295,Gachancipá,25295,25295,base.co,base.state_co_11
+connector_city_co_25297,Gachetá,25297,25297,base.co,base.state_co_11
+connector_city_co_25299,Gama,25299,25299,base.co,base.state_co_11
+connector_city_co_25307,Girardot,25307,25307,base.co,base.state_co_11
+connector_city_co_25312,Granada,25312,25312,base.co,base.state_co_11
+connector_city_co_25317,Guachetá,25317,25317,base.co,base.state_co_11
+connector_city_co_25320,Guaduas,25320,25320,base.co,base.state_co_11
+connector_city_co_25322,Guasca,25322,25322,base.co,base.state_co_11
+connector_city_co_25324,Guataquí,25324,25324,base.co,base.state_co_11
+connector_city_co_25326,Guatavita,25326,25326,base.co,base.state_co_11
+connector_city_co_25328,Guayabal de Síquima,25328,25328,base.co,base.state_co_11
+connector_city_co_25335,Guayabetal,25335,25335,base.co,base.state_co_11
+connector_city_co_25339,Gutiérrez,25339,25339,base.co,base.state_co_11
+connector_city_co_25368,Jerusalén,25368,25368,base.co,base.state_co_11
+connector_city_co_25372,Junín,25372,25372,base.co,base.state_co_11
+connector_city_co_25377,La Calera,25377,25377,base.co,base.state_co_11
+connector_city_co_25386,La Mesa,25386,25386,base.co,base.state_co_11
+connector_city_co_25394,La Palma,25394,25394,base.co,base.state_co_11
+connector_city_co_25398,La Peña,25398,25398,base.co,base.state_co_11
+connector_city_co_25402,La Vega,25402,25402,base.co,base.state_co_11
+connector_city_co_25407,Lenguazaque,25407,25407,base.co,base.state_co_11
+connector_city_co_25426,Machetá,25426,25426,base.co,base.state_co_11
+connector_city_co_25430,Madrid,25430,25430,base.co,base.state_co_11
+connector_city_co_25436,Manta,25436,25436,base.co,base.state_co_11
+connector_city_co_25438,Medina,25438,25438,base.co,base.state_co_11
+connector_city_co_25473,Mosquera,25473,25473,base.co,base.state_co_11
+connector_city_co_25483,Nariño,25483,25483,base.co,base.state_co_11
+connector_city_co_25486,Nemocón,25486,25486,base.co,base.state_co_11
+connector_city_co_25488,Nilo,25488,25488,base.co,base.state_co_11
+connector_city_co_25489,Nimaima,25489,25489,base.co,base.state_co_11
+connector_city_co_25491,Nocaima,25491,25491,base.co,base.state_co_11
+connector_city_co_25506,Venecia,25506,25506,base.co,base.state_co_11
+connector_city_co_25513,Pacho,25513,25513,base.co,base.state_co_11
+connector_city_co_25518,Paime,25518,25518,base.co,base.state_co_11
+connector_city_co_25524,Pandi,25524,25524,base.co,base.state_co_11
+connector_city_co_25530,Paratebueno,25530,25530,base.co,base.state_co_11
+connector_city_co_25535,Pasca,25535,25535,base.co,base.state_co_11
+connector_city_co_25572,Puerto Salgar,25572,25572,base.co,base.state_co_11
+connector_city_co_25580,Pulí,25580,25580,base.co,base.state_co_11
+connector_city_co_25592,Quebradanegra,25592,25592,base.co,base.state_co_11
+connector_city_co_25594,Quetame,25594,25594,base.co,base.state_co_11
+connector_city_co_25596,Quipile,25596,25596,base.co,base.state_co_11
+connector_city_co_25599,Apulo,25599,25599,base.co,base.state_co_11
+connector_city_co_25612,Ricaurte,25612,25612,base.co,base.state_co_11
+connector_city_co_25645,San Antonio del Tequendama,25645,25645,base.co,base.state_co_11
+connector_city_co_25649,San Bernardo,25649,25649,base.co,base.state_co_11
+connector_city_co_25653,San Cayetano,25653,25653,base.co,base.state_co_11
+connector_city_co_25658,San Francisco,25658,25658,base.co,base.state_co_11
+connector_city_co_25662,San Juan de Rioseco,25662,25662,base.co,base.state_co_11
+connector_city_co_25718,Sasaima,25718,25718,base.co,base.state_co_11
+connector_city_co_25736,Sesquilé,25736,25736,base.co,base.state_co_11
+connector_city_co_25740,Sibaté,25740,25740,base.co,base.state_co_11
+connector_city_co_25743,Silvania,25743,25743,base.co,base.state_co_11
+connector_city_co_25745,Simijaca,25745,25745,base.co,base.state_co_11
+connector_city_co_25754,Soacha,25754,25754,base.co,base.state_co_11
+connector_city_co_25758,Sopó,25758,25758,base.co,base.state_co_11
+connector_city_co_25769,Subachoque,25769,25769,base.co,base.state_co_11
+connector_city_co_25772,Suesca,25772,25772,base.co,base.state_co_11
+connector_city_co_25777,Supatá,25777,25777,base.co,base.state_co_11
+connector_city_co_25779,Susa,25779,25779,base.co,base.state_co_11
+connector_city_co_25781,Sutatausa,25781,25781,base.co,base.state_co_11
+connector_city_co_25785,Tabio,25785,25785,base.co,base.state_co_11
+connector_city_co_25793,Tausa,25793,25793,base.co,base.state_co_11
+connector_city_co_25797,Tena,25797,25797,base.co,base.state_co_11
+connector_city_co_25799,Tenjo,25799,25799,base.co,base.state_co_11
+connector_city_co_25805,Tibacuy,25805,25805,base.co,base.state_co_11
+connector_city_co_25807,Tibirita,25807,25807,base.co,base.state_co_11
+connector_city_co_25815,Tocaima,25815,25815,base.co,base.state_co_11
+connector_city_co_25817,Tocancipá,25817,25817,base.co,base.state_co_11
+connector_city_co_25823,Topaipí,25823,25823,base.co,base.state_co_11
+connector_city_co_25839,Ubalá,25839,25839,base.co,base.state_co_11
+connector_city_co_25841,Ubaque,25841,25841,base.co,base.state_co_11
+connector_city_co_25843,Villa de San Diego de Ubaté,25843,25843,base.co,base.state_co_11
+connector_city_co_25845,Une,25845,25845,base.co,base.state_co_11
+connector_city_co_25851,Útica,25851,25851,base.co,base.state_co_11
+connector_city_co_25862,Vergara,25862,25862,base.co,base.state_co_11
+connector_city_co_25867,Vianí,25867,25867,base.co,base.state_co_11
+connector_city_co_25871,Villagómez,25871,25871,base.co,base.state_co_11
+connector_city_co_25873,Villapinzón,25873,25873,base.co,base.state_co_11
+connector_city_co_25875,Villeta,25875,25875,base.co,base.state_co_11
+connector_city_co_25878,Viotá,25878,25878,base.co,base.state_co_11
+connector_city_co_25885,Yacopí,25885,25885,base.co,base.state_co_11
+connector_city_co_25898,Zipacón,25898,25898,base.co,base.state_co_11
+connector_city_co_25899,Zipaquirá,25899,25899,base.co,base.state_co_11
+connector_city_co_27001,Quibdó,27001,27001,base.co,base.state_co_12
+connector_city_co_27006,Acandí,27006,27006,base.co,base.state_co_12
+connector_city_co_27025,Alto Baudó,27025,27025,base.co,base.state_co_12
+connector_city_co_27050,Atrato,27050,27050,base.co,base.state_co_12
+connector_city_co_27073,Bagadó,27073,27073,base.co,base.state_co_12
+connector_city_co_27075,Bahía Solano,27075,27075,base.co,base.state_co_12
+connector_city_co_27077,Bajo Baudó,27077,27077,base.co,base.state_co_12
+connector_city_co_27099,Bojayá,27099,27099,base.co,base.state_co_12
+connector_city_co_27135,El Cantón del San Pablo,27135,27135,base.co,base.state_co_12
+connector_city_co_27150,Carmen del Darién,27150,27150,base.co,base.state_co_12
+connector_city_co_27160,Cértegui,27160,27160,base.co,base.state_co_12
+connector_city_co_27205,Condoto,27205,27205,base.co,base.state_co_12
+connector_city_co_27245,El Carmen de Atrato,27245,27245,base.co,base.state_co_12
+connector_city_co_27250,El Litoral del San Juan,27250,27250,base.co,base.state_co_12
+connector_city_co_27361,Istmina,27361,27361,base.co,base.state_co_12
+connector_city_co_27372,Juradó,27372,27372,base.co,base.state_co_12
+connector_city_co_27413,Lloró,27413,27413,base.co,base.state_co_12
+connector_city_co_27425,Medio Atrato,27425,27425,base.co,base.state_co_12
+connector_city_co_27430,Medio Baudó,27430,27430,base.co,base.state_co_12
+connector_city_co_27450,Medio San Juan,27450,27450,base.co,base.state_co_12
+connector_city_co_27491,Nóvita,27491,27491,base.co,base.state_co_12
+connector_city_co_27495,Nuquí,27495,27495,base.co,base.state_co_12
+connector_city_co_27580,Río Iró,27580,27580,base.co,base.state_co_12
+connector_city_co_27600,Río Quito,27600,27600,base.co,base.state_co_12
+connector_city_co_27615,Riosucio,27615,27615,base.co,base.state_co_12
+connector_city_co_27660,San José del Palmar,27660,27660,base.co,base.state_co_12
+connector_city_co_27745,Sipí,27745,27745,base.co,base.state_co_12
+connector_city_co_27787,Tadó,27787,27787,base.co,base.state_co_12
+connector_city_co_27800,Unguía,27800,27800,base.co,base.state_co_12
+connector_city_co_27810,Unión Panamericana,27810,27810,base.co,base.state_co_12
+connector_city_co_41001,Neiva,41001,41001,base.co,base.state_co_13
+connector_city_co_41006,Acevedo,41006,41006,base.co,base.state_co_13
+connector_city_co_41013,Agrado,41013,41013,base.co,base.state_co_13
+connector_city_co_41016,Aipe,41016,41016,base.co,base.state_co_13
+connector_city_co_41020,Algeciras,41020,41020,base.co,base.state_co_13
+connector_city_co_41026,Altamira,41026,41026,base.co,base.state_co_13
+connector_city_co_41078,Baraya,41078,41078,base.co,base.state_co_13
+connector_city_co_41132,Campoalegre,41132,41132,base.co,base.state_co_13
+connector_city_co_41206,Colombia,41206,41206,base.co,base.state_co_13
+connector_city_co_41244,Elías,41244,41244,base.co,base.state_co_13
+connector_city_co_41298,Garzón,41298,41298,base.co,base.state_co_13
+connector_city_co_41306,Gigante,41306,41306,base.co,base.state_co_13
+connector_city_co_41319,Guadalupe,41319,41319,base.co,base.state_co_13
+connector_city_co_41349,Hobo,41349,41349,base.co,base.state_co_13
+connector_city_co_41357,Íquira,41357,41357,base.co,base.state_co_13
+connector_city_co_41359,Isnos,41359,41359,base.co,base.state_co_13
+connector_city_co_41378,La Argentina,41378,41378,base.co,base.state_co_13
+connector_city_co_41396,La Plata,41396,41396,base.co,base.state_co_13
+connector_city_co_41483,Nátaga,41483,41483,base.co,base.state_co_13
+connector_city_co_41503,Oporapa,41503,41503,base.co,base.state_co_13
+connector_city_co_41518,Paicol,41518,41518,base.co,base.state_co_13
+connector_city_co_41524,Palermo,41524,41524,base.co,base.state_co_13
+connector_city_co_41530,Palestina,41530,41530,base.co,base.state_co_13
+connector_city_co_41548,Pital,41548,41548,base.co,base.state_co_13
+connector_city_co_41551,Pitalito,41551,41551,base.co,base.state_co_13
+connector_city_co_41615,Rivera,41615,41615,base.co,base.state_co_13
+connector_city_co_41660,Saladoblanco,41660,41660,base.co,base.state_co_13
+connector_city_co_41668,San Agustín,41668,41668,base.co,base.state_co_13
+connector_city_co_41676,Santa María,41676,41676,base.co,base.state_co_13
+connector_city_co_41770,Suaza,41770,41770,base.co,base.state_co_13
+connector_city_co_41791,Tarqui,41791,41791,base.co,base.state_co_13
+connector_city_co_41797,Tesalia,41797,41797,base.co,base.state_co_13
+connector_city_co_41799,Tello,41799,41799,base.co,base.state_co_13
+connector_city_co_41801,Teruel,41801,41801,base.co,base.state_co_13
+connector_city_co_41807,Timaná,41807,41807,base.co,base.state_co_13
+connector_city_co_41872,Villavieja,41872,41872,base.co,base.state_co_13
+connector_city_co_41885,Yaguará,41885,41885,base.co,base.state_co_13
+connector_city_co_44001,Riohacha,44001,44001,base.co,base.state_co_14
+connector_city_co_44035,Albania,44035,44035,base.co,base.state_co_14
+connector_city_co_44078,Barrancas,44078,44078,base.co,base.state_co_14
+connector_city_co_44090,Dibulla,44090,44090,base.co,base.state_co_14
+connector_city_co_44098,Distracción,44098,44098,base.co,base.state_co_14
+connector_city_co_44110,El Molino,44110,44110,base.co,base.state_co_14
+connector_city_co_44279,Fonseca,44279,44279,base.co,base.state_co_14
+connector_city_co_44378,Hatonuevo,44378,44378,base.co,base.state_co_14
+connector_city_co_44420,La Jagua del Pilar,44420,44420,base.co,base.state_co_14
+connector_city_co_44430,Maicao,44430,44430,base.co,base.state_co_14
+connector_city_co_44560,Manaure,44560,44560,base.co,base.state_co_14
+connector_city_co_44650,San Juan del Cesar,44650,44650,base.co,base.state_co_14
+connector_city_co_44847,Uribia,44847,44847,base.co,base.state_co_14
+connector_city_co_44855,Urumita,44855,44855,base.co,base.state_co_14
+connector_city_co_44874,Villanueva,44874,44874,base.co,base.state_co_14
+connector_city_co_47001,Santa Marta,47001,47001,base.co,base.state_co_15
+connector_city_co_47030,Algarrobo,47030,47030,base.co,base.state_co_15
+connector_city_co_47053,Aracataca,47053,47053,base.co,base.state_co_15
+connector_city_co_47058,Ariguaní,47058,47058,base.co,base.state_co_15
+connector_city_co_47161,Cerro de San Antonio,47161,47161,base.co,base.state_co_15
+connector_city_co_47170,Chivolo,47170,47170,base.co,base.state_co_15
+connector_city_co_47189,Ciénaga,47189,47189,base.co,base.state_co_15
+connector_city_co_47205,Concordia,47205,47205,base.co,base.state_co_15
+connector_city_co_47245,El Banco,47245,47245,base.co,base.state_co_15
+connector_city_co_47258,El Piñón,47258,47258,base.co,base.state_co_15
+connector_city_co_47268,El Retén,47268,47268,base.co,base.state_co_15
+connector_city_co_47288,Fundación,47288,47288,base.co,base.state_co_15
+connector_city_co_47318,Guamal,47318,47318,base.co,base.state_co_15
+connector_city_co_47460,Nueva Granada,47460,47460,base.co,base.state_co_15
+connector_city_co_47541,Pedraza,47541,47541,base.co,base.state_co_15
+connector_city_co_47545,Pijiño del Carmen,47545,47545,base.co,base.state_co_15
+connector_city_co_47551,Pivijay,47551,47551,base.co,base.state_co_15
+connector_city_co_47555,Plato,47555,47555,base.co,base.state_co_15
+connector_city_co_47570,Puebloviejo,47570,47570,base.co,base.state_co_15
+connector_city_co_47605,Remolino,47605,47605,base.co,base.state_co_15
+connector_city_co_47660,Sabanas de San Ángel,47660,47660,base.co,base.state_co_15
+connector_city_co_47675,Salamina,47675,47675,base.co,base.state_co_15
+connector_city_co_47692,San Sebastián de Buenavista,47692,47692,base.co,base.state_co_15
+connector_city_co_47703,San Zenón,47703,47703,base.co,base.state_co_15
+connector_city_co_47707,Santa Ana,47707,47707,base.co,base.state_co_15
+connector_city_co_47720,Santa Bárbara de Pinto,47720,47720,base.co,base.state_co_15
+connector_city_co_47745,Sitionuevo,47745,47745,base.co,base.state_co_15
+connector_city_co_47798,Tenerife,47798,47798,base.co,base.state_co_15
+connector_city_co_47960,Zapayán,47960,47960,base.co,base.state_co_15
+connector_city_co_47980,Zona Bananera,47980,47980,base.co,base.state_co_15
+connector_city_co_50001,Villavicencio,50001,50001,base.co,base.state_co_16
+connector_city_co_50006,Acacías,50006,50006,base.co,base.state_co_16
+connector_city_co_50110,Barranca de Upía,50110,50110,base.co,base.state_co_16
+connector_city_co_50124,Cabuyaro,50124,50124,base.co,base.state_co_16
+connector_city_co_50150,Castilla la Nueva,50150,50150,base.co,base.state_co_16
+connector_city_co_50223,Cubarral,50223,50223,base.co,base.state_co_16
+connector_city_co_50226,Cumaral,50226,50226,base.co,base.state_co_16
+connector_city_co_50245,El Calvario,50245,50245,base.co,base.state_co_16
+connector_city_co_50251,El Castillo,50251,50251,base.co,base.state_co_16
+connector_city_co_50270,El Dorado,50270,50270,base.co,base.state_co_16
+connector_city_co_50287,Fuente de Oro,50287,50287,base.co,base.state_co_16
+connector_city_co_50313,Granada,50313,50313,base.co,base.state_co_16
+connector_city_co_50318,Guamal,50318,50318,base.co,base.state_co_16
+connector_city_co_50325,Mapiripán,50325,50325,base.co,base.state_co_16
+connector_city_co_50330,Mesetas,50330,50330,base.co,base.state_co_16
+connector_city_co_50350,La Macarena,50350,50350,base.co,base.state_co_16
+connector_city_co_50370,Uribe,50370,50370,base.co,base.state_co_16
+connector_city_co_50400,Lejanías,50400,50400,base.co,base.state_co_16
+connector_city_co_50450,Puerto Concordia,50450,50450,base.co,base.state_co_16
+connector_city_co_50568,Puerto Gaitán,50568,50568,base.co,base.state_co_16
+connector_city_co_50573,Puerto López,50573,50573,base.co,base.state_co_16
+connector_city_co_50577,Puerto Lleras,50577,50577,base.co,base.state_co_16
+connector_city_co_50590,Puerto Rico,50590,50590,base.co,base.state_co_16
+connector_city_co_50606,Restrepo,50606,50606,base.co,base.state_co_16
+connector_city_co_50680,San Carlos de Guaroa,50680,50680,base.co,base.state_co_16
+connector_city_co_50683,San Juan de Arama,50683,50683,base.co,base.state_co_16
+connector_city_co_50686,San Juanito,50686,50686,base.co,base.state_co_16
+connector_city_co_50689,San Martín,50689,50689,base.co,base.state_co_16
+connector_city_co_50711,Vistahermosa,50711,50711,base.co,base.state_co_16
+connector_city_co_52001,Pasto,52001,52001,base.co,base.state_co_17
+connector_city_co_52019,Albán,52019,52019,base.co,base.state_co_17
+connector_city_co_52022,Aldana,52022,52022,base.co,base.state_co_17
+connector_city_co_52036,Ancuya,52036,52036,base.co,base.state_co_17
+connector_city_co_52051,Arboleda,52051,52051,base.co,base.state_co_17
+connector_city_co_52079,Barbacoas,52079,52079,base.co,base.state_co_17
+connector_city_co_52083,Belén,52083,52083,base.co,base.state_co_17
+connector_city_co_52110,Buesaco,52110,52110,base.co,base.state_co_17
+connector_city_co_52203,Colón,52203,52203,base.co,base.state_co_17
+connector_city_co_52207,Consacá,52207,52207,base.co,base.state_co_17
+connector_city_co_52210,Contadero,52210,52210,base.co,base.state_co_17
+connector_city_co_52215,Córdoba,52215,52215,base.co,base.state_co_17
+connector_city_co_52224,Cuaspud Carlosama,52224,52224,base.co,base.state_co_17
+connector_city_co_52227,Cumbal,52227,52227,base.co,base.state_co_17
+connector_city_co_52233,Cumbitara,52233,52233,base.co,base.state_co_17
+connector_city_co_52240,Chachagüí,52240,52240,base.co,base.state_co_17
+connector_city_co_52250,El Charco,52250,52250,base.co,base.state_co_17
+connector_city_co_52254,El Peñol,52254,52254,base.co,base.state_co_17
+connector_city_co_52256,El Rosario,52256,52256,base.co,base.state_co_17
+connector_city_co_52258,El Tablón de Gómez,52258,52258,base.co,base.state_co_17
+connector_city_co_52260,El Tambo,52260,52260,base.co,base.state_co_17
+connector_city_co_52287,Funes,52287,52287,base.co,base.state_co_17
+connector_city_co_52317,Guachucal,52317,52317,base.co,base.state_co_17
+connector_city_co_52320,Guaitarilla,52320,52320,base.co,base.state_co_17
+connector_city_co_52323,Gualmatán,52323,52323,base.co,base.state_co_17
+connector_city_co_52352,Iles,52352,52352,base.co,base.state_co_17
+connector_city_co_52354,Imués,52354,52354,base.co,base.state_co_17
+connector_city_co_52356,Ipiales,52356,52356,base.co,base.state_co_17
+connector_city_co_52378,La Cruz,52378,52378,base.co,base.state_co_17
+connector_city_co_52381,La Florida,52381,52381,base.co,base.state_co_17
+connector_city_co_52385,La Llanada,52385,52385,base.co,base.state_co_17
+connector_city_co_52390,La Tola,52390,52390,base.co,base.state_co_17
+connector_city_co_52399,La Unión,52399,52399,base.co,base.state_co_17
+connector_city_co_52405,Leiva,52405,52405,base.co,base.state_co_17
+connector_city_co_52411,Linares,52411,52411,base.co,base.state_co_17
+connector_city_co_52418,Los Andes,52418,52418,base.co,base.state_co_17
+connector_city_co_52427,Magüí,52427,52427,base.co,base.state_co_17
+connector_city_co_52435,Mallama,52435,52435,base.co,base.state_co_17
+connector_city_co_52473,Mosquera,52473,52473,base.co,base.state_co_17
+connector_city_co_52480,Nariño,52480,52480,base.co,base.state_co_17
+connector_city_co_52490,Olaya Herrera,52490,52490,base.co,base.state_co_17
+connector_city_co_52506,Ospina,52506,52506,base.co,base.state_co_17
+connector_city_co_52520,Francisco Pizarro,52520,52520,base.co,base.state_co_17
+connector_city_co_52540,Policarpa,52540,52540,base.co,base.state_co_17
+connector_city_co_52560,Potosí,52560,52560,base.co,base.state_co_17
+connector_city_co_52565,Providencia,52565,52565,base.co,base.state_co_17
+connector_city_co_52573,Puerres,52573,52573,base.co,base.state_co_17
+connector_city_co_52585,Pupiales,52585,52585,base.co,base.state_co_17
+connector_city_co_52612,Ricaurte,52612,52612,base.co,base.state_co_17
+connector_city_co_52621,Roberto Payán,52621,52621,base.co,base.state_co_17
+connector_city_co_52678,Samaniego,52678,52678,base.co,base.state_co_17
+connector_city_co_52683,Sandoná,52683,52683,base.co,base.state_co_17
+connector_city_co_52685,San Bernardo,52685,52685,base.co,base.state_co_17
+connector_city_co_52687,San Lorenzo,52687,52687,base.co,base.state_co_17
+connector_city_co_52693,San Pablo,52693,52693,base.co,base.state_co_17
+connector_city_co_52694,San Pedro de Cartago,52694,52694,base.co,base.state_co_17
+connector_city_co_52696,Santa Bárbara,52696,52696,base.co,base.state_co_17
+connector_city_co_52699,Santacruz,52699,52699,base.co,base.state_co_17
+connector_city_co_52720,Sapuyes,52720,52720,base.co,base.state_co_17
+connector_city_co_52786,Taminango,52786,52786,base.co,base.state_co_17
+connector_city_co_52788,Tangua,52788,52788,base.co,base.state_co_17
+connector_city_co_52835,San Andrés de Tumaco,52835,52835,base.co,base.state_co_17
+connector_city_co_52838,Túquerres,52838,52838,base.co,base.state_co_17
+connector_city_co_52885,Yacuanquer,52885,52885,base.co,base.state_co_17
+connector_city_co_54001,San José de Cúcuta,54001,54001,base.co,base.state_co_18
+connector_city_co_54003,Ábrego,54003,54003,base.co,base.state_co_18
+connector_city_co_54051,Arboledas,54051,54051,base.co,base.state_co_18
+connector_city_co_54099,Bochalema,54099,54099,base.co,base.state_co_18
+connector_city_co_54109,Bucarasica,54109,54109,base.co,base.state_co_18
+connector_city_co_54125,Cácota,54125,54125,base.co,base.state_co_18
+connector_city_co_54128,Cáchira,54128,54128,base.co,base.state_co_18
+connector_city_co_54172,Chinácota,54172,54172,base.co,base.state_co_18
+connector_city_co_54174,Chitagá,54174,54174,base.co,base.state_co_18
+connector_city_co_54206,Convención,54206,54206,base.co,base.state_co_18
+connector_city_co_54223,Cucutilla,54223,54223,base.co,base.state_co_18
+connector_city_co_54239,Durania,54239,54239,base.co,base.state_co_18
+connector_city_co_54245,El Carmen,54245,54245,base.co,base.state_co_18
+connector_city_co_54250,El Tarra,54250,54250,base.co,base.state_co_18
+connector_city_co_54261,El Zulia,54261,54261,base.co,base.state_co_18
+connector_city_co_54313,Gramalote,54313,54313,base.co,base.state_co_18
+connector_city_co_54344,Hacarí,54344,54344,base.co,base.state_co_18
+connector_city_co_54347,Herrán,54347,54347,base.co,base.state_co_18
+connector_city_co_54377,Labateca,54377,54377,base.co,base.state_co_18
+connector_city_co_54385,La Esperanza,54385,54385,base.co,base.state_co_18
+connector_city_co_54398,La Playa,54398,54398,base.co,base.state_co_18
+connector_city_co_54405,Los Patios,54405,54405,base.co,base.state_co_18
+connector_city_co_54418,Lourdes,54418,54418,base.co,base.state_co_18
+connector_city_co_54480,Mutiscua,54480,54480,base.co,base.state_co_18
+connector_city_co_54498,Ocaña,54498,54498,base.co,base.state_co_18
+connector_city_co_54518,Pamplona,54518,54518,base.co,base.state_co_18
+connector_city_co_54520,Pamplonita,54520,54520,base.co,base.state_co_18
+connector_city_co_54553,Puerto Santander,54553,54553,base.co,base.state_co_18
+connector_city_co_54599,Ragonvalia,54599,54599,base.co,base.state_co_18
+connector_city_co_54660,Salazar,54660,54660,base.co,base.state_co_18
+connector_city_co_54670,San Calixto,54670,54670,base.co,base.state_co_18
+connector_city_co_54673,San Cayetano,54673,54673,base.co,base.state_co_18
+connector_city_co_54680,Santiago,54680,54680,base.co,base.state_co_18
+connector_city_co_54720,Sardinata,54720,54720,base.co,base.state_co_18
+connector_city_co_54743,Silos,54743,54743,base.co,base.state_co_18
+connector_city_co_54800,Teorama,54800,54800,base.co,base.state_co_18
+connector_city_co_54810,Tibú,54810,54810,base.co,base.state_co_18
+connector_city_co_54820,Toledo,54820,54820,base.co,base.state_co_18
+connector_city_co_54871,Villa Caro,54871,54871,base.co,base.state_co_18
+connector_city_co_54874,Villa del Rosario,54874,54874,base.co,base.state_co_18
+connector_city_co_63001,Armenia,63001,63001,base.co,base.state_co_19
+connector_city_co_63111,Buenavista,63111,63111,base.co,base.state_co_19
+connector_city_co_63130,Calarcá,63130,63130,base.co,base.state_co_19
+connector_city_co_63190,Circasia,63190,63190,base.co,base.state_co_19
+connector_city_co_63212,Córdoba,63212,63212,base.co,base.state_co_19
+connector_city_co_63272,Filandia,63272,63272,base.co,base.state_co_19
+connector_city_co_63302,Génova,63302,63302,base.co,base.state_co_19
+connector_city_co_63401,La Tebaida,63401,63401,base.co,base.state_co_19
+connector_city_co_63470,Montenegro,63470,63470,base.co,base.state_co_19
+connector_city_co_63548,Pijao,63548,63548,base.co,base.state_co_19
+connector_city_co_63594,Quimbaya,63594,63594,base.co,base.state_co_19
+connector_city_co_63690,Salento,63690,63690,base.co,base.state_co_19
+connector_city_co_66001,Pereira,66001,66001,base.co,base.state_co_20
+connector_city_co_66045,Apía,66045,66045,base.co,base.state_co_20
+connector_city_co_66075,Balboa,66075,66075,base.co,base.state_co_20
+connector_city_co_66088,Belén de Umbría,66088,66088,base.co,base.state_co_20
+connector_city_co_66170,Dosquebradas,66170,66170,base.co,base.state_co_20
+connector_city_co_66318,Guática,66318,66318,base.co,base.state_co_20
+connector_city_co_66383,La Celia,66383,66383,base.co,base.state_co_20
+connector_city_co_66400,La Virginia,66400,66400,base.co,base.state_co_20
+connector_city_co_66440,Marsella,66440,66440,base.co,base.state_co_20
+connector_city_co_66456,Mistrató,66456,66456,base.co,base.state_co_20
+connector_city_co_66572,Pueblo Rico,66572,66572,base.co,base.state_co_20
+connector_city_co_66594,Quinchía,66594,66594,base.co,base.state_co_20
+connector_city_co_66682,Santa Rosa de Cabal,66682,66682,base.co,base.state_co_20
+connector_city_co_66687,Santuario,66687,66687,base.co,base.state_co_20
+connector_city_co_68001,Bucaramanga,68001,68001,base.co,base.state_co_21
+connector_city_co_68013,Aguada,68013,68013,base.co,base.state_co_21
+connector_city_co_68020,Albania,68020,68020,base.co,base.state_co_21
+connector_city_co_68051,Aratoca,68051,68051,base.co,base.state_co_21
+connector_city_co_68077,Barbosa,68077,68077,base.co,base.state_co_21
+connector_city_co_68079,Barichara,68079,68079,base.co,base.state_co_21
+connector_city_co_68081,Barrancabermeja,68081,68081,base.co,base.state_co_21
+connector_city_co_68092,Betulia,68092,68092,base.co,base.state_co_21
+connector_city_co_68101,Bolívar,68101,68101,base.co,base.state_co_21
+connector_city_co_68121,Cabrera,68121,68121,base.co,base.state_co_21
+connector_city_co_68132,California,68132,68132,base.co,base.state_co_21
+connector_city_co_68147,Capitanejo,68147,68147,base.co,base.state_co_21
+connector_city_co_68152,Carcasí,68152,68152,base.co,base.state_co_21
+connector_city_co_68160,Cepitá,68160,68160,base.co,base.state_co_21
+connector_city_co_68162,Cerrito,68162,68162,base.co,base.state_co_21
+connector_city_co_68167,Charalá,68167,68167,base.co,base.state_co_21
+connector_city_co_68169,Charta,68169,68169,base.co,base.state_co_21
+connector_city_co_68176,Chima,68176,68176,base.co,base.state_co_21
+connector_city_co_68179,Chipatá,68179,68179,base.co,base.state_co_21
+connector_city_co_68190,Cimitarra,68190,68190,base.co,base.state_co_21
+connector_city_co_68207,Concepción,68207,68207,base.co,base.state_co_21
+connector_city_co_68209,Confines,68209,68209,base.co,base.state_co_21
+connector_city_co_68211,Contratación,68211,68211,base.co,base.state_co_21
+connector_city_co_68217,Coromoro,68217,68217,base.co,base.state_co_21
+connector_city_co_68229,Curití,68229,68229,base.co,base.state_co_21
+connector_city_co_68235,El Carmen de Chucurí,68235,68235,base.co,base.state_co_21
+connector_city_co_68245,El Guacamayo,68245,68245,base.co,base.state_co_21
+connector_city_co_68250,El Peñón,68250,68250,base.co,base.state_co_21
+connector_city_co_68255,El Playón,68255,68255,base.co,base.state_co_21
+connector_city_co_68264,Encino,68264,68264,base.co,base.state_co_21
+connector_city_co_68266,Enciso,68266,68266,base.co,base.state_co_21
+connector_city_co_68271,Florián,68271,68271,base.co,base.state_co_21
+connector_city_co_68276,Floridablanca,68276,68276,base.co,base.state_co_21
+connector_city_co_68296,Galán,68296,68296,base.co,base.state_co_21
+connector_city_co_68298,Gámbita,68298,68298,base.co,base.state_co_21
+connector_city_co_68307,Girón,68307,68307,base.co,base.state_co_21
+connector_city_co_68318,Guaca,68318,68318,base.co,base.state_co_21
+connector_city_co_68320,Guadalupe,68320,68320,base.co,base.state_co_21
+connector_city_co_68322,Guapotá,68322,68322,base.co,base.state_co_21
+connector_city_co_68324,Guavatá,68324,68324,base.co,base.state_co_21
+connector_city_co_68327,Güepsa,68327,68327,base.co,base.state_co_21
+connector_city_co_68344,Hato,68344,68344,base.co,base.state_co_21
+connector_city_co_68368,Jesús María,68368,68368,base.co,base.state_co_21
+connector_city_co_68370,Jordán,68370,68370,base.co,base.state_co_21
+connector_city_co_68377,La Belleza,68377,68377,base.co,base.state_co_21
+connector_city_co_68385,Landázuri,68385,68385,base.co,base.state_co_21
+connector_city_co_68397,La Paz,68397,68397,base.co,base.state_co_21
+connector_city_co_68406,Lebrija,68406,68406,base.co,base.state_co_21
+connector_city_co_68418,Los Santos,68418,68418,base.co,base.state_co_21
+connector_city_co_68425,Macaravita,68425,68425,base.co,base.state_co_21
+connector_city_co_68432,Málaga,68432,68432,base.co,base.state_co_21
+connector_city_co_68444,Matanza,68444,68444,base.co,base.state_co_21
+connector_city_co_68464,Mogotes,68464,68464,base.co,base.state_co_21
+connector_city_co_68468,Molagavita,68468,68468,base.co,base.state_co_21
+connector_city_co_68498,Ocamonte,68498,68498,base.co,base.state_co_21
+connector_city_co_68500,Oiba,68500,68500,base.co,base.state_co_21
+connector_city_co_68502,Onzaga,68502,68502,base.co,base.state_co_21
+connector_city_co_68522,Palmar,68522,68522,base.co,base.state_co_21
+connector_city_co_68524,Palmas del Socorro,68524,68524,base.co,base.state_co_21
+connector_city_co_68533,Páramo,68533,68533,base.co,base.state_co_21
+connector_city_co_68547,Piedecuesta,68547,68547,base.co,base.state_co_21
+connector_city_co_68549,Pinchote,68549,68549,base.co,base.state_co_21
+connector_city_co_68572,Puente Nacional,68572,68572,base.co,base.state_co_21
+connector_city_co_68573,Puerto Parra,68573,68573,base.co,base.state_co_21
+connector_city_co_68575,Puerto Wilches,68575,68575,base.co,base.state_co_21
+connector_city_co_68615,Rionegro,68615,68615,base.co,base.state_co_21
+connector_city_co_68655,Sabana de Torres,68655,68655,base.co,base.state_co_21
+connector_city_co_68669,San Andrés,68669,68669,base.co,base.state_co_21
+connector_city_co_68673,San Benito,68673,68673,base.co,base.state_co_21
+connector_city_co_68679,San Gil,68679,68679,base.co,base.state_co_21
+connector_city_co_68682,San Joaquín,68682,68682,base.co,base.state_co_21
+connector_city_co_68684,San José de Miranda,68684,68684,base.co,base.state_co_21
+connector_city_co_68686,San Miguel,68686,68686,base.co,base.state_co_21
+connector_city_co_68689,San Vicente de Chucurí,68689,68689,base.co,base.state_co_21
+connector_city_co_68705,Santa Bárbara,68705,68705,base.co,base.state_co_21
+connector_city_co_68720,Santa Helena del Opón,68720,68720,base.co,base.state_co_21
+connector_city_co_68745,Simacota,68745,68745,base.co,base.state_co_21
+connector_city_co_68755,Socorro,68755,68755,base.co,base.state_co_21
+connector_city_co_68770,Suaita,68770,68770,base.co,base.state_co_21
+connector_city_co_68773,Sucre,68773,68773,base.co,base.state_co_21
+connector_city_co_68780,Suratá,68780,68780,base.co,base.state_co_21
+connector_city_co_68820,Tona,68820,68820,base.co,base.state_co_21
+connector_city_co_68855,Valle de San José,68855,68855,base.co,base.state_co_21
+connector_city_co_68861,Vélez,68861,68861,base.co,base.state_co_21
+connector_city_co_68867,Vetas,68867,68867,base.co,base.state_co_21
+connector_city_co_68872,Villanueva,68872,68872,base.co,base.state_co_21
+connector_city_co_68895,Zapatoca,68895,68895,base.co,base.state_co_21
+connector_city_co_70001,Sincelejo,70001,70001,base.co,base.state_co_22
+connector_city_co_70110,Buenavista,70110,70110,base.co,base.state_co_22
+connector_city_co_70124,Caimito,70124,70124,base.co,base.state_co_22
+connector_city_co_70204,Colosó,70204,70204,base.co,base.state_co_22
+connector_city_co_70215,Corozal,70215,70215,base.co,base.state_co_22
+connector_city_co_70221,Coveñas,70221,70221,base.co,base.state_co_22
+connector_city_co_70230,Chalán,70230,70230,base.co,base.state_co_22
+connector_city_co_70233,El Roble,70233,70233,base.co,base.state_co_22
+connector_city_co_70235,Galeras,70235,70235,base.co,base.state_co_22
+connector_city_co_70265,Guaranda,70265,70265,base.co,base.state_co_22
+connector_city_co_70400,La Unión,70400,70400,base.co,base.state_co_22
+connector_city_co_70418,Los Palmitos,70418,70418,base.co,base.state_co_22
+connector_city_co_70429,Majagual,70429,70429,base.co,base.state_co_22
+connector_city_co_70473,Morroa,70473,70473,base.co,base.state_co_22
+connector_city_co_70508,Ovejas,70508,70508,base.co,base.state_co_22
+connector_city_co_70523,Palmito,70523,70523,base.co,base.state_co_22
+connector_city_co_70670,Sampués,70670,70670,base.co,base.state_co_22
+connector_city_co_70678,San Benito Abad,70678,70678,base.co,base.state_co_22
+connector_city_co_70702,San Juan de Betulia,70702,70702,base.co,base.state_co_22
+connector_city_co_70708,San Marcos,70708,70708,base.co,base.state_co_22
+connector_city_co_70713,San Onofre,70713,70713,base.co,base.state_co_22
+connector_city_co_70717,San Pedro,70717,70717,base.co,base.state_co_22
+connector_city_co_70742,San Luis de Sincé,70742,70742,base.co,base.state_co_22
+connector_city_co_70771,Sucre,70771,70771,base.co,base.state_co_22
+connector_city_co_70820,Santiago de Tolú,70820,70820,base.co,base.state_co_22
+connector_city_co_70823,San José de Toluviejo,70823,70823,base.co,base.state_co_22
+connector_city_co_73001,Ibagué,73001,73001,base.co,base.state_co_23
+connector_city_co_73024,Alpujarra,73024,73024,base.co,base.state_co_23
+connector_city_co_73026,Alvarado,73026,73026,base.co,base.state_co_23
+connector_city_co_73030,Ambalema,73030,73030,base.co,base.state_co_23
+connector_city_co_73043,Anzoátegui,73043,73043,base.co,base.state_co_23
+connector_city_co_73055,Armero,73055,73055,base.co,base.state_co_23
+connector_city_co_73067,Ataco,73067,73067,base.co,base.state_co_23
+connector_city_co_73124,Cajamarca,73124,73124,base.co,base.state_co_23
+connector_city_co_73148,Carmen de Apicalá,73148,73148,base.co,base.state_co_23
+connector_city_co_73152,Casabianca,73152,73152,base.co,base.state_co_23
+connector_city_co_73168,Chaparral,73168,73168,base.co,base.state_co_23
+connector_city_co_73200,Coello,73200,73200,base.co,base.state_co_23
+connector_city_co_73217,Coyaima,73217,73217,base.co,base.state_co_23
+connector_city_co_73226,Cunday,73226,73226,base.co,base.state_co_23
+connector_city_co_73236,Dolores,73236,73236,base.co,base.state_co_23
+connector_city_co_73268,Espinal,73268,73268,base.co,base.state_co_23
+connector_city_co_73270,Falan,73270,73270,base.co,base.state_co_23
+connector_city_co_73275,Flandes,73275,73275,base.co,base.state_co_23
+connector_city_co_73283,Fresno,73283,73283,base.co,base.state_co_23
+connector_city_co_73319,Guamo,73319,73319,base.co,base.state_co_23
+connector_city_co_73347,Herveo,73347,73347,base.co,base.state_co_23
+connector_city_co_73349,Honda,73349,73349,base.co,base.state_co_23
+connector_city_co_73352,Icononzo,73352,73352,base.co,base.state_co_23
+connector_city_co_73408,Lérida,73408,73408,base.co,base.state_co_23
+connector_city_co_73411,Líbano,73411,73411,base.co,base.state_co_23
+connector_city_co_73443,San Sebastián de Mariquita,73443,73443,base.co,base.state_co_23
+connector_city_co_73449,Melgar,73449,73449,base.co,base.state_co_23
+connector_city_co_73461,Murillo,73461,73461,base.co,base.state_co_23
+connector_city_co_73483,Natagaima,73483,73483,base.co,base.state_co_23
+connector_city_co_73504,Ortega,73504,73504,base.co,base.state_co_23
+connector_city_co_73520,Palocabildo,73520,73520,base.co,base.state_co_23
+connector_city_co_73547,Piedras,73547,73547,base.co,base.state_co_23
+connector_city_co_73555,Planadas,73555,73555,base.co,base.state_co_23
+connector_city_co_73563,Prado,73563,73563,base.co,base.state_co_23
+connector_city_co_73585,Purificación,73585,73585,base.co,base.state_co_23
+connector_city_co_73616,Rioblanco,73616,73616,base.co,base.state_co_23
+connector_city_co_73622,Roncesvalles,73622,73622,base.co,base.state_co_23
+connector_city_co_73624,Rovira,73624,73624,base.co,base.state_co_23
+connector_city_co_73671,Saldaña,73671,73671,base.co,base.state_co_23
+connector_city_co_73675,San Antonio,73675,73675,base.co,base.state_co_23
+connector_city_co_73678,San Luis,73678,73678,base.co,base.state_co_23
+connector_city_co_73686,Santa Isabel,73686,73686,base.co,base.state_co_23
+connector_city_co_73770,Suárez,73770,73770,base.co,base.state_co_23
+connector_city_co_73854,Valle de San Juan,73854,73854,base.co,base.state_co_23
+connector_city_co_73861,Venadillo,73861,73861,base.co,base.state_co_23
+connector_city_co_73870,Villahermosa,73870,73870,base.co,base.state_co_23
+connector_city_co_73873,Villarrica,73873,73873,base.co,base.state_co_23
+connector_city_co_76001,Cali,76001,76001,base.co,base.state_co_24
+connector_city_co_76020,Alcalá,76020,76020,base.co,base.state_co_24
+connector_city_co_76036,Andalucía,76036,76036,base.co,base.state_co_24
+connector_city_co_76041,Ansermanuevo,76041,76041,base.co,base.state_co_24
+connector_city_co_76054,Argelia,76054,76054,base.co,base.state_co_24
+connector_city_co_76100,Bolívar,76100,76100,base.co,base.state_co_24
+connector_city_co_76109,Buenaventura,76109,76109,base.co,base.state_co_24
+connector_city_co_76111,Guadalajara de Buga,76111,76111,base.co,base.state_co_24
+connector_city_co_76113,Bugalagrande,76113,76113,base.co,base.state_co_24
+connector_city_co_76122,Caicedonia,76122,76122,base.co,base.state_co_24
+connector_city_co_76126,Calima,76126,76126,base.co,base.state_co_24
+connector_city_co_76130,Candelaria,76130,76130,base.co,base.state_co_24
+connector_city_co_76147,Cartago,76147,76147,base.co,base.state_co_24
+connector_city_co_76233,Dagua,76233,76233,base.co,base.state_co_24
+connector_city_co_76243,El Águila,76243,76243,base.co,base.state_co_24
+connector_city_co_76246,El Cairo,76246,76246,base.co,base.state_co_24
+connector_city_co_76248,El Cerrito,76248,76248,base.co,base.state_co_24
+connector_city_co_76250,El Dovio,76250,76250,base.co,base.state_co_24
+connector_city_co_76275,Florida,76275,76275,base.co,base.state_co_24
+connector_city_co_76306,Ginebra,76306,76306,base.co,base.state_co_24
+connector_city_co_76318,Guacarí,76318,76318,base.co,base.state_co_24
+connector_city_co_76364,Jamundí,76364,76364,base.co,base.state_co_24
+connector_city_co_76377,La Cumbre,76377,76377,base.co,base.state_co_24
+connector_city_co_76400,La Unión,76400,76400,base.co,base.state_co_24
+connector_city_co_76403,La Victoria,76403,76403,base.co,base.state_co_24
+connector_city_co_76497,Obando,76497,76497,base.co,base.state_co_24
+connector_city_co_76520,Palmira,76520,76520,base.co,base.state_co_24
+connector_city_co_76563,Pradera,76563,76563,base.co,base.state_co_24
+connector_city_co_76606,Restrepo,76606,76606,base.co,base.state_co_24
+connector_city_co_76616,Riofrío,76616,76616,base.co,base.state_co_24
+connector_city_co_76622,Roldanillo,76622,76622,base.co,base.state_co_24
+connector_city_co_76670,San Pedro,76670,76670,base.co,base.state_co_24
+connector_city_co_76736,Sevilla,76736,76736,base.co,base.state_co_24
+connector_city_co_76823,Toro,76823,76823,base.co,base.state_co_24
+connector_city_co_76828,Trujillo,76828,76828,base.co,base.state_co_24
+connector_city_co_76834,Tuluá,76834,76834,base.co,base.state_co_24
+connector_city_co_76845,Ulloa,76845,76845,base.co,base.state_co_24
+connector_city_co_76863,Versalles,76863,76863,base.co,base.state_co_24
+connector_city_co_76869,Vijes,76869,76869,base.co,base.state_co_24
+connector_city_co_76890,Yotoco,76890,76890,base.co,base.state_co_24
+connector_city_co_76892,Yumbo,76892,76892,base.co,base.state_co_24
+connector_city_co_76895,Zarzal,76895,76895,base.co,base.state_co_24
+connector_city_co_81001,Arauca,81001,81001,base.co,base.state_co_25
+connector_city_co_81065,Arauquita,81065,81065,base.co,base.state_co_25
+connector_city_co_81220,Cravo Norte,81220,81220,base.co,base.state_co_25
+connector_city_co_81300,Fortul,81300,81300,base.co,base.state_co_25
+connector_city_co_81591,Puerto Rondón,81591,81591,base.co,base.state_co_25
+connector_city_co_81736,Saravena,81736,81736,base.co,base.state_co_25
+connector_city_co_81794,Tame,81794,81794,base.co,base.state_co_25
+connector_city_co_85001,Yopal,85001,85001,base.co,base.state_co_26
+connector_city_co_85010,Aguazul,85010,85010,base.co,base.state_co_26
+connector_city_co_85015,Chámeza,85015,85015,base.co,base.state_co_26
+connector_city_co_85125,Hato Corozal,85125,85125,base.co,base.state_co_26
+connector_city_co_85136,La Salina,85136,85136,base.co,base.state_co_26
+connector_city_co_85139,Maní,85139,85139,base.co,base.state_co_26
+connector_city_co_85162,Monterrey,85162,85162,base.co,base.state_co_26
+connector_city_co_85225,Nunchía,85225,85225,base.co,base.state_co_26
+connector_city_co_85230,Orocué,85230,85230,base.co,base.state_co_26
+connector_city_co_85250,Paz de Ariporo,85250,85250,base.co,base.state_co_26
+connector_city_co_85263,Pore,85263,85263,base.co,base.state_co_26
+connector_city_co_85279,Recetor,85279,85279,base.co,base.state_co_26
+connector_city_co_85300,Sabanalarga,85300,85300,base.co,base.state_co_26
+connector_city_co_85315,Sácama,85315,85315,base.co,base.state_co_26
+connector_city_co_85325,San Luis de Palenque,85325,85325,base.co,base.state_co_26
+connector_city_co_85400,Támara,85400,85400,base.co,base.state_co_26
+connector_city_co_85410,Tauramena,85410,85410,base.co,base.state_co_26
+connector_city_co_85430,Trinidad,85430,85430,base.co,base.state_co_26
+connector_city_co_85440,Villanueva,85440,85440,base.co,base.state_co_26
+connector_city_co_86001,Mocoa,86001,86001,base.co,base.state_co_27
+connector_city_co_86219,Colón,86219,86219,base.co,base.state_co_27
+connector_city_co_86320,Orito,86320,86320,base.co,base.state_co_27
+connector_city_co_86568,Puerto Asís,86568,86568,base.co,base.state_co_27
+connector_city_co_86569,Puerto Caicedo,86569,86569,base.co,base.state_co_27
+connector_city_co_86571,Puerto Guzmán,86571,86571,base.co,base.state_co_27
+connector_city_co_86573,Puerto Leguízamo,86573,86573,base.co,base.state_co_27
+connector_city_co_86749,Sibundoy,86749,86749,base.co,base.state_co_27
+connector_city_co_86755,San Francisco,86755,86755,base.co,base.state_co_27
+connector_city_co_86757,San Miguel,86757,86757,base.co,base.state_co_27
+connector_city_co_86760,Santiago,86760,86760,base.co,base.state_co_27
+connector_city_co_86865,Valle del Guamuez,86865,86865,base.co,base.state_co_27
+connector_city_co_86885,Villagarzón,86885,86885,base.co,base.state_co_27
+connector_city_co_88001,San Andrés,88001,88001,base.co,base.state_co_28
+connector_city_co_88564,Providencia,88564,88564,base.co,base.state_co_28
+connector_city_co_91001,Leticia,91001,91001,base.co,base.state_co_29
+connector_city_co_91263,El Encanto,91263,91263,base.co,base.state_co_29
+connector_city_co_91405,La Chorrera,91405,91405,base.co,base.state_co_29
+connector_city_co_91407,La Pedrera,91407,91407,base.co,base.state_co_29
+connector_city_co_91430,La Victoria,91430,91430,base.co,base.state_co_29
+connector_city_co_91460,Mirití - Paraná,91460,91460,base.co,base.state_co_29
+connector_city_co_91530,Puerto Alegría,91530,91530,base.co,base.state_co_29
+connector_city_co_91536,Puerto Arica,91536,91536,base.co,base.state_co_29
+connector_city_co_91540,Puerto Nariño,91540,91540,base.co,base.state_co_29
+connector_city_co_91669,Puerto Santander,91669,91669,base.co,base.state_co_29
+connector_city_co_91798,Tarapacá,91798,91798,base.co,base.state_co_29
+connector_city_co_94001,Inírida,94001,94001,base.co,base.state_co_30
+connector_city_co_94343,Barrancominas,94343,94343,base.co,base.state_co_30
+connector_city_co_94883,San Felipe,94883,94883,base.co,base.state_co_30
+connector_city_co_94884,Puerto Colombia,94884,94884,base.co,base.state_co_30
+connector_city_co_94885,La Guadalupe,94885,94885,base.co,base.state_co_30
+connector_city_co_94886,Cacahual,94886,94886,base.co,base.state_co_30
+connector_city_co_94887,Pana Pana,94887,94887,base.co,base.state_co_30
+connector_city_co_94888,Morichal,94888,94888,base.co,base.state_co_30
+connector_city_co_95001,San José del Guaviare,95001,95001,base.co,base.state_co_31
+connector_city_co_95015,Calamar,95015,95015,base.co,base.state_co_31
+connector_city_co_95025,El Retorno,95025,95025,base.co,base.state_co_31
+connector_city_co_95200,Miraflores,95200,95200,base.co,base.state_co_31
+connector_city_co_97001,Mitú,97001,97001,base.co,base.state_co_32
+connector_city_co_97161,Carurú,97161,97161,base.co,base.state_co_32
+connector_city_co_97511,Pacoa,97511,97511,base.co,base.state_co_32
+connector_city_co_97666,Taraira,97666,97666,base.co,base.state_co_32
+connector_city_co_97777,Papunahua,97777,97777,base.co,base.state_co_32
+connector_city_co_97889,Yavaraté,97889,97889,base.co,base.state_co_32
+connector_city_co_99001,Puerto Carreño,99001,99001,base.co,base.state_co_33
+connector_city_co_99524,La Primavera,99524,99524,base.co,base.state_co_33
+connector_city_co_99624,Santa Rosalía,99624,99624,base.co,base.state_co_33
+connector_city_co_99773,Cumaribo,99773,99773,base.co,base.state_co_33

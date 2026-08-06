@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-
     <record id="res_config_settings_view_form" model="ir.ui.view">
         <field name="name">res.config.settings.view.form.inherit.facturapi</field>
         <field name="model">res.config.settings</field>
-        <field name="inherit_id" ref="account.res_config_settings_view_form"/>
+        <field name="inherit_id" ref="account.res_config_settings_view_form" />
         <field name="arch" type="xml">
             <xpath expr="//block[@id='invoicing_settings']" position="after">
-                <block title="FacturAPI - Facturación Electrónica Colombia" name="facturapi_settings">
+                <block title="FacturAPI - Facturación Electrónica Colombia"
+                    name="facturapi_settings">
                     <setting string="Conexión FacturAPI"
                         help="Configure la conexión con FacturAPI para facturación electrónica colombiana.">
                         <div class="content-group">
@@ -30,9 +30,9 @@
                                     placeholder="API Key" />
                             </div>
                             <div class="row mt8">
-                                <label for="facturapi_environment"
+                                <label for="connector_dian_environment"
                                     class="col-lg-3 o_light_label" />
-                                <field name="facturapi_environment" />
+                                <field name="connector_dian_environment" />
                             </div>
                         </div>
                     </setting>
@@ -46,20 +46,9 @@
                                     placeholder="Software ID DIAN" />
                             </div>
                             <div class="row mt8">
-                                <label for="connector_software_nit"
-                                    class="col-lg-3 o_light_label" />
-                                <field name="connector_software_nit"
-                                    placeholder="NIT del proveedor de software (ej: 813000008)" />
-                            </div>
-                            <div class="row mt8">
                                 <label for="connector_software_pin"
                                     class="col-lg-3 o_light_label" />
                                 <field name="connector_software_pin" password="True" />
-                            </div>
-                            <div class="row mt8">
-                                <label for="connector_software_dv"
-                                    class="col-lg-3 o_light_label" />
-                                <field name="connector_software_dv" />
                             </div>
                             <div class="row mt8">
                                 <label for="connector_test_set_id"
@@ -72,11 +61,11 @@
                         help="Enviar facturas a DIAN automáticamente al confirmar.">
                         <div class="content-group">
                             <div class="row mt8">
-                                <field name="connector_fe_auto_send"/>
+                                <field name="connector_fe_auto_send" />
                                 <label for="connector_fe_auto_send"
                                     string="Habilitar envío automático a DIAN"
                                     class="col-lg-3 o_light_label"
-                                    help="Cuando está activo, las facturas se envían automáticamente a DIAN al confirmarlas."/>
+                                    help="Cuando está activo, las facturas se envían automáticamente a DIAN al confirmarlas." />
                             </div>
                         </div>
                     </setting>
@@ -89,7 +78,8 @@
                                 <field name="certificate_id" />
                             </div>
                             <div class="mt8">
-                                <button name="%(certificate.certificate_certificate_action_view_list)d"
+                                <button
+                                    name="%(certificate.certificate_certificate_action_view_list)d"
                                     type="action" class="btn-link" icon="fa-external-link"
                                     string="Gestionar certificados" />
                             </div>
@@ -99,5 +89,4 @@
             </xpath>
         </field>
     </record>
-
 </odoo>

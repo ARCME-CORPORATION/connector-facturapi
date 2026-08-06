@@ -18,22 +18,9 @@ class ResCompany(models.Model):
         string="Facturación Electrónica",
         default=False,
     )
-    connector_fe_auto_send = fields.Boolean(
-        string="Envío Automático a DIAN",
-        help="Enviar facturas automáticamente a DIAN cuando se confirmen.",
-        default=False,
-    )
     connector_numbering_ranges = fields.Text(
         string="Rangos de Numeración",
         readonly=True,
-    )
-    connector_dian_environment = fields.Selection(
-        selection=[
-            ("produccion", "Producción"),
-            ("habilitacion", "Habilitación (Pruebas)"),
-        ],
-        string="Ambiente DIAN",
-        default="produccion",
     )
 
     def _get_api_client(self):
@@ -44,7 +31,9 @@ class ResCompany(models.Model):
         company_id = self.facturapi_company_id
         if not company_id:
             raise UserError(_("Please configure the FacturAPI Company ID."))
-        return FacturAPIClient(base_url=API_BASE_URL, api_key=api_key, company_id=company_id)
+        return FacturAPIClient(
+            base_url=API_BASE_URL, api_key=api_key, company_id=company_id
+        )
 
     def _get_nit(self):
         self.ensure_one()
@@ -72,7 +61,9 @@ class ResCompany(models.Model):
             "tag": "display_notification",
             "params": {
                 "title": _("Certificado"),
-                "message": result.get("message", "Certificado almacenado correctamente"),
+                "message": result.get(
+                    "message", "Certificado almacenado correctamente"
+                ),
                 "type": "success",
                 "sticky": False,
             },
@@ -110,9 +101,11 @@ class ResCompany(models.Model):
         else:
             text = ""
 
-        self.sudo().write({
-            "connector_numbering_ranges": text,
-        })
+        self.sudo().write(
+            {
+                "connector_numbering_ranges": text,
+            }
+        )
 
         if ranges:
             return {

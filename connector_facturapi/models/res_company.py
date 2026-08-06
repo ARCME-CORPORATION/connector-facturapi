@@ -16,9 +16,9 @@ class ResCompany(models.Model):
     facturapi_api_key = fields.Char(
         string="FacturAPI API Key",
     )
-    facturapi_environment = fields.Selection(
-        [("habilitacion", "Habilitación"), ("produccion", "Producción")],
-        string="FacturAPI Environment",
+    connector_dian_environment = fields.Selection(
+        [("habilitacion", "Habilitación (Pruebas)"), ("produccion", "Producción")],
+        string="Ambiente DIAN",
         default="habilitacion",
     )
     certificate_id = fields.Many2one(
@@ -28,23 +28,13 @@ class ResCompany(models.Model):
         context={"default_scope": "facturapi"},
         help="Certificado digital para firma electrónica DIAN",
     )
-    # Software identifiers (DIAN registration)
     connector_software_id = fields.Char(
         string="Software ID",
         help="Identificador del software asignado por DIAN",
     )
-    connector_software_nit = fields.Char(
-        string="Software Provider NIT",
-        help="NIT del proveedor de software (quien desarrolló el módulo DIAN). "
-             "Ej: 813000008. NO es el NIT de la empresa emisora.",
-    )
     connector_software_pin = fields.Char(
         string="Software PIN",
         help="PIN del software asignado por DIAN (se almacena cifrado)",
-    )
-    connector_software_dv = fields.Char(
-        string="Software DV",
-        size=5,
     )
     connector_test_set_id = fields.Char(
         string="Test Set ID",
@@ -53,17 +43,4 @@ class ResCompany(models.Model):
     connector_fe_auto_send = fields.Boolean(
         string="Auto Send FE",
         help="Enviar facturas electrónicas automáticamente",
-    )
-    connector_tax_level_code = fields.Char(
-        string="Tax Level Code",
-        default="0",
-        help="Código de nivel tributario (0=Gran Contribuyente, etc.)",
-    )
-    connector_fiscal_regime = fields.Char(
-        string="Fiscal Regime Code",
-        help="Código de régimen fiscal (R-99-PN para régimen común)",
-    )
-    connector_obligations = fields.Char(
-        string="Tax Obligations",
-        help="Códigos de obligaciones tributarias separados por coma",
     )

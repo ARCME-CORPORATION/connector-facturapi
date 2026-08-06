@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="connector_dian_tax_group_iva" model="account.tax.group">
+        <field name="name">IVA</field>
+        <field name="dian_tax_type">01</field>
+        <field name="country_id" ref="base.co"/>
+        <field name="sequence">10</field>
+    </record>
+
+    <record id="connector_dian_tax_group_ic" model="account.tax.group">
+        <field name="name">IC</field>
+        <field name="dian_tax_type">02</field>
+        <field name="country_id" ref="base.co"/>
+        <field name="sequence">20</field>
+    </record>
+
+    <record id="connector_dian_tax_group_ica" model="account.tax.group">
+        <field name="name">ICA</field>
+        <field name="dian_tax_type">03</field>
+        <field name="country_id" ref="base.co"/>
+        <field name="sequence">30</field>
+    </record>
+
+    <record id="connector_dian_tax_group_inc" model="account.tax.group">
+        <field name="name">INC</field>
+        <field name="dian_tax_type">04</field>
+        <field name="country_id" ref="base.co"/>
+        <field name="sequence">40</field>
+    </record>
+
+    <record id="connector_dian_tax_group_rete_iva" model="account.tax.group">
+        <field name="name">ReteIVA</field>
+        <field name="dian_tax_type">05</field>
+        <field name="country_id" ref="base.co"/>
+        <field name="sequence">50</field>
+    </record>
+
+    <record id="connector_dian_tax_group_rete_fuente" model="account.tax.group">
+        <field name="name">ReteFuente</field>
+        <field name="dian_tax_type">06</field>
+        <field name="country_id" ref="base.co"/>
+        <field name="sequence">60</field>
+    </record>
+
+    <record id="connector_dian_tax_group_rete_ica" model="account.tax.group">
+        <field name="name">ReteICA</field>
+        <field name="dian_tax_type">07</field>
+        <field name="country_id" ref="base.co"/>
+        <field name="sequence">70</field>
+    </record>
+
+    <record id="connector_dian_tax_group_rete_cree" model="account.tax.group">
+        <field name="name">ReteCREE</field>
+        <field name="dian_tax_type">08</field>
+        <field name="country_id" ref="base.co"/>
+        <field name="sequence">80</field>
+    </record>
+</odoo>

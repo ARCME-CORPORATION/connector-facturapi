@@ -6,39 +6,94 @@
         <field name="inherit_id" ref="account.view_move_form" />
         <field name="arch" type="xml">
             <xpath expr="//page[@id='other_tab']" position="after">
-                <page id="dian_tab" string="DIAN"
-                    invisible="not company_id.connector_fe_enabled or not connector_facturapi_state">
+                <page id="dian_tab" string="DIAN" invisible="not company_id.connector_fe_enabled or move_type in ('in_invoice', 'in_refund')">
+                    <group string="DIAN Actions">
+                        <button name="action_send_to_dian" type="object"
+                            string="Enviar a DIAN"
+                            class="btn-primary"
+                            invisible="connector_facturapi_state not in (False, 'to_send')" />
+                        <button name="action_resend_to_dian" type="object"
+                            string="Reenviar a DIAN"
+                            class="btn-warning"
+                            invisible="connector_facturapi_state != 'rejected'" />
+                        <button name="action_check_dian_status" type="object"
+                            string="Consultar Estado"
+                            invisible="not connector_facturapi_state" />
+                        <button name="action_cancel_dian" type="object"
+                            string="Cancelar DIAN"
+                            invisible="connector_facturapi_state != 'accepted'" />
+                    </group>
+
+                    <group string="CUFE" invisible="not connector_cufe">
+                        <field name="connector_cufe" readonly="1" />
+                        <field name="connector_qr_code" widget="image" class="w-25" />
+                    </group>
+
+                    <group string="DIAN Queries" invisible="not connector_facturapi_state">
+                        <button name="action_dian_get_status" type="object"
+                            string="Get Status"
+                            invisible="not connector_facturapi_state" />
+                        <button name="action_dian_get_status_event" type="object"
+                            string="Get Status Event"
+                            invisible="not connector_facturapi_state" />
+                        <button name="action_dian_get_xml" type="object"
+                            string="Get XML"
+                            invisible="not connector_facturapi_state" />
+                        <button name="action_dian_get_reference_notes" type="object"
+                            string="Get Reference Notes"
+                            invisible="not connector_facturapi_state" />
+                    </group>
+
                     <group>
-                        <group string="Status">
-                            <field name="connector_facturapi_state" />
-                            <field name="connector_cufe" />
+                        <group string="State">
+                            <field name="connector_facturapi_state" widget="badge"
+                                decoration-danger="connector_facturapi_state == 'rejected'"
+                                decoration-success="connector_facturapi_state == 'accepted'"
+                                decoration-info="connector_facturapi_state in ('to_send','processing')" />
+                            <field name="connector_dian_status_code" string="DIAN Code" />
+                            <field name="connector_dian_task_id" string="Task ID" />
+                            <field name="connector_dian_accepted_datetime" string="Accepted At" />
                         </group>
                         <group string="Resolution" invisible="not connector_sequence_range_id">
                             <field name="connector_sequence_range_id" />
                         </group>
+                        <group string="Tipo de Factura DIAN"
+                            invisible="move_type != 'out_invoice'">
+                            <field name="connector_dian_invoice_type_code" />
+                        </group>
                     </group>
-                    <group string="QR Code" invisible="not connector_qr_code">
-                        <field name="connector_qr_code" widget="image" class="w-25" />
-                    </group>
-                    <group string="DIAN Queries">
-                        <button name="action_dian_get_status" type="object"
-                            string="Get Status"
-                            class="btn-primary"
-                            invisible="not connector_facturapi_state" />
-                        <button name="action_dian_get_status_event" type="object"
-                            string="Get Status Event"
-                            class="btn-primary"
-                            invisible="not connector_facturapi_state" />
-                        <button name="action_dian_get_xml" type="object"
-                            string="Get XML"
-                            class="btn-primary"
-                            invisible="not connector_facturapi_state" />
-                        <button name="action_dian_get_reference_notes" type="object"
-                            string="Get Reference Notes"
-                            class="btn-primary"
-                            invisible="not connector_facturapi_state" />
+                    <group string="DIAN Rejection"
+                        invisible="connector_facturapi_state != 'rejected'">
+                        <field name="connector_dian_error" nolabel="1" readonly="1"
+                            placeholder="Detalle del rechazo DIAN"
+                            widget="text" />
                     </group>
                 </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_account_invoice_filter_facturapi_fe" model="ir.ui.view">
+        <field name="name">account.move.invoice.filter.facturapi.fe</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_account_invoice_filter" />
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='out_refund']" position="after">
+                <separator />
+                <filter name="fe_sent"
+                    string="Enviadas"
+                    domain="[('connector_facturapi_document_id', '!=', False)]"
+                    help="Facturas ya enviadas a la DIAN" />
+                <filter name="fe_to_send"
+                    string="Por enviar"
+                    domain="[('connector_facturapi_document_id', '=', False)]"
+                    help="Facturas confirmadas que aún no tienen documento DIAN" />
+                <filter name="fe_rejected"
+                    string="Rechazadas"
+                    domain="[('connector_facturapi_state', '=', 'rejected')]" />
+                <filter name="fe_accepted"
+                    string="Aceptadas"
+                    domain="[('connector_facturapi_state', '=', 'accepted')]" />
             </xpath>
         </field>
     </record>

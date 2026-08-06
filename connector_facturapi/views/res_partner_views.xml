@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_partner_form_facturapi_dian" model="ir.ui.view">
+        <field name="name">res.partner.form.facturapi.dian</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="account.view_partner_property_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='accounting']//group[@name='accounting_automation']" position="before">
+                <group string="DIAN" name="dian">
+                    <field name="connector_dian_fiscal_regime" />
+                    <field name="connector_dian_tax_responsibility" />
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

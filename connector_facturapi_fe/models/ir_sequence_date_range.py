@@ -20,6 +20,10 @@ class IrSequenceDateRange(models.Model):
         string="Fecha Resolución",
         help="Fecha de la resolución DIAN",
     )
+    dian_resolution_date_to = fields.Date(
+        string="Fecha Fin Resolución",
+        help="Fecha de fin de la resolución DIAN",
+    )
     dian_technical_key = fields.Char(
         string="Llave Técnica",
         help="Llave técnica (Technical Key) asignada por DIAN",

@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<odoo>
-  <data>
-    <record id="edi_facturapi_ds" model="account.edi.format">
-      <field name="code">facturapi_ds</field>
-      <field name="name">FacturAPI Documento Soporte</field>
-    </record>
-  </data>
-</odoo>

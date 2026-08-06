@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_city_tree_dian_code" model="ir.ui.view">
+        <field name="name">res.city.list.dian.code</field>
+        <field name="model">res.city</field>
+        <field name="inherit_id" ref="base_address_extended.view_city_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='zipcode']" position="after">
+                <field name="connector_dane_code"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
