@@ -35,13 +35,19 @@ class AccountTax(models.Model):
     )
 
     def _connector_assign_dian_tax_groups(self):
-        groups_by_type = {
-            group.dian_tax_type: group
-            for group in self.env["account.tax.group"].search(
-                [("dian_tax_type", "!=", False)]
-            )
-        }
+        groups = self.env["account.tax.group"].search(
+            [("dian_tax_type", "!=", False)]
+        )
         for tax in self.search([]):
-            group = groups_by_type.get(tax.connector_dian_tax_type)
+            if not tax.connector_dian_tax_type:
+                continue
+            group = next(
+                (
+                    g for g in groups
+                    if g.dian_tax_type == tax.connector_dian_tax_type
+                    and g.country_id.id == tax.country_id.id
+                ),
+                None,
+            )
             if group and tax.tax_group_id != group:
                 tax.tax_group_id = group
