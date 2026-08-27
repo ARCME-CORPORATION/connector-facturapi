@@ -8,9 +8,6 @@ from ..tools.api_client import FacturAPIClient
 
 _logger = logging.getLogger(__name__)
 
-API_BASE_URL = "http://host.docker.internal:8000"
-
-
 class ResCompany(models.Model):
     _inherit = "res.company"
 
@@ -31,8 +28,11 @@ class ResCompany(models.Model):
         company_id = self.facturapi_company_id
         if not company_id:
             raise UserError(_("Please configure the FacturAPI Company ID."))
+        base_url = self.facturapi_api_url
+        if not base_url:
+            raise UserError(_("Please configure the FacturAPI API URL."))
         return FacturAPIClient(
-            base_url=API_BASE_URL, api_key=api_key, company_id=company_id
+            base_url=base_url, api_key=api_key, company_id=company_id
         )
 
     def _get_nit(self):

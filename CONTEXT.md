@@ -96,6 +96,11 @@ Los certificados se gestionan desde el modulo `certificate` de Odoo (PFX upload,
 - `_get_dian_zip_attachment()` — genera el ZIP (XML + ApplicationResponse + PDF)
 - `_parse_dian_rejection()` — extrae motivos de rechazo del XML de respuesta
 
+### Importacion de facturas de proveedor por CUFE (`account_move.py`)
+- Campo `connector_import_cufe` en `account.move` + boton "Importar por CUFE" (visible en `in_invoice`/`in_refund` en borrador, vista `views/account_move_views.xml`)
+- `action_connector_import_by_cufe()`: llama `POST /documents/dian/get-xml-by-document-key` (SOAP `GetXmlByDocumentKey` con el certificado de la empresa), guarda el ZIP como adjunto y ejecuta el pipeline EDI nativo (`_extend_with_attachments`) que decodifica el ZIP (`_decode_edi_zip`) y llena partner, lineas e impuestos via UBL 2.1
+- Requiere: factura sin lineas, FacturAPI configurado en la empresa, y que la empresa figure como adquiriente del documento en DIAN
+
 ### Envio del payload
 - Resolucion y llave tecnica desde `ir.sequence.date_range` (`_get_active_sequence_range`)
 - Para NC/ND se incluyen `billing_reference_id`, `billing_reference_cufe`, `billing_reference_date`, `discrepancy_response_code`
