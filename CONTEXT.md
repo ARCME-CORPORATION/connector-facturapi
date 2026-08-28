@@ -96,13 +96,16 @@ Los certificados se gestionan desde el modulo `certificate` de Odoo (PFX upload,
 - `_get_dian_zip_attachment()` — genera el ZIP (XML + ApplicationResponse + PDF)
 - `_parse_dian_rejection()` — extrae motivos de rechazo del XML de respuesta
 
-### Importacion de facturas de proveedor por CUFE (`account_move.py`)
-- Campo `connector_import_cufe` en `account.move` + boton "Importar por CUFE" (visible en `in_invoice`/`in_refund` en borrador, vista `views/account_move_views.xml`)
-- `action_connector_import_by_cufe()`: llama `POST /documents/dian/get-xml-by-document-key` (SOAP `GetXmlByDocumentKey` con el certificado de la empresa), guarda el ZIP como adjunto y ejecuta el pipeline EDI nativo (`_extend_with_attachments`) que decodifica el ZIP (`_decode_edi_zip`) y llena partner, lineas e impuestos via UBL 2.1
-- Requiere: factura sin lineas, FacturAPI configurado en la empresa, y que la empresa figure como adquiriente del documento en DIAN
+### Hooks del pipeline EDI (base)
+- `_get_ubl_cii_builder_from_xml_tree` (`account_move.py`) — detecta XML DIAN (CustomizationID "10" / UBL 2.1) para el pipeline `account_edi_ubl_cii`
+- `_message_post_after_hook` (`account_move.py`) — log de adjuntos en emails provenientes del alias
+- `ir_attachment.py` — `_decode_edi_zip`/`_is_connector_zip`/`_get_edi_supported_formats`: decodifican ZIP de DIAN (XML + PDF + ApplicationResponse) para el pipeline EDI y los emails de proveedores
 
 ### Envio del payload
 - Resolucion y llave tecnica desde `ir.sequence.date_range` (`_get_active_sequence_range`)
+- Fechas de resolucion enviadas: `dian_resolution_date`/`dian_resolution_date_to`, con fallback a `date_from`/`date_to` del rango (NO usar `context_today`: DIAN rechaza con **FAB07b/FAB08b** si no coinciden con la vigencia del rango registrado).
+  - En habilitacion la resolucion estandar es `18760000001`, rango `990000000-995000000`, llave `fc8eac422eba16e22ffd8c6f94b3f40a6e38162c`, vigencia `2019-01-19` → `2030-01-19`.
+- DIAN exige que la `issue_date` del documento sea igual a la fecha de envio/firma (regla **FAD09e**): reenviar una factura fechada en dias anteriores es rechazado. En habilitacion emitir/sincronizar la factura el mismo dia en que se envia.
 - Para NC/ND se incluyen `billing_reference_id`, `billing_reference_cufe`, `billing_reference_date`, `discrepancy_response_code`
 - Moneda extranjera: `original_currency` + `exchange_rate` (COP por unidad)
 - Retenciones: separadas en `withholding_tax_totals` (codigos 05/06/07/08)
@@ -118,6 +121,12 @@ Los certificados se gestionan desde el modulo `certificate` de Odoo (PFX upload,
 - Reporte PDF de factura electronica (`report/`)
 - Cron de auto-envio (`connector_fe_auto_send`)
 - Consultas DIAN directas via `_dian_query()` (`/documents/dian/get-status`, etc.)
+
+### Importacion de facturas de proveedor por CUFE (`account_move.py`)
+- Campo `connector_import_cufe` en `account.move` + boton "Importar por CUFE" (visible en `in_invoice`/`in_refund` en borrador, vista `views/account_move_views.xml`)
+- `action_connector_import_by_cufe()`: llama `POST /documents/dian/get-xml-by-document-key` (SOAP `GetXmlByDocumentKey` con el certificado de la empresa), guarda el ZIP como adjunto y ejecuta el pipeline EDI nativo (`_extend_with_attachments`) que decodifica el ZIP (`_decode_edi_zip`, que vive en el modulo base) y llena partner, lineas e impuestos via UBL 2.1
+- Requiere: factura sin lineas, FacturAPI configurado en la empresa, y que la empresa figure como adquiriente del documento en DIAN
+- Nota: los hooks del pipeline EDI (`_get_ubl_cii_builder_from_xml_tree`, `ir_attachment` ZIP, `_message_post_after_hook`) viven en el modulo base para que la decodificacion funcione en todos los clientes
 
 ### Campos en `account.move` (related a `facturapi.document`)
 - `connector_facturapi_document_id`, `connector_facturapi_state`

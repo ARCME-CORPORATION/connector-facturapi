@@ -94,6 +94,12 @@ def post_init_hook(env):
         )
 
     env.cr.execute(
+        """UPDATE res_country
+           SET enforce_cities = TRUE
+           WHERE code = 'CO'"""
+    )
+
+    env.cr.execute(
         """UPDATE res_country_state
            SET connector_dane_code = CASE code
                WHEN 'AMA' THEN '91' WHEN 'ANT' THEN '05' WHEN 'ARA' THEN '81'

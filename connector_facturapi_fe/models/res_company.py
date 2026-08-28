@@ -8,6 +8,7 @@ from ..tools.api_client import FacturAPIClient
 
 _logger = logging.getLogger(__name__)
 
+
 class ResCompany(models.Model):
     _inherit = "res.company"
 
@@ -118,13 +119,4 @@ class ResCompany(models.Model):
                     "sticky": False,
                 },
             }
-        return {
-            "type": "ir.actions.client",
-            "tag": "display_notification",
-            "params": {
-                "title": _("Sin resultados"),
-                "message": _("No se encontraron rangos de numeración."),
-                "type": "warning",
-                "sticky": False,
-            },
-        }
+        return True

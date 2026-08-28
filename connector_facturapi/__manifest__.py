@@ -21,6 +21,7 @@
     "data": [
         "security/ir.model.access.csv",
         "data/ir_cron_data.xml",
+        "data/res_country_data.xml",
         "data/res_country_state_data.xml",
         "data/res.city.csv",
         "data/uom_uom_data.xml",
@@ -32,7 +33,6 @@
         "views/account_journal_views.xml",
         "views/account_payment_term_views.xml",
         "views/account_tax_views.xml",
-        "views/account_move_views.xml",
     ],
     "post_init_hook": "post_init_hook",
     "installable": True,

@@ -251,6 +251,52 @@ class FacturapiDocument(models.Model):
         response = requests.post(
             url, json=payload, headers=self._get_headers(), timeout=120
         )
+
+        if response.status_code == 401:
+            company = self.company_id
+            raise UserError(_(
+                "FacturAPI rechazó el acceso (401 Unauthorized). Verifique que el "
+                "Company ID y la API Key de la empresa '%s' sean correctos y "
+                "coincidan con los registrados en el backend FacturAPI.",
+                company.name,
+            ))
+
+        if response.status_code == 404:
+            detail = ""
+            try:
+                detail = response.json().get("detail", "")
+            except Exception:
+                detail = response.text[:300]
+            detail_lower = detail.lower()
+            if "certificate" in detail_lower or "certificado" in detail_lower:
+                company = self.company_id
+                self.write({
+                    "state": "rejected",
+                    "error_message": _("Certificado no registrado en el backend FacturAPI para la empresa '%s'") % company.name,
+                })
+                raise UserError(_(
+                    "El certificado de la empresa '%s' no está registrado en el "
+                    "backend FacturAPI (el backend respondió 404: %s). Por favor "
+                    "cargue el certificado desde Configuración > Facturación "
+                    "Electrónica > 'Enviar Certificado a API' y vuelva a intentar.",
+                    company.name,
+                    detail,
+                ))
+
+        if response.status_code >= 400:
+            self.write({
+                "state": "rejected",
+                "error_message": _("Error de FacturAPI (%s): %s") % (
+                    response.status_code,
+                    response.text[:500],
+                ),
+            })
+            raise UserError(_(
+                "El backend FacturAPI respondió con error (%s). Consulte los "
+                "detalles en la pestaña DIAN de la factura.",
+                response.status_code,
+            ))
+
         response.raise_for_status()
         result = response.json()
 
@@ -339,22 +385,16 @@ class FacturapiDocument(models.Model):
             resolution_number_from = getattr(sequence_range, "dian_number_from", 0) or 0
             resolution_number_to = getattr(sequence_range, "dian_number_to", 0) or 0
             technical_key = getattr(sequence_range, "dian_technical_key", "") or ""
-            if getattr(sequence_range, "dian_resolution_date", None):
-                resolution_date_from = fields.Date.to_string(
-                    sequence_range.dian_resolution_date
-                )
-            else:
-                resolution_date_from = fields.Date.to_string(
-                    fields.Date.context_today(self)
-                )
-            if getattr(sequence_range, "dian_resolution_date_to", None):
-                resolution_date_to = fields.Date.to_string(
-                    sequence_range.dian_resolution_date_to
-                )
-            else:
-                resolution_date_to = fields.Date.to_string(
-                    fields.Date.context_today(self)
-                )
+            resolution_date_from = fields.Date.to_string(
+                sequence_range.dian_resolution_date
+                or sequence_range.date_from
+                or fields.Date.context_today(self)
+            )
+            resolution_date_to = fields.Date.to_string(
+                sequence_range.dian_resolution_date_to
+                or sequence_range.date_to
+                or fields.Date.context_today(self)
+            )
 
         doc_type = _get_document_type(move)
         doc_type_code = DOC_TYPE_CODE_MAP.get(doc_type, "01")
@@ -531,7 +571,9 @@ class FacturapiDocument(models.Model):
             "software_pin": getattr(company, "connector_software_pin", "") or "",
             "software_nit": company.partner_id.vat or "",
             "software_nit_dv": software_nit_dv,
-            "test_set_id": getattr(company, "connector_test_set_id", "") or "",
+            "test_set_id": (
+                getattr(company, "connector_test_set_id", "") or ""
+            ).replace(" ", ""),
             "prefix": _clean_prefix(
                 getattr(move, "l10n_latam_document_number_prefix", None)
                 or (
@@ -653,6 +695,15 @@ class FacturapiDocument(models.Model):
         url = f"{base_url}/documents/{self.task_id}/status"
 
         response = requests.get(url, headers=self._get_headers(), timeout=120)
+
+        if response.status_code == 401:
+            raise UserError(_(
+                "FacturAPI rechazó el acceso (401 Unauthorized). Verifique que el "
+                "Company ID y la API Key de la empresa '%s' sean correctos y "
+                "coincidan con los registrados en el backend FacturAPI.",
+                self.company_id.name,
+            ))
+
         response.raise_for_status()
         data = response.json()
 
@@ -748,6 +799,15 @@ class FacturapiDocument(models.Model):
         if response.status_code == 409:
             _logger.info("Result not ready yet for %s (409)", self.name)
             return False
+
+        if response.status_code == 401:
+            raise UserError(_(
+                "FacturAPI rechazó el acceso (401 Unauthorized). Verifique que el "
+                "Company ID y la API Key de la empresa '%s' sean correctos y "
+                "coincidan con los registrados en el backend FacturAPI.",
+                self.company_id.name,
+            ))
+
         response.raise_for_status()
         data = response.json()
 
