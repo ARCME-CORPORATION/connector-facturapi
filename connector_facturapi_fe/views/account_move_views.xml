@@ -30,18 +30,25 @@
                     </group>
 
                     <group string="DIAN Queries" invisible="not connector_facturapi_state">
-                        <button name="action_dian_get_status" type="object"
-                            string="Get Status"
-                            invisible="not connector_facturapi_state" />
-                        <button name="action_dian_get_status_event" type="object"
-                            string="Get Status Event"
-                            invisible="not connector_facturapi_state" />
-                        <button name="action_dian_get_xml" type="object"
-                            string="Get XML"
-                            invisible="not connector_facturapi_state" />
-                        <button name="action_dian_get_reference_notes" type="object"
-                            string="Get Reference Notes"
-                            invisible="not connector_facturapi_state" />
+                        <div class="d-flex flex-row flex-nowrap align-items-center gap-2">
+
+                            <button name="action_dian_get_status"
+                                type="object"
+                                string="Get Status" />
+
+                            <button name="action_dian_get_status_event"
+                                type="object"
+                                string="Get Status Event" />
+
+                            <button name="action_dian_get_xml"
+                                type="object"
+                                string="Get XML" />
+
+                            <button name="action_dian_get_reference_notes"
+                                type="object"
+                                string="Get Reference Notes" />
+
+                        </div>
                     </group>
 
                     <group>
