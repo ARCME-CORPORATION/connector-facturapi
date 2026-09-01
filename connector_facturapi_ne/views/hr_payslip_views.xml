@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="hr_payslip_view_form_facturapi_ne" model="ir.ui.view">
+        <field name="name">hr.payslip.view.form.facturapi.ne</field>
+        <field name="model">hr.payslip</field>
+        <field name="inherit_id" ref="payroll.hr_payslip_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='top']" position="after">
+                <group string="Nómina Electrónica DIAN" name="facturapi_ne"
+                    invisible="not company_id.connector_ne_enabled or state != 'done'">
+                    <group>
+                        <field name="connector_ne_sequence_prefix" readonly="1" string="Prefijo" />
+                        <field name="connector_ne_sequence_number" readonly="1" string="Consecutivo" />
+                        <field name="connector_ne_cune" readonly="1" string="CUNE" />
+                    </group>
+                    <group>
+                        <field name="connector_ne_state" widget="badge"
+                            decoration-danger="connector_ne_state == 'rejected'"
+                            decoration-success="connector_ne_state == 'accepted'"
+                            decoration-info="connector_ne_state in ('to_send','processing')" />
+                        <field name="connector_ne_dian_status" string="DIAN Code" />
+                        <field name="connector_ne_task_id" string="Task ID" />
+                    </group>
+                    <group>
+                        <button name="action_facturapi_ne_send" type="object"
+                            string="Enviar a DIAN"
+                            class="btn-primary"
+                            invisible="not facturapi_ne_document_id or connector_ne_state not in (False, 'to_send', 'rejected')" />
+                        <button name="action_facturapi_ne_send" type="object"
+                            string="Enviar a DIAN"
+                            class="btn-primary"
+                            invisible="facturapi_ne_document_id or connector_ne_state not in (False, 'to_send', 'rejected')" />
+                        <button name="action_facturapi_ne_check_status" type="object"
+                            string="Consultar Estado"
+                            invisible="connector_ne_state not in ('processing', 'accepted', 'rejected')" />
+                    </group>
+                    <group string="DIAN Rejection"
+                        invisible="connector_ne_state != 'rejected'">
+                        <field name="connector_ne_error" nolabel="1" readonly="1"
+                            placeholder="Detalle del rechazo DIAN"
+                            widget="text" />
+                    </group>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

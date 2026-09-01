@@ -401,7 +401,11 @@ class FacturapiDocument(models.Model):
 
         lines = []
         from .account_tax import WITHHOLDING_CODES
-        for idx, line in enumerate(move.invoice_line_ids, start=1):
+        # DIAN does not accept notes/sections as invoice lines: omit them.
+        invoice_lines = move.invoice_line_ids.filtered(
+            lambda l: l.display_type not in ("line_note", "line_section")
+        )
+        for idx, line in enumerate(invoice_lines, start=1):
             qty = float(line.quantity)
             discount_pct = float(line.discount or 0)
             if is_foreign:

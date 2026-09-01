@@ -213,7 +213,7 @@ FROM facturapi_document ORDER BY create_date DESC LIMIT 20;
 ## Pendiente
 
 - [ ] Modulo DE (`connector_facturapi_de`) — Documento Equivalente
-- [ ] Modulo NOM (`connector_facturapi_nom`) — Nomina Individual
+- [ ] Modulo NE (`connector_facturapi_ne`) — Nomina Individual
 - [ ] Modulo RADIAN (`connector_facturapi_radian`) — Eventos
 - [ ] Tests automatizados
 - [ ] Boton "Consultar Rangos" desde Odoo hacia `POST /companies/numbering-range`

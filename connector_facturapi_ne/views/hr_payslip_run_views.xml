@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="hr_payslip_run_view_form_facturapi_ne" model="ir.ui.view">
+        <field name="name">hr.payslip.run.view.form.facturapi.ne</field>
+        <field name="model">hr.payslip.run</field>
+        <field name="inherit_id" ref="payroll.hr_payslip_run_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='slip_ids']" position="after">
+                <separator string="Nómina Electrónica DIAN"
+                    invisible="not company_id.connector_ne_enabled or state != 'close'" />
+                <group name="facturapi_ne"
+                    invisible="not company_id.connector_ne_enabled or state != 'close'">
+                    <group>
+                        <field name="facturapi_ne_state" string="Estado DIAN"
+                            widget="badge"
+                            decoration-danger="facturapi_ne_state == 'rejected'"
+                            decoration-success="facturapi_ne_state == 'accepted'"
+                            decoration-info="facturapi_ne_state in ('to_send','processing','partial')" />
+                    </group>
+                    <group>
+                        <button name="action_facturapi_ne_send_all" type="object"
+                            string="Enviar Todos a DIAN"
+                            class="btn-primary"
+                            icon="fa-paper-plane" />
+                        <button name="action_facturapi_ne_check_all" type="object"
+                            string="Consultar Estados"
+                            class="btn-secondary"
+                            icon="fa-refresh" />
+                    </group>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

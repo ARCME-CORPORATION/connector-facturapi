@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_company_form_facturapi_ne" model="ir.ui.view">
+        <field name="name">res.company.form.facturapi.ne</field>
+        <field name="model">res.company</field>
+        <field name="inherit_id" ref="base.view_company_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Nómina Electrónica" name="facturapi_ne">
+                    <group>
+                        <group string="Configuración Nómina">
+                            <field name="connector_ne_enabled" />
+                            <field name="connector_ne_auto_send"
+                                invisible="not connector_ne_enabled" />
+                            <field name="connector_ne_prefix"
+                                invisible="not connector_ne_enabled"
+                                string="Prefijo Nómina" />
+                        </group>
+                        <group string="Conexión FacturAPI"
+                            invisible="not connector_ne_enabled">
+                            <field name="facturapi_api_url" string="API URL" />
+                            <field name="facturapi_company_id" string="Company UUID" />
+                            <field name="connector_dian_environment" string="Ambiente DIAN" />
+                            <field name="connector_software_id" string="Software ID" />
+                            <field name="connector_test_set_id" string="Test Set ID" />
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>
