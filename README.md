@@ -127,7 +127,7 @@ Acciones del modelo: `action_check_status`, `action_fetch_result`, `action_retry
 Token Bearer con formato `company_id:api_key`:
 
 ```
-Authorization: Bearer 3896c0f0-8d0d-4036-ba1d-46dd8dd14dd1:eb49aaa9-a2fd-40ae-abf3-68e483d6e731
+Authorization: Bearer $FACTURAPI_BEARER_TOKEN   # guardado en ARCME.CORP/secrets/credentials.env
 ```
 
 Se envía en el header de todas las llamadas al backend (`_get_headers()` en `facturapi_document.py`).
