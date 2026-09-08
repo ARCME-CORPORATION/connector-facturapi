@@ -200,6 +200,15 @@ class FacturapiDocument(models.Model):
     connector_dian_accepted_datetime = fields.Datetime(
         string="DIAN Accepted At", readonly=True, copy=False
     )
+    submit_request_at = fields.Datetime(
+        string="Submit Request At", readonly=True, copy=False
+    )
+    task_ready_at = fields.Datetime(
+        string="Task Ready At", readonly=True, copy=False
+    )
+    result_received_at = fields.Datetime(
+        string="Result Received At", readonly=True, copy=False
+    )
 
     task_id = fields.Char(string="FacturAPI Task ID", index=True, copy=False)
     document_type = fields.Selection(
@@ -243,6 +252,7 @@ class FacturapiDocument(models.Model):
 
     def _post_to_web_service(self):
         self.ensure_one()
+        self.write({"submit_request_at": fields.Datetime.now()})
         move = self.move_id
         payload = self._build_facturapi_payload(move)
 
@@ -305,6 +315,7 @@ class FacturapiDocument(models.Model):
                 "task_id": result.get("task_id"),
                 "state": "processing",
                 "document_type": _get_document_type(move),
+                "task_ready_at": fields.Datetime.now(),
             }
         )
         _logger.info(
@@ -827,6 +838,7 @@ class FacturapiDocument(models.Model):
             "application_response": data.get("application_response", ""),
             "dian_status": dian_status,
             "dian_error_details": data.get("dian_error_details", ""),
+            "result_received_at": fields.Datetime.now(),
         }
         if is_accepted:
             write_vals["state"] = "accepted"

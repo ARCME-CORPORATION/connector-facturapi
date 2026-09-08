@@ -16,6 +16,9 @@
                 <field name="cufe" />
                 <field name="dian_status" />
                 <field name="connector_dian_accepted_datetime" />
+                <field name="submit_request_at" />
+                <field name="task_ready_at" />
+                <field name="result_received_at" />
                 <field name="create_date" />
             </list>
         </field>
@@ -54,6 +57,9 @@
                             <field name="dian_message" />
                             <field name="error_message" />
                             <field name="connector_dian_accepted_datetime" />
+                            <field name="submit_request_at" />
+                            <field name="task_ready_at" />
+                            <field name="result_received_at" />
                         </group>
                     </group>
                     <notebook>
