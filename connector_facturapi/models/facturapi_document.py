@@ -2,6 +2,7 @@ import base64
 import io
 import json
 import logging
+import re
 import time
 import zipfile
 from datetime import datetime, timedelta, timezone
@@ -21,6 +22,16 @@ DOC_TYPE_CODE_MAP = {
     "support_doc_debit_note": "96",
     "payroll": "04",
 }
+
+_HTML_TAG_RE = re.compile(r"<[^>]+>")
+
+
+def _strip_html(text):
+    """Remove HTML tags, returning plain text.  DIAN cbc:Note must not contain XML elements."""
+    if not text:
+        return ""
+    return _HTML_TAG_RE.sub("", str(text)).strip()
+
 
 _IDENT_TYPE_MAP = {
     "national_citizen_id": "11",
@@ -620,7 +631,7 @@ class FacturapiDocument(models.Model):
             "profile_execution_id": "1" if environment == "produccion" else "2",
             "invoice_type_code": getattr(move, "connector_dian_invoice_type_code", None) or doc_type_code,
             "credit_note_type_code": doc_type_code,
-            "notes": move.narration or "",
+            "notes": _strip_html(move.narration),
             "supplier": _build_party_dict(
                 company.partner_id, company, is_supplier=True
             ),
