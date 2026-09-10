@@ -37,15 +37,11 @@
                         </group>
                     </group>
                     <group string="Rangos de Numeración DIAN">
-                        <div class="mb8">
-                            <button name="action_GetNumberingRange"
-                                string="Consultar Rangos"
-                                type="object"
-                                class="btn-primary"
-                                icon="fa-refresh" />
+                        <div class="mb8" colspan="2">
+                            <button name="action_GetNumberingRange" string="Consultar Rangos" type="object" class="btn-primary" icon="fa-refresh"/>
                         </div>
-                        <field name="connector_numbering_ranges" readonly="1"
-                            placeholder="Presione 'Consultar Rangos' para obtener la información de DIAN" />
+                        
+                        <field name="connector_numbering_ranges" nolabel="1" readonly="1" colspan="2" placeholder="Presione 'Consultar Rangos' para obtener la información de DIAN"/>
                     </group>
                 </page>
             </xpath>
