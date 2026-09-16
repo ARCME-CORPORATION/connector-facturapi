@@ -1,4 +1,5 @@
 import base64
+import html
 import io
 import json
 import logging
@@ -27,10 +28,14 @@ _HTML_TAG_RE = re.compile(r"<[^>]+>")
 
 
 def _strip_html(text):
-    """Remove HTML tags, returning plain text.  DIAN cbc:Note must not contain XML elements."""
+    """Remove HTML tags and decode HTML entities, returning plain text.
+
+    DIAN cbc:Note must not contain XML elements nor HTML entities (e.g.
+    ``&nbsp;``) that are undefined in XML and break the XML parser.
+    """
     if not text:
         return ""
-    return _HTML_TAG_RE.sub("", str(text)).strip()
+    return html.unescape(_HTML_TAG_RE.sub("", str(text))).strip()
 
 
 _IDENT_TYPE_MAP = {
