@@ -425,6 +425,16 @@ class FacturapiDocument(models.Model):
 
         doc_type = _get_document_type(move)
         doc_type_code = DOC_TYPE_CODE_MAP.get(doc_type, "01")
+        # FE (out) documents allow overriding the DIAN invoice type code on the
+        # move (01/02/03/04). Support docs (Documento Soporte) must always use
+        # the mapped code (05/95/96): the move field defaults to "01" (FE) and
+        # would otherwise make DIAN validate it as a Factura de Venta.
+        if doc_type in ("support_doc", "support_doc_credit_note", "support_doc_debit_note"):
+            invoice_type_code = doc_type_code
+        else:
+            invoice_type_code = (
+                getattr(move, "connector_dian_invoice_type_code", None) or doc_type_code
+            )
 
         lines = []
         from .account_tax import WITHHOLDING_CODES
@@ -634,7 +644,7 @@ class FacturapiDocument(models.Model):
             "technical_key": technical_key,
             "operation_type": _get_operation_type(doc_type, move),
             "profile_execution_id": "1" if environment == "produccion" else "2",
-            "invoice_type_code": getattr(move, "connector_dian_invoice_type_code", None) or doc_type_code,
+            "invoice_type_code": invoice_type_code,
             "credit_note_type_code": doc_type_code,
             "notes": _strip_html(move.narration),
             "supplier": _build_party_dict(
