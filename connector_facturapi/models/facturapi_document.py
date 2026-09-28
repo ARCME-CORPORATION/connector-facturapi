@@ -24,6 +24,12 @@ DOC_TYPE_CODE_MAP = {
     "payroll": "04",
 }
 
+SUPPORT_DOC_TYPES = (
+    "support_doc",
+    "support_doc_credit_note",
+    "support_doc_debit_note",
+)
+
 _HTML_TAG_RE = re.compile(r"<[^>]+>")
 
 
@@ -80,6 +86,28 @@ def _get_identification_type(partner):
     return _IDENT_TYPE_MAP.get(doc_code, "")
 
 
+def _compute_nit_dv(number):
+    """Compute the NIT verification digit (Orden Administrativa 4 de 1989).
+
+    Weights are right-aligned (3, 7, 13, 17, 19, 23, 29, 37, 41, 47, 53, 59,
+    67, 71...), the sum is taken modulo 11 and the digit is the remainder when
+    it is 0 or 1, otherwise 11 minus the remainder. The input must be the base
+    number without the check digit.
+    """
+    digits = [int(c) for c in str(number or "") if c.isdigit()]
+    if not digits:
+        return ""
+    weights = [41, 37, 29, 23, 19, 17, 13, 7, 3]
+    if len(digits) < len(weights):
+        mult = weights[len(weights) - len(digits):]
+    else:
+        # Extra leading digits extend the weight table in steps of 6.
+        extra = len(digits) - len(weights)
+        mult = [weights[0] + extra * 6] * extra + weights
+    remainder = sum(d * m for d, m in zip(digits, mult)) % 11
+    return str(remainder if remainder <= 1 else 11 - remainder)
+
+
 def _get_operation_type(doc_type, move):
     if doc_type == "credit_note":
         return "20" if move.reversed_entry_id else "22"
@@ -107,14 +135,21 @@ def _map_tax_name(tax):
     return _TAX_CODE_TO_NAME.get(_map_tax_code(tax), "IVA")
 
 
-def _build_party_dict(partner, company=None, is_supplier=False):
+def _build_party_dict(partner, company=None, is_supplier=False, force_nit=False):
     dv = getattr(partner, "l10n_co_verification_digit", "") or ""
     vat = (partner.vat or "").strip()
     if "-" in vat:
         vat = vat.rsplit("-", 1)[0]
     is_company = getattr(partner, "is_company", False)
     additional_account_id = "1" if is_company else "2"
-    ident_type_code = _get_identification_type(partner)
+    if force_nit:
+        # DIAN only accepts a NIT (31) as the third party of a Documento
+        # Soporte, so the type and the check digit are always sent as a NIT
+        # even when the partner is a natural person.
+        ident_type_code = "31"
+        dv = _compute_nit_dv(vat)
+    else:
+        ident_type_code = _get_identification_type(partner)
     if ident_type_code == "31":
         identification_scheme_name = "31"
         identification_scheme_id = dv
@@ -429,7 +464,7 @@ class FacturapiDocument(models.Model):
         # move (01/02/03/04). Support docs (Documento Soporte) must always use
         # the mapped code (05/95/96): the move field defaults to "01" (FE) and
         # would otherwise make DIAN validate it as a Factura de Venta.
-        if doc_type in ("support_doc", "support_doc_credit_note", "support_doc_debit_note"):
+        if doc_type in SUPPORT_DOC_TYPES:
             invoice_type_code = doc_type_code
         else:
             invoice_type_code = (
@@ -650,7 +685,12 @@ class FacturapiDocument(models.Model):
             "supplier": _build_party_dict(
                 company.partner_id, company, is_supplier=True
             ),
-            "customer": _build_party_dict(partner, company, is_supplier=False),
+            "customer": _build_party_dict(
+                partner,
+                company,
+                is_supplier=False,
+                force_nit=doc_type in SUPPORT_DOC_TYPES,
+            ),
             "payment_method_code": move.preferred_payment_method_line_id.journal_id.connector_dian_payment_method_code
             or move.journal_id.connector_dian_payment_method_code
             or "10",
@@ -713,7 +753,7 @@ class FacturapiDocument(models.Model):
                 "discrepancy_description", "Intereses"
             )
 
-        if doc_type in ("support_doc", "support_doc_credit_note"):
+        if doc_type in SUPPORT_DOC_TYPES:
             supplier = payload.get("supplier", {})
             supplier["tax_scheme_id"] = "ZZ"
             supplier["tax_scheme_name"] = "No Aplica"
