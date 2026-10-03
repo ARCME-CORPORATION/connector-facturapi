@@ -532,7 +532,7 @@ class FacturapiDocument(models.Model):
             line_entry = {
                 "line_number": idx,
                 "item_code": line.product_id.default_code or "",
-                "item_description": line.name,
+                "item_description": _strip_html(line.name),
                 "quantity": qty,
                 "barcode": line.product_id.barcode or "",
                 "unit_code": getattr(line.product_uom_id, "connector_dian_unit_code", None)
