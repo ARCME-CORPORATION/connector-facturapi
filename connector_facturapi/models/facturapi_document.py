@@ -147,7 +147,12 @@ def _build_party_dict(partner, company=None, is_supplier=False, force_nit=False)
         # Soporte, so the type and the check digit are always sent as a NIT
         # even when the partner is a natural person.
         ident_type_code = "31"
-        dv = _compute_nit_dv(vat)
+        # Prefer stored DV if it's a valid NIT-like DV; else compute from VAT base
+        stored_dv = str(dv).strip() if dv else ""
+        if stored_dv in ("0", "1", "2", "3", "4", "5", "6", "7", "8", "9"):
+            dv = stored_dv
+        if not dv:
+            dv = _compute_nit_dv(vat)
     else:
         ident_type_code = _get_identification_type(partner)
     if ident_type_code == "31":
