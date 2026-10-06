@@ -1,4 +1,6 @@
+import io
 import logging
+import zipfile
 
 from odoo import _, api, models
 from odoo.exceptions import UserError
@@ -37,6 +39,8 @@ class AccountMoveSend(models.AbstractModel):
             return result
         zip_attachment = dian_doc._get_dian_zip_attachment()
         if zip_attachment:
+            if dian_doc._technical_delivery_enabled():
+                return zip_attachment
             return result + zip_attachment
         prefix = (
             "DS"
@@ -60,6 +64,45 @@ class AccountMoveSend(models.AbstractModel):
             ]
         )
         return result + dian_xml + dian_pdf
+
+    @api.model
+    def _get_placeholder_mail_attachments_data(self, move, invoice_edi_format=None, extra_edis=None):
+        doc = move.connector_facturapi_document_id
+        if doc and doc.state == "accepted" and doc._technical_delivery_enabled():
+            return []
+        return super()._get_placeholder_mail_attachments_data(
+            move, invoice_edi_format=invoice_edi_format, extra_edis=extra_edis,
+        )
+
+    @api.model
+    def _get_mail_params(self, move, move_data):
+        params = super()._get_mail_params(move, move_data)
+        doc = move.connector_facturapi_document_id
+        if not doc or not doc._technical_delivery_enabled():
+            return params
+        package = doc._get_dian_zip_attachment()
+        # Preserve user-selected complementary attachments inside the same ZIP.
+        extras = []
+        old_generated = {"FE_%s.pdf" % move.name, "FE_%s.xml" % move.name, "FE_%s.zip" % move.name}
+        if move.invoice_pdf_report_id:
+            old_generated.add(move.invoice_pdf_report_id.name)
+        for name, content in params["attachments"]:
+            if name != package.name and name not in old_generated:
+                extras.append((name, content))
+        raw = package.raw
+        if extras:
+            complementary = io.BytesIO()
+            with zipfile.ZipFile(complementary, "w", zipfile.ZIP_DEFLATED) as archive:
+                for name, content in extras:
+                    archive.writestr(name.rsplit("/", 1)[-1].rsplit("\\", 1)[-1], content)
+            buffer = io.BytesIO(raw)
+            with zipfile.ZipFile(buffer, "a", zipfile.ZIP_DEFLATED) as archive:
+                archive.writestr("complementarios.zip", complementary.getvalue())
+            raw = buffer.getvalue()
+        if len(raw) > 2_000_000:
+            raise UserError(_("The DIAN delivery ZIP exceeds the 2 MB email limit."))
+        params["attachments"] = [(package.name, raw)]
+        return params
 
     def _prepare_invoice_proforma_pdf_report(self, invoice, invoice_data):
         if "connector" in invoice_data.get("extra_edis", set()):

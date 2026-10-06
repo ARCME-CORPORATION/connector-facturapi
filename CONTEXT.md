@@ -217,3 +217,28 @@ FROM facturapi_document ORDER BY create_date DESC LIMIT 20;
 - [ ] Modulo RADIAN (`connector_facturapi_radian`) — Eventos
 - [ ] Tests automatizados
 - [ ] Boton "Consultar Rangos" desde Odoo hacia `POST /companies/numbering-range`
+
+
+## Entrega por correo con nomenclatura técnica (2026-10-06)
+
+Para FE, NC y ND, el flujo técnico se activa por compañía con el parámetro
+`connector_facturapi.technical_delivery.<company_id>=True` en la base del cliente.
+ARCME es el cliente autorizado para la activación inicial. El código de software
+propio es fijo `000`; no se agrega campo en res.company.
+
+El ZIP usa `z<NIT10>000<AÑO2><CONTADOR_HEX8>.zip` y contiene
+`ad<misma_base>.xml` firmado y, si existe, `fv/nc/nd<misma_base>.pdf`.
+La secuencia es anual por compañía y se guarda como ir.sequence; el adjunto
+conserva el nombre asignado y se reutiliza en posteriores preparaciones.
+El año corresponde a la generación del paquete en hora de Colombia.
+La descripción del adjunto identifica facturapi.document para evitar reutilizar
+ZIP de envíos anteriores de la misma factura. Bloqueos transaccionales evitan
+preparaciones duplicadas. Los adjuntos complementarios se incluyen en
+complementarios.zip dentro del ZIP principal; el correo no duplica el PDF.
+
+FacturAPI debe publicar GET /documents/{task_id}/delivery: exige documento
+aceptado y genera el AttachedDocument firmado, sin nuevo envío a DIAN.
+El conector guarda el contenedor en el campo attached_document existente.
+Los clientes sin el parámetro mantienen el comportamiento previo.
+
+Validación offline: `python tests/test_technical_delivery.py -v` (6 pruebas).

@@ -817,8 +817,78 @@ class FacturapiDocument(models.Model):
             time.sleep(interval)
         return self.state
 
+    def _technical_delivery_enabled(self):
+        self.ensure_one()
+        return self.document_type in ("invoice", "credit_note", "debit_note") and (
+            self.env["ir.config_parameter"].sudo().get_param(
+                "connector_facturapi.technical_delivery.%s" % self.company_id.id
+            ) == "True"
+        )
+
+    def _get_technical_delivery_attachment(self):
+        self.ensure_one()
+        if self.state != "accepted":
+            raise UserError(_("DIAN must accept the document before preparing its delivery ZIP."))
+        # Serialize repeated/concurrent preparations; the attachment stores the name forever.
+        self.env.cr.execute("SELECT id FROM facturapi_document WHERE id = %s FOR UPDATE", [self.id])
+        self.invalidate_recordset(["attached_document"])
+        attachments = self.env["ir.attachment"]
+        marker = "facturapi.technical_delivery:%s" % self.id
+        existing = attachments.search([
+            ("res_model", "=", "account.move"), ("res_id", "=", self.move_id.id),
+            ("description", "=", marker), ("mimetype", "=", "application/zip"),
+        ], limit=1)
+        if existing:
+            return existing
+        if not self.attached_document:
+            response = requests.get(
+                "%s/documents/%s/delivery" % (self._get_api_url(), self.task_id),
+                headers=self._get_headers(), timeout=120,
+            )
+            if response.status_code != 200:
+                raise UserError(_("FacturAPI could not prepare the signed delivery container (HTTP %s).") % response.status_code)
+            container = response.json().get("attached_document")
+            if not container:
+                raise UserError(_("FacturAPI did not return a delivery container."))
+            self.attached_document = container
+        nit = (self.company_id.partner_id.vat or "").split("-")[0]
+        nit = re.sub(r"[.\s]", "", nit)
+        if not nit.isdigit() or len(nit) > 10:
+            raise UserError(_("The company NIT must contain at most 10 digits, without the verification digit."))
+        year = datetime.now(timezone(timedelta(hours=-5))).year
+        # No new company fields: own software code is fixed to 000.
+        self.env.cr.execute("SELECT id FROM res_company WHERE id = %s FOR UPDATE", [self.company_id.id])
+        code = "facturapi.delivery.%s.%s" % (self.company_id.id, year)
+        sequence = self.env["ir.sequence"].sudo().search([
+            ("code", "=", code), ("company_id", "=", self.company_id.id),
+        ], limit=1)
+        if not sequence:
+            sequence = self.env["ir.sequence"].sudo().create({
+                "name": "DIAN delivery %s / %s" % (self.company_id.name, year),
+                "code": code, "company_id": self.company_id.id, "padding": 1,
+                "implementation": "standard",
+            })
+        counter = int(sequence.next_by_id())
+        if counter > 0xFFFFFFFF:
+            raise UserError(_("The annual DIAN delivery file sequence is exhausted."))
+        stem = "%s000%02d%08x" % (nit.zfill(10), year % 100, counter)
+        kind = {"invoice": "fv", "credit_note": "nc", "debit_note": "nd"}[self.document_type]
+        buffer = io.BytesIO()
+        with zipfile.ZipFile(buffer, "w", zipfile.ZIP_DEFLATED) as package:
+            package.writestr("ad%s.xml" % stem, base64.b64decode(self.attached_document, validate=True))
+            if self.pdf_file:
+                package.writestr("%s%s.pdf" % (kind, stem), base64.b64decode(self.pdf_file, validate=True))
+        return attachments.create({
+            "name": "z%s.zip" % stem, "type": "binary",
+            "datas": base64.b64encode(buffer.getvalue()),
+            "res_model": "account.move", "res_id": self.move_id.id,
+            "description": marker, "mimetype": "application/zip",
+        })
+
     def _get_dian_zip_attachment(self):
         self.ensure_one()
+        if self._technical_delivery_enabled():
+            return self._get_technical_delivery_attachment()
         move = self.move_id
         prefix = (
             "DS"
@@ -907,6 +977,7 @@ class FacturapiDocument(models.Model):
             "xml_signed": data.get("xml_signed", ""),
             "pdf_file": data.get("pdf_file", ""),
             "application_response": data.get("application_response", ""),
+            "attached_document": data.get("attached_document", ""),
             "dian_status": dian_status,
             "dian_error_details": data.get("dian_error_details", ""),
             "result_received_at": fields.Datetime.now(),
