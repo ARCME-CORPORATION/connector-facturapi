@@ -55,6 +55,9 @@ class AccountMoveSend(models.AbstractModel):
                 ("name", "=like", f"{prefix}_%.xml"),
             ]
         )
+        # Sales PDFs come from the Odoo send pipeline, never from the API.
+        if dian_doc.document_type not in ("support_doc", "support_doc_credit_note"):
+            return result + dian_xml
         dian_pdf = self.env["ir.attachment"].search(
             [
                 ("res_model", "=", "account.move"),
@@ -68,7 +71,10 @@ class AccountMoveSend(models.AbstractModel):
     @api.model
     def _get_placeholder_mail_attachments_data(self, move, invoice_edi_format=None, extra_edis=None):
         doc = move.connector_facturapi_document_id
-        if doc and doc.state == "accepted" and doc._technical_delivery_enabled():
+        if (
+            doc and doc.state == "accepted" and doc._technical_delivery_enabled()
+            and move.invoice_pdf_report_id
+        ):
             return []
         return super()._get_placeholder_mail_attachments_data(
             move, invoice_edi_format=invoice_edi_format, extra_edis=extra_edis,
@@ -81,6 +87,8 @@ class AccountMoveSend(models.AbstractModel):
         if not doc or not doc._technical_delivery_enabled():
             return params
         package = doc._get_dian_zip_attachment()
+        if not package:
+            return params
         # Preserve user-selected complementary attachments inside the same ZIP.
         extras = []
         old_generated = {"FE_%s.pdf" % move.name, "FE_%s.xml" % move.name, "FE_%s.zip" % move.name}

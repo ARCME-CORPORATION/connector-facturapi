@@ -825,6 +825,37 @@ class FacturapiDocument(models.Model):
             ) == "True"
         )
 
+    def _get_delivery_pdf_content(self):
+        """Use Odoo's selected invoice report for sales document delivery."""
+        self.ensure_one()
+        if self.document_type in ("invoice", "credit_note", "debit_note"):
+            return self.move_id.invoice_pdf_report_id.raw or b""
+        try:
+            return base64.b64decode(self.pdf_file) if self.pdf_file else b""
+        except (ValueError, TypeError):
+            _logger.warning("Skipping invalid API PDF for document %s", self.id)
+            return b""
+
+    def _refresh_delivery_zip_pdf(self, attachment, pdf_name, pdf_content):
+        """Refresh cached packages without changing their DIAN name or XML."""
+        with zipfile.ZipFile(io.BytesIO(base64.b64decode(attachment.datas))) as package:
+            entries = [(item, package.read(item)) for item in package.infolist()]
+        pdfs = [
+            (item.filename, content)
+            for item, content in entries
+            if item.filename.lower().endswith(".pdf")
+        ]
+        if pdfs == [(pdf_name, pdf_content)]:
+            return attachment
+        buffer = io.BytesIO()
+        with zipfile.ZipFile(buffer, "w", zipfile.ZIP_DEFLATED) as package:
+            for item, content in entries:
+                if not item.filename.lower().endswith(".pdf"):
+                    package.writestr(item, content)
+            package.writestr(pdf_name, pdf_content)
+        attachment.write({"datas": base64.b64encode(buffer.getvalue())})
+        return attachment
+
     def _get_technical_delivery_attachment(self):
         self.ensure_one()
         if self.state != "accepted":
@@ -838,8 +869,17 @@ class FacturapiDocument(models.Model):
             ("res_model", "=", "account.move"), ("res_id", "=", self.move_id.id),
             ("description", "=", marker), ("mimetype", "=", "application/zip"),
         ], limit=1)
+        # The send wizard calls this before rendering its selected Odoo report.
+        # Wait for that PDF instead of caching the PDF returned by the API.
+        pdf_content = self._get_delivery_pdf_content()
+        if not pdf_content:
+            return attachments
+        kind = {"invoice": "fv", "credit_note": "nc", "debit_note": "nd"}[self.document_type]
         if existing:
-            return existing
+            stem = existing.name[1:-4]
+            return self._refresh_delivery_zip_pdf(
+                existing, "%s%s.pdf" % (kind, stem), pdf_content
+            )
         if not self.attached_document:
             response = requests.get(
                 "%s/documents/%s/delivery" % (self._get_api_url(), self.task_id),
@@ -872,12 +912,10 @@ class FacturapiDocument(models.Model):
         if counter > 0xFFFFFFFF:
             raise UserError(_("The annual DIAN delivery file sequence is exhausted."))
         stem = "%s000%02d%08x" % (nit.zfill(10), year % 100, counter)
-        kind = {"invoice": "fv", "credit_note": "nc", "debit_note": "nd"}[self.document_type]
         buffer = io.BytesIO()
         with zipfile.ZipFile(buffer, "w", zipfile.ZIP_DEFLATED) as package:
             package.writestr("ad%s.xml" % stem, base64.b64decode(self.attached_document, validate=True))
-            if self.pdf_file:
-                package.writestr("%s%s.pdf" % (kind, stem), base64.b64decode(self.pdf_file, validate=True))
+            package.writestr("%s%s.pdf" % (kind, stem), pdf_content)
         return attachments.create({
             "name": "z%s.zip" % stem, "type": "binary",
             "datas": base64.b64encode(buffer.getvalue()),
@@ -906,12 +944,19 @@ class FacturapiDocument(models.Model):
             ],
             limit=1,
         )
-        if existing:
-            return existing
         if self.state != "accepted" or not (
             self.xml_signed and self.application_response
         ):
             return self.env["ir.attachment"]
+        pdf_content = self._get_delivery_pdf_content()
+        if not pdf_content and self.document_type in ("invoice", "credit_note", "debit_note"):
+            return self.env["ir.attachment"]
+        if existing:
+            if pdf_content:
+                return self._refresh_delivery_zip_pdf(
+                    existing, f"{prefix}_{number}.pdf", pdf_content
+                )
+            return existing
 
         buffer = io.BytesIO()
         with zipfile.ZipFile(buffer, "w", zipfile.ZIP_DEFLATED) as zip_file:
@@ -923,16 +968,8 @@ class FacturapiDocument(models.Model):
                 f"{prefix}_{number}_appresponse.xml",
                 self.application_response.encode("utf-8"),
             )
-            if self.pdf_file:
-                try:
-                    zip_file.writestr(
-                        f"{prefix}_{number}.pdf",
-                        base64.b64decode(self.pdf_file),
-                    )
-                except Exception:
-                    _logger.warning(
-                        "Skipping invalid PDF for DIAN ZIP %s", zip_name
-                    )
+            if pdf_content:
+                zip_file.writestr(f"{prefix}_{number}.pdf", pdf_content)
 
         return self.env["ir.attachment"].create(
             {
@@ -1038,7 +1075,7 @@ class FacturapiDocument(models.Model):
                     }
                 )
 
-        if pdf_b64:
+        if pdf_b64 and self.document_type not in ("invoice", "credit_note", "debit_note"):
             existing_pdf = self.env["ir.attachment"].search(
                 [
                     ("res_model", "=", "account.move"),
